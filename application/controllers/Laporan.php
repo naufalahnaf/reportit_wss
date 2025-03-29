@@ -9,8 +9,8 @@ class Laporan extends CI_Controller
 		$this->load->model('Admin_model', 'admo');
 		$this->load->model('Pengaduan_model', 'pemo');
 		$this->load->model('Masyarakat_model', 'mamo');
-		$this->load->model('Kelurahan_model', 'kelmo');
-		$this->load->model('Kecamatan_model', 'kemo');
+		$this->load->model('waroeng_model', 'warmo');
+		$this->load->model('area_model', 'armo');
 
 		$this->admo->checkLoginAdmin();
 	}

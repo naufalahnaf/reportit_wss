@@ -29,16 +29,25 @@
 			            </div>
 					</div>
 					<div class="form-group">
-						<label for="id_masyarakat">Pelapor</label>
-						<select id="id_masyarakat" class="custom-select <?= (form_error('id_masyarakat')) ? 'is-invalid' : ''; ?>" name="id_masyarakat">
-							<?php foreach ($masyarakat as $dm): ?>
-								<option value="<?= $dm['id_masyarakat']; ?>"><?= ucwords(strtolower($dm['username'])); ?></option>
-							<?php endforeach ?>
-						</select>
-						<div class="invalid-feedback">
-              <?= form_error('id_masyarakat'); ?>
-            </div>
-					</div>
+    <label for="id_masyarakat">Pelapor</label>
+    <select id="id_masyarakat" class="custom-select <?= (form_error('id_masyarakat')) ? 'is-invalid' : ''; ?>" name="id_masyarakat">
+        <option value="">Pilih Pelapor</option>
+        <?php foreach ($masyarakat as $dm): ?>
+            <option value="<?= $dm['id_masyarakat']; ?>"><?= ucwords(strtolower($dm['username'])); ?></option>
+        <?php endforeach ?>
+        <option value="lainnya">Lainnya</option>
+    </select>
+    <div class="invalid-feedback">
+        <?= form_error('id_masyarakat'); ?>
+    </div>
+</div>
+
+<!-- Input untuk nama pelapor manual (disembunyikan secara default) -->
+<div class="form-group" id="manual_pelapor" style="display: none;">
+    <label for="nama_pelapor">Nama Pelapor</label>
+    <input type="text" id="nama_pelapor" name="nama_pelapor" class="form-control">
+</div>
+
 					<div class="form-group">
 						<label for="form_area">Area</label>
 						<select class="custom-select <?= (form_error('id_area')) ? 'is-invalid' : ''; ?>" id="form_area">
@@ -85,4 +94,18 @@
 		</div>
 	</div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#id_masyarakat').change(function() {
+            if ($(this).val() === 'lainnya') {
+                $('#manual_pelapor').show(); // Tampilkan input manual
+            } else {
+                $('#manual_pelapor').hide(); // Sembunyikan jika opsi lain dipilih
+            }
+        });
+    });
+</script>
 

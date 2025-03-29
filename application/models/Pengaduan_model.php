@@ -58,38 +58,66 @@ class Pengaduan_model extends CI_Model
 	}
 
 	public function addPengaduan()
-	{
-		$dataUser = $this->admo->getDataUserAdmin();
-		
-		$foto = $_FILES['foto']['name'];
-		if ($foto) {
-			$config['upload_path'] = './assets/img/img_pengaduan/';
-			$config['allowed_types'] = 'gif|jpg|png|jpeg';
-		
-			$this->load->library('upload', $config);
-		
-			if ($this->upload->do_upload('foto')) {
-				$new_foto = $this->upload->data('file_name');
-				$this->db->set('foto', $new_foto);
-			} else {
-				echo $this->upload->display_errors();
-			}
-		}
-		
-		$data = [
-			'isi_laporan'	=> $this->input->post('isi_laporan', true),
-			'id_masyarakat'	=> $this->input->post('id_masyarakat', true),
-			'id_waroeng'	=> $this->input->post('id_waroeng', true),
-			'tgl_pengaduan' => date('Y-m-d\TH:i:s')
-		];
+{
+    $dataUser = $this->admo->getDataUserAdmin();
+    
+    // Cek apakah user memilih "Lainnya" atau tidak
+    $id_masyarakat = $this->input->post('id_masyarakat', true);
+    $nama_pelapor = $this->input->post('nama_pelapor', true);
 
-		$this->db->insert('pengaduan', $data);
+    // Jika "Lainnya" dipilih, gunakan nama manual, jika tidak pakai id_masyarakat
+    if ($id_masyarakat === 'lainnya') {
+        if (empty($nama_pelapor)) {
+            $this->session->set_flashdata('message-danger', 'Nama pelapor harus diisi jika memilih "Lainnya".');
+            redirect('pengaduan/addPengaduan');
+            return;
+        }
+        $id_masyarakat = null; // Kosongkan karena pakai nama manual
+    } else {
+        $nama_pelapor = null; // Kosongkan jika pakai id_masyarakat
+    }
 
-		$isi_log = 'Pengaduan ' . $data['isi_laporan'] . ' berhasil ditambahkan';
-		$this->lomo->addLog($isi_log, $dataUser['id_user']);
-		$this->session->set_flashdata('message-success', $isi_log);
-		redirect('pengaduan');
-	}
+    // Upload Foto
+    $foto = $_FILES['foto']['name'];
+    if ($foto) {
+        $config['upload_path']   = './assets/img/img_pengaduan/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        
+        $this->load->library('upload', $config);
+        
+        if ($this->upload->do_upload('foto')) {
+            $new_foto = $this->upload->data('file_name');
+        } else {
+            $this->session->set_flashdata('message-danger', $this->upload->display_errors());
+            redirect('pengaduan/addPengaduan');
+            return;
+        }
+    } else {
+        $new_foto = 'default.png'; // Gunakan default jika tidak upload foto
+    }
+
+    // Data yang akan dimasukkan ke database
+    $data = [
+        'isi_laporan'   => $this->input->post('isi_laporan', true),
+        'id_masyarakat' => $id_masyarakat, // Bisa null jika input manual digunakan
+        'nama_pelapor'  => $nama_pelapor, // Bisa null jika id_masyarakat digunakan
+        'id_waroeng'    => $this->input->post('id_waroeng', true),
+        'tgl_pengaduan' => date('Y-m-d\TH:i:s'),
+        'foto'          => $new_foto
+    ];
+
+    // Simpan ke database
+    $this->db->insert('pengaduan', $data);
+
+    // Tambahkan log aktivitas
+    $isi_log = 'Pengaduan ' . $data['isi_laporan'] . ' berhasil ditambahkan';
+    $this->lomo->addLog($isi_log, $dataUser['id_user']);
+
+    // Notifikasi sukses
+    $this->session->set_flashdata('message-success', $isi_log);
+    redirect('pengaduan');
+}
+
 
 	public function editPengaduan($id_pengaduan)
 	{

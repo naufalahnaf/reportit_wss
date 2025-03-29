@@ -72,7 +72,9 @@
 							?>
 							<tr>
 								<td class="align-middle"><?= $i++; ?></td>
-								<td class="align-middle"><?= $dp['username']; ?></td>
+								<td class="align-middle">
+									<?= !empty($dp['nama_pelapor']) ? $dp['nama_pelapor'] : $dp['username']; ?>
+								</td>
 								<td class="align-middle"><?= $dp['tgl_pengaduan']; ?></td>
 								<td class="align-middle"><?= $dp['isi_laporan']; ?></td>
 								<td class="align-middle"><?= $dp['waroeng']; ?></td>

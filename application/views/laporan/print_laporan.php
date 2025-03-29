@@ -7,7 +7,7 @@
 	$dari_tgl = date("Y-m-d\T00:00:01", strtotime($dari_tgl));
 	$sampai_tgl = date("Y-m-d\T23:59:59", strtotime($sampai_tgl));
 	$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
-	$this->db->join('kelurahan', 'pengaduan.id_kelurahan=kelurahan.id_kelurahan');
+	$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 	$this->db->order_by('id_pengaduan', 'desc');
 	if ($status_pengaduan == 'semua')
 	{
@@ -74,7 +74,7 @@
 				<th>Pelapor</th>
 				<th>Tanggal Pengaduan</th>
 				<th>Isi Laporan</th>
-				<th>Lokasi</th>
+				<th>Waroeng</th>
 				<th>Foto</th>
 				<th>Status</th>
 				<th>Tanggapan</th>
@@ -94,7 +94,7 @@
 					<td><?= $dp['username']; ?></td>
 					<td><?= date('Y-m-d, \P\u\k\u\l H:i', strtotime($dp['tgl_pengaduan'])); ?></td>
 					<td><?= $dp['isi_laporan']; ?></td>
-					<td><?= $dp['kelurahan']; ?></td>
+					<td><?= $dp['waroeng']; ?></td>
 					<td>
 						<img height="75" src="<?= base_url('assets/img/img_pengaduan/') . $dp['foto']; ?>" alt="<?= $dp['foto']; ?>">
 					</td>
