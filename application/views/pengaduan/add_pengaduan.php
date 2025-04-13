@@ -29,24 +29,29 @@
 			            </div>
 					</div>
 					<div class="form-group">
-    <label for="id_masyarakat">Pelapor</label>
-    <select id="id_masyarakat" class="custom-select <?= (form_error('id_masyarakat')) ? 'is-invalid' : ''; ?>" name="id_masyarakat">
-        <option value="">Pilih Pelapor</option>
-        <?php foreach ($masyarakat as $dm): ?>
-            <option value="<?= $dm['id_masyarakat']; ?>"><?= ucwords(strtolower($dm['username'])); ?></option>
-        <?php endforeach ?>
-        <option value="lainnya">Lainnya</option>
-    </select>
-    <div class="invalid-feedback">
-        <?= form_error('id_masyarakat'); ?>
-    </div>
-</div>
+						<label for="id_pengguna">Pelapor</label>
+						<select id="id_pengguna" class="custom-select <?= (form_error('id_pengguna')) ? 'is-invalid' : ''; ?>" name="id_pengguna">
+							<option value="">Pilih Pelapor</option>
+							<?php foreach ($pengguna as $dm): ?>
+								<option value="<?= $dm['id_pengguna']; ?>"><?= ucwords(strtolower($dm['username'])); ?></option>
+							<?php endforeach ?>
+							<option value="lainnya">Lainnya</option>
+						</select>
+						<div class="invalid-feedback">
+							<?= form_error('id_pengguna'); ?>
+						</div>
+					</div>
 
-<!-- Input untuk nama pelapor manual (disembunyikan secara default) -->
-<div class="form-group" id="manual_pelapor" style="display: none;">
-    <label for="nama_pelapor">Nama Pelapor</label>
-    <input type="text" id="nama_pelapor" name="nama_pelapor" class="form-control">
-</div>
+					<!-- Input untuk nama pelapor manual (disembunyikan secara default) -->
+					<div class="form-group" id="manual_pelapor" style="display: none;">
+						<label for="nama_pelapor">Nama Pelapor</label>
+						<input type="text" id="nama_pelapor" name="nama_pelapor" class="form-control">
+					</div>
+					<!-- Input untuk no. WA manual -->
+					<div class="form-group" id="manual_wa" style="display: none;">
+						<label for="no_wa">No. WhatsApp</label>
+						<input type="text" id="no_wa" name="no_wa" class="form-control">
+					</div>
 
 					<div class="form-group">
 						<label for="form_area">Area</label>
@@ -70,21 +75,21 @@
             </div>
 					</div>
 					<div class="form-group">
-						<label for="foto">Foto</label> <br>
-						<a href="<?= base_url('assets/img/img_pengaduan/default.png'); ?>" class="enlarge" id="check_enlarge_photo">
-							<img class="img-fluid rounded img-w-150 border border-dark" id="check_photo" src="<?= base_url('assets/img/img_pengaduan/default.png'); ?>" alt="Foto Pengaduan">
-						</a>
-						<br>
-					</div>
-					<div class="input-group mb-3">
-					  <div class="input-group-prepend">
-					    <span class="input-group-text">Upload Foto</span>
-					  </div>
-					  <div class="custom-file">
-					    <input type="file" class="custom-file-input" id="foto" aria-describedby="foto" id="foto" name="foto">
-					    <label class="custom-file-label" for="foto">Pilih file</label>
-					  </div>
-					</div>
+							<label for="foto">Foto</label> <br>
+							<a href="<?= base_url('assets/img/img_pengaduan/default.png'); ?>" class="enlarge" id="check_enlarge_photo">
+								<img class="img-fluid rounded img-w-150 border border-dark" id="check_photo" src="<?= base_url('assets/img/img_pengaduan/default.png'); ?>" alt="Foto Pengaduan">
+							</a>
+							<br>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="input-group-prepend">
+						    <span class="input-group-text">Upload Foto</span>
+						  </div>
+						  <div class="custom-file">
+						    <input type="file" class="custom-file-input" id="foto" aria-describedby="foto" id="foto" name="foto">
+						    <label class="custom-file-label" for="foto">Pilih file</label>
+						  </div>
+						</div>
 					<div class="form-group text-right">
 						<button type="submit" class="btn btn-primary"><i class="fas fa-fw fa-save"></i> Simpan</button>
 					</div>
@@ -99,13 +104,16 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#id_masyarakat').change(function() {
+        $('#id_pengguna').change(function() {
             if ($(this).val() === 'lainnya') {
-                $('#manual_pelapor').show(); // Tampilkan input manual
+                $('#manual_pelapor').show();
+                $('#manual_wa').show();
             } else {
-                $('#manual_pelapor').hide(); // Sembunyikan jika opsi lain dipilih
+                $('#manual_pelapor').hide();
+                $('#manual_wa').hide();
             }
         });
     });
 </script>
+
 

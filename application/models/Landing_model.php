@@ -13,9 +13,9 @@ class Landing_model extends CI_Model
 			'alamat'	=> $this->input->post('alamat', true)
 		];
 
-		$this->db->insert('masyarakat', $data);
+		$this->db->insert('pengguna', $data);
 
-		$isi_log = 'Masyarakat ' . $data['username'] . ' berhasil ditambahkan';
+		$isi_log = 'Pengguna ' . $data['username'] . ' berhasil ditambahkan';
 		$this->session->set_flashdata('message-success', $isi_log);
 		redirect('landing/masuk');
 	}
@@ -26,13 +26,13 @@ class Landing_model extends CI_Model
 		$password = $this->input->post('password', true);
 
 		// check username
-		if ($dataUser = $this->db->get_where('masyarakat', ['username' => $username])->row_array()) 
+		if ($dataUser = $this->db->get_where('pengguna', ['username' => $username])->row_array()) 
 		{
 			// check password
 			if (password_verify($password, $dataUser['password'])) 
 			{
 				$dataSession = [
-					'id_masyarakat' => $dataUser['id_masyarakat']
+					'id_pengguna' => $dataUser['id_pengguna']
 				];
 
 				$this->session->set_userdata($dataSession);

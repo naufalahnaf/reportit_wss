@@ -4,7 +4,7 @@ Aplikasi **Report IT WSS** adalah platform untuk mengirimkan saran dan laporan t
 
 ## Fitur
 - Formulir pengiriman laporan atau saran.
-- Validasi data masukan pengguna.
+- Validasi data masukan pengitgguna.
 - Penyimpanan laporan dan saran dalam database.
 - Sistem notifikasi untuk memberitahukan keberhasilan pengiriman saran.
 

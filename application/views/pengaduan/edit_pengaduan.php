@@ -30,12 +30,12 @@
 	            </div>
 						</div>
 						<div class="form-group">
-							<label for="id_masyarakat">Pelapor</label>
-							<select style="cursor: not-allowed;" disabled id="id_masyarakat" class="custom-select <?= (form_error('id_masyarakat')) ? 'is-invalid' : ''; ?>" name="id_masyarakat">
-								<option value="<?= $pengaduan['id_masyarakat']; ?>"><?= ucwords(strtolower($pengaduan['username'])); ?></option>
+							<label for="id_pengguna">Pelapor</label>
+							<select style="cursor: not-allowed;" disabled id="id_pengguna" class="custom-select <?= (form_error('id_pengguna')) ? 'is-invalid' : ''; ?>" name="id_pengguna">
+								<option value="<?= $pengaduan['id_pengguna']; ?>"><?= ucwords(strtolower($pengaduan['username'])); ?></option>
 							</select>
 							<div class="invalid-feedback">
-	              <?= form_error('id_masyarakat'); ?>
+	              <?= form_error('id_pengguna'); ?>
 	            </div>
 						</div>
 						<div class="form-group">

@@ -8,7 +8,7 @@ class Laporan extends CI_Controller
 		parent::__construct();
 		$this->load->model('Admin_model', 'admo');
 		$this->load->model('Pengaduan_model', 'pemo');
-		$this->load->model('Masyarakat_model', 'mamo');
+		$this->load->model('Pengguna_model', 'pengmo');
 		$this->load->model('waroeng_model', 'warmo');
 		$this->load->model('area_model', 'armo');
 

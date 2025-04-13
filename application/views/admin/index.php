@@ -89,13 +89,15 @@
 								<td class="align-middle"><?= $i++; ?></td>
 								<td class="align-middle"><?= $dp['tgl_pengaduan']; ?></td>
 								<td class="align-middle"><?= $dp['isi_laporan']; ?></td>
-								<td class="align-middle"><?= $dp['kelurahan']; ?></td>
+								<td class="align-middle"><?= $dp['waroeng']; ?></td>
 								<td class="align-middle text-center">
 									<a href="<?= base_url('assets/img/img_pengaduan/') . $dp['foto']; ?>" class="enlarge">
 										<img src="<?= base_url('assets/img/img_pengaduan/') . $dp['foto']; ?>" class="img-fluid img-w-75-hm-100" alt="<?= $dp['foto']; ?>">
 									</a>
 								</td>
-								<td class="align-middle"><?= $dp['username']; ?></td>
+								<td class="align-middle">
+									<?= empty($dp['id_pengguna']) ? $dp['nama_pelapor'] : $dp['username']; ?>
+								</td>
 								<td class="align-middle"><button type="button" class="btn text-center btn-sm btn-secondary"><i class="fas fa-fw fa-times"></i> Belum ditanggapi</button></td>
 								<td class="align-middle text-center">
 									<a href="<?= base_url('tanggapan/index/' . $dp['id_pengaduan']); ?>" class="btn btn-sm btn-info m-1"><i class="fas fa-fw fa-reply"></i></a>

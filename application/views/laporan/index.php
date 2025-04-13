@@ -75,6 +75,7 @@
 						<tr>
 							<th class="align-middle">No.</th>
 							<th class="align-middle">Pelapor</th>
+							<th class="align-middle">No HP</th>
 							<th class="align-middle">Tanggal Pengaduan</th>
 							<th class="align-middle">Isi Laporan</th>
 							<th class="align-middle">Lokasi</th>
@@ -95,7 +96,14 @@
 							?>
 							<tr>
 								<td class="align-middle"><?= $i++; ?></td>
-								<td class="align-middle"><?= $dp['username']; ?></td>
+								<td class="align-middle"><?= !empty($dp['username']) ? $dp['username'] : $dp['nama_pelapor']; ?></td>
+								<td class="align-middle">
+									<?php 
+										$hp = !empty($dp['no_telepon']) ?  '<a href="https://wa.me/' . preg_replace( '/[^0-9]/', '', $dp['no_telepon']) . '" target="_blank">' . $dp['no_telepon'] . '</a>' : '';
+										$wa = !empty($dp['no_wa']) ? '<a href="https://wa.me/' . preg_replace('/[^0-9]/', '', $dp['no_wa']) . '" target="_blank">' . $dp['no_wa'] . '</a>' : '';
+										echo $hp . $wa;
+									?>
+								</td>
 								<td class="align-middle"><?= $dp['tgl_pengaduan']; ?></td>
 								<td class="align-middle"><?= $dp['isi_laporan']; ?></td>
 								<td class="align-middle"><?= $dp['waroeng']; ?></td>

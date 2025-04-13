@@ -5,7 +5,7 @@ class Pelapor_model extends CI_Model
 {
 	public function checkLoginUser()
 	{
-		if (!$this->session->userdata('id_masyarakat')) 
+		if (!$this->session->userdata('id_pengguna')) 
 		{
 			redirect('landing/masuk');
 		}
@@ -13,14 +13,14 @@ class Pelapor_model extends CI_Model
 
 	public function getDataUser()
 	{
-		$id_masyarakat = $this->session->userdata('id_masyarakat');
-		return $this->db->get_where('masyarakat', ['id_masyarakat' => $id_masyarakat])->row_array();
+		$id_pengguna = $this->session->userdata('id_pengguna');
+		return $this->db->get_where('pengguna', ['id_pengguna' => $id_pengguna])->row_array();
 	}
 
 	public function changePassword()
 	{
 		$dataUser 	= $this->getDataUser();
-		$id_masyarakat 	= $dataUser['id_masyarakat'];
+		$id_pengguna 	= $dataUser['id_pengguna'];
 
 		// check old password
 		$old_password = $this->input->post('old_password', true);
@@ -33,7 +33,7 @@ class Pelapor_model extends CI_Model
 				'password' => $new_password
 			];
 
-			$this->db->update('masyarakat', $data, ['id_masyarakat' => $id_masyarakat]);
+			$this->db->update('pengguna', $data, ['id_pengguna' => $id_pengguna]);
 
 			$isi_log = "Password berhasil diubah";
 			$this->session->set_flashdata('message-success', $isi_log);
@@ -50,7 +50,7 @@ class Pelapor_model extends CI_Model
 	public function editProfile()
 	{
 		$dataUser 	= $this->getDataUser();
-		$id_masyarakat 	= $dataUser['id_masyarakat'];
+		$id_pengguna 	= $dataUser['id_pengguna'];
 
 		$data = [
 			'nama' => ucwords(strtolower($this->input->post('nama', true))),
@@ -58,7 +58,7 @@ class Pelapor_model extends CI_Model
 			'alamat' => $this->input->post('alamat')
 		];
 
-		$this->db->update('masyarakat', $data, ['id_masyarakat' => $id_masyarakat]);
+		$this->db->update('pengguna', $data, ['id_pengguna' => $id_pengguna]);
 
 		$isi_log = "Profil berhasil diubah";
 		$this->session->set_flashdata('message-success', $isi_log);

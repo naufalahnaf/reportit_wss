@@ -8,7 +8,7 @@ class Pengaduan extends CI_Controller
 		parent::__construct();
 		$this->load->model('Admin_model', 'admo');
 		$this->load->model('Pengaduan_model', 'pemo');
-		$this->load->model('Masyarakat_model', 'mamo');
+		$this->load->model('Pengguna_model', 'pengmo');
 		$this->load->model('Waroeng_model', 'warmo');
 		$this->load->model('Area_model', 'armo');
 
@@ -34,7 +34,7 @@ class Pengaduan extends CI_Controller
 	public function addPengaduan()
 	{
 		$data['dataUser']	= $this->admo->getDataUserAdmin();
-		$data['masyarakat']	= $this->mamo->getMasyarakat();
+		$data['pengguna']	= $this->pengmo->getPengguna();
 		$data['waroeng']	= $this->warmo->getWaroeng();
 		$data['area']	= $this->armo->getArea();
 		$data['title'] 		= 'Tambah Pengaduan';
@@ -54,7 +54,7 @@ class Pengaduan extends CI_Controller
 	public function editPengaduan($id_pengaduan)
 	{
 		$data['dataUser']	= $this->admo->getDataUserAdmin();
-		$data['masyarakat']	= $this->mamo->getMasyarakat();
+		$data['pengguna']	= $this->pengmo->getPengguna();
 		$data['waroeng']	= $this->warmo->getWaroeng();
 		$data['area']	= $this->armo->getArea();
 		$data['pengaduan']	= $this->pemo->getPengaduanById($id_pengaduan);

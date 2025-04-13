@@ -13,7 +13,7 @@ class Landing extends CI_Controller
 
 	public function checkLogin()
 	{
-		if ($this->session->userdata('id_masyarakat')) 
+		if ($this->session->userdata('id_pengguna')) 
 		{
 			redirect('pelapor');		
 		}

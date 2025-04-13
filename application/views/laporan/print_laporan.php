@@ -6,7 +6,7 @@
 	
 	$dari_tgl = date("Y-m-d\T00:00:01", strtotime($dari_tgl));
 	$sampai_tgl = date("Y-m-d\T23:59:59", strtotime($sampai_tgl));
-	$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+	$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna', 'left');
 	$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 	$this->db->order_by('id_pengaduan', 'desc');
 	if ($status_pengaduan == 'semua')
@@ -91,7 +91,7 @@
 				?>
 				<tr>
 					<td><?= $i++; ?></td>
-					<td><?= $dp['username']; ?></td>
+					<td><?= !empty($dp['username']) ? $dp['username'] : $dp['nama_pelapor']; ?></td>
 					<td><?= date('Y-m-d, \P\u\k\u\l H:i', strtotime($dp['tgl_pengaduan'])); ?></td>
 					<td><?= $dp['isi_laporan']; ?></td>
 					<td><?= $dp['waroeng']; ?></td>

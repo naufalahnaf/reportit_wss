@@ -18,11 +18,11 @@ class PelaporLaporan extends CI_Controller
 		$data['title']  	= 'Laporan';
 		if (isset($_POST['btnFilter'])) 
 		{
-			$data['pengaduan']	= $this->pepemo->getPengaduanFilterByIdMasyarakat($_POST['dari_tgl'], $_POST['sampai_tgl'], $_POST['status_pengaduan'], $data['dataUser']['id_masyarakat']);
+			$data['pengaduan']	= $this->pepemo->getPengaduanFilterByIdPengguna($_POST['dari_tgl'], $_POST['sampai_tgl'], $_POST['status_pengaduan'], $data['dataUser']['id_pengguna']);
 		}
 		else
 		{
-			$data['pengaduan']	= $this->pepemo->getPengaduanByIdMasyarakat($data['dataUser']['id_masyarakat']);
+			$data['pengaduan']	= $this->pepemo->getPengaduanByIdPengguna($data['dataUser']['id_pengguna']);
 		}
 
 		$this->load->view('templates/header-pelapor', $data);

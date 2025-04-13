@@ -206,8 +206,7 @@
 						<tr>
 							<th>Username</th>
 							<td style="width: 2rem; text-align: center;"> : </td>
-							<td><?= $pengaduan['username']; ?></td>
-						</tr>
+							<td><?= isset($pengaduan['username']) ? $pengaduan['username'] : 'Tidak diketahui'; ?></td>
 						
 						<tr>
 							<th>Nama Lengkap</th>

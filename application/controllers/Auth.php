@@ -6,6 +6,7 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->library('session'); // Tambahkan session library
 		$this->load->model('Auth_model', 'aumo');
 	}
 
@@ -13,11 +14,13 @@ class Auth extends CI_Controller
 	{
 		if ($this->session->userdata('id_user')) 
 		{
-			redirect('admin');		
+			redirect('admin');	
+			exit; // Pastikan redirect berhenti di sini
 		}
-		elseif ($this->session->userdata('id_masyarakat'))
+		elseif ($this->session->userdata('id_pengguna'))
 		{
-			redirect('pelapor');		
+			redirect('pelapor');	
+			exit; // Pastikan redirect berhenti di sini
 		}
 	}
 
@@ -39,7 +42,8 @@ class Auth extends CI_Controller
 
 	public function logout()
 	{
-		session_destroy();
+		$this->session->sess_destroy(); // Gunakan sess_destroy() dari CI3
 		redirect('auth');
+		exit;
 	}
 }

@@ -49,15 +49,15 @@
 
 					<!-- Pelapor (Dropdown) -->
 					<div class="form-group">
-						<label for="id_masyarakat">Pelapor</label>
-						<select id="id_masyarakat" class="custom-select <?= (form_error('id_masyarakat')) ? 'is-invalid' : ''; ?>" name="id_masyarakat">
+						<label for="id_pengguna">Pelapor</label>
+						<select id="id_pengguna" class="custom-select <?= (form_error('id_pengguna')) ? 'is-invalid' : ''; ?>" name="id_pengguna">
 							<option value="">Pilih Pelapor</option>
-							<?php foreach ($masyarakat as $dm): ?>
-								<option value="<?= $dm['id_masyarakat']; ?>" <?= set_select('id_masyarakat', $dm['id_masyarakat']); ?>><?= ucwords(strtolower($dm['username'])); ?></option>
+							<?php foreach ($pengguna as $dm): ?>
+								<option value="<?= $dm['id_pengguna']; ?>" <?= set_select('id_pengguna', $dm['id_pengguna']); ?>><?= ucwords(strtolower($dm['username'])); ?></option>
 							<?php endforeach ?>
 						</select>
 						<div class="invalid-feedback">
-              <?= form_error('id_masyarakat'); ?>
+              <?= form_error('id_pengguna'); ?>
             </div>
 					</div>
 

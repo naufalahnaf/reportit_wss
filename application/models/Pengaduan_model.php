@@ -12,17 +12,19 @@ class Pengaduan_model extends CI_Model
 
 	public function getPengaduan()
 	{
-		$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna', 'left');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		$this->db->order_by('id_pengaduan', 'desc');
 		return $this->db->get('pengaduan')->result_array();
 	}
 
+
+
 	public function getPengaduanFilter($dari_tgl, $sampai_tgl, $status_pengaduan)
 	{
 		$dari_tgl = date("Y-m-d\T00:00:01", strtotime($dari_tgl));
 		$sampai_tgl = date("Y-m-d\T23:59:59", strtotime($sampai_tgl));
-		$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna', 'left');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		$this->db->order_by('id_pengaduan', 'desc');
 		if ($status_pengaduan == 'semua')
@@ -37,7 +39,7 @@ class Pengaduan_model extends CI_Model
 
 	public function getPengaduanByStatusPengaduan($status_pengaduan = '')
 	{
-		$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna', 'left');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		$this->db->order_by('id_pengaduan', 'desc');
 		if ($status_pengaduan) 
@@ -52,7 +54,7 @@ class Pengaduan_model extends CI_Model
 
 	public function getPengaduanById($id_pengaduan)
 	{
-		$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna', 'left');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		return $this->db->get_where('pengaduan', ['id_pengaduan' => $id_pengaduan])->row_array();	
 	}
@@ -62,19 +64,21 @@ class Pengaduan_model extends CI_Model
     $dataUser = $this->admo->getDataUserAdmin();
     
     // Cek apakah user memilih "Lainnya" atau tidak
-    $id_masyarakat = $this->input->post('id_masyarakat', true);
+    $id_pengguna = $this->input->post('id_pengguna', true);
     $nama_pelapor = $this->input->post('nama_pelapor', true);
+	$no_wa = $this->input->post('no_wa', true);
 
-    // Jika "Lainnya" dipilih, gunakan nama manual, jika tidak pakai id_masyarakat
-    if ($id_masyarakat === 'lainnya') {
+
+    // Jika "Lainnya" dipilih, gunakan nama manual, jika tidak pakai id_pengguna
+    if ($id_pengguna === 'lainnya') {
         if (empty($nama_pelapor)) {
             $this->session->set_flashdata('message-danger', 'Nama pelapor harus diisi jika memilih "Lainnya".');
             redirect('pengaduan/addPengaduan');
             return;
         }
-        $id_masyarakat = null; // Kosongkan karena pakai nama manual
+        $id_pengguna = null; // Kosongkan karena pakai nama manual
     } else {
-        $nama_pelapor = null; // Kosongkan jika pakai id_masyarakat
+        $nama_pelapor = null; // Kosongkan jika pakai id_pengguna
     }
 
     // Upload Foto
@@ -99,8 +103,9 @@ class Pengaduan_model extends CI_Model
     // Data yang akan dimasukkan ke database
     $data = [
         'isi_laporan'   => $this->input->post('isi_laporan', true),
-        'id_masyarakat' => $id_masyarakat, // Bisa null jika input manual digunakan
-        'nama_pelapor'  => $nama_pelapor, // Bisa null jika id_masyarakat digunakan
+        'id_pengguna' => $id_pengguna, // Bisa null jika input manual digunakan
+        'nama_pelapor'  => $nama_pelapor, // Bisa null jika id_pengguna digunakan
+		'no_wa'         => $no_wa,
         'id_waroeng'    => $this->input->post('id_waroeng', true),
         'tgl_pengaduan' => date('Y-m-d\TH:i:s'),
         'foto'          => $new_foto

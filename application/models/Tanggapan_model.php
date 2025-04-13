@@ -41,10 +41,11 @@ class Tanggapan_model extends CI_Model
 
 	public function getTanggapanById($id_tanggapan)
 	{
-		$this->db->join('user', 'tanggapan.id_user=user.id_user');
-		$this->db->join('pengaduan', 'tanggapan.id_pengaduan=pengaduan.id_pengaduan');
+		$this->db->join('pengaduan', 'tanggapan.id_pengaduan = pengaduan.id_pengaduan');
+	$this->db->join('user', 'pengaduan.id_pengguna = user.id_user', 'left');
 		return $this->db->get_where('tanggapan', ['id_tanggapan' => $id_tanggapan])->row_array();	
 	}
+
 
 	public function addTanggapan($id_pengaduan)
 	{

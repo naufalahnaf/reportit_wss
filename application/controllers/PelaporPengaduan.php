@@ -23,7 +23,7 @@ class PelaporPengaduan extends CI_Controller
 	{
 		$data['dataUser']	= $this->pelmo->getDataUser();
 		$data['title']  	= 'Pengaduan';
-		$data['pengaduan']	= $this->pepemo->getPengaduanByStatusPengaduanByIdMasyarakat($status_pengaduan, $data['dataUser']['id_masyarakat']);
+		$data['pengaduan']	= $this->pepemo->getPengaduanByStatusPengaduanByIdPengguna($status_pengaduan, $data['dataUser']['id_pengguna']);
 
 		$this->load->view('templates/header-pelapor', $data);
 		$this->load->view('pelapor_pengaduan/index', $data);

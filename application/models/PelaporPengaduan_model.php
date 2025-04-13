@@ -10,49 +10,49 @@ class PelaporPengaduan_model extends CI_Model
 		$this->load->model('Log_model', 'lomo');
 	}
 
-	public function getPengaduanByIdMasyarakat($id_masyarakat)
+	public function getPengaduanByIdPengguna($id_pengguna)
 	{
-		$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		$this->db->order_by('id_pengaduan', 'desc');
-		return $this->db->get_where('pengaduan', ['pengaduan.id_masyarakat' => $id_masyarakat])->result_array();	
+		return $this->db->get_where('pengaduan', ['pengaduan.id_pengguna' => $id_pengguna])->result_array();	
 	}
 
-	public function getPengaduanFilterByIdMasyarakat($dari_tgl, $sampai_tgl, $status_pengaduan, $id_masyarakat)
+	public function getPengaduanFilterByIdPengguna($dari_tgl, $sampai_tgl, $status_pengaduan, $id_pengguna)
 	{
 		$dari_tgl = date("Y-m-d\T00:00:01", strtotime($dari_tgl));
 		$sampai_tgl = date("Y-m-d\T23:59:59", strtotime($sampai_tgl));
-		$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		$this->db->order_by('id_pengaduan', 'desc');
 		if ($status_pengaduan == 'semua')
 		{
-			return $this->db->get_where('pengaduan', ['tgl_pengaduan >=' => $dari_tgl, 'tgl_pengaduan <=' => $sampai_tgl, 'pengaduan.id_masyarakat' => $id_masyarakat])->result_array();
+			return $this->db->get_where('pengaduan', ['tgl_pengaduan >=' => $dari_tgl, 'tgl_pengaduan <=' => $sampai_tgl, 'pengaduan.id_pengguna' => $id_pengguna])->result_array();
 		}
 		else
 		{
-			return $this->db->get_where('pengaduan', ['tgl_pengaduan >=' => $dari_tgl, 'tgl_pengaduan <=' => $sampai_tgl, 'status_pengaduan' => $status_pengaduan, 'pengaduan.id_masyarakat' => $id_masyarakat])->result_array();
+			return $this->db->get_where('pengaduan', ['tgl_pengaduan >=' => $dari_tgl, 'tgl_pengaduan <=' => $sampai_tgl, 'status_pengaduan' => $status_pengaduan, 'pengaduan.id_pengguna' => $id_pengguna])->result_array();
 		}
 	}
 
-	public function getPengaduanByStatusPengaduanByIdMasyarakat($status_pengaduan, $id_masyarakat)
+	public function getPengaduanByStatusPengaduanByIdPengguna($status_pengaduan, $id_pengguna)
 	{
-		$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		$this->db->order_by('id_pengaduan', 'desc');
 		if ($status_pengaduan) 
 		{
-			return $this->db->get_where('pengaduan', ['pengaduan.status_pengaduan' => $status_pengaduan, 'pengaduan.id_masyarakat' => $id_masyarakat])->result_array();
+			return $this->db->get_where('pengaduan', ['pengaduan.status_pengaduan' => $status_pengaduan, 'pengaduan.id_pengguna' => $id_pengguna])->result_array();
 		} 
 		else 
 		{
-			return $this->db->get_where('pengaduan', ['pengaduan.id_masyarakat' => $id_masyarakat])->result_array();
+			return $this->db->get_where('pengaduan', ['pengaduan.id_pengguna' => $id_pengguna])->result_array();
 		}
 	}
 
 	public function getPengaduanById($id_pengaduan)
 	{
-		$this->db->join('masyarakat', 'pengaduan.id_masyarakat=masyarakat.id_masyarakat');
+		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		return $this->db->get_where('pengaduan', ['id_pengaduan' => $id_pengaduan])->row_array();	
 	}
@@ -79,7 +79,7 @@ class PelaporPengaduan_model extends CI_Model
 		$data = [
 			'isi_laporan'	=> $this->input->post('isi_laporan', true),
 			'id_waroeng'	=> $this->input->post('id_waroeng', true),
-			'id_masyarakat'	=> $dataUser['id_masyarakat'],
+			'id_pengguna'	=> $dataUser['id_pengguna'],
 			'tgl_pengaduan' => date('Y-m-d\TH:i:s')
 		];
 
