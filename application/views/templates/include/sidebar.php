@@ -49,38 +49,49 @@
         <?php if ($dataUser['jabatan'] == 'administrator'): ?>
           <li class="nav-item <?= (strpos($_SERVER['REQUEST_URI'], '/reportit_wss/user') !== false || strpos($_SERVER['REQUEST_URI'], '/reportit_wss/area') !== false || strpos($_SERVER['REQUEST_URI'], '/reportit_wss/waroeng') !== false || strpos($_SERVER['REQUEST_URI'], '/reportit_wss/pengguna') !== false) ? 'menu-open' : ''; ?>">
             <a href="#" class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], '/reportit_wss/user') !== false || strpos($_SERVER['REQUEST_URI'], '/reportit_wss/area') !== false || strpos($_SERVER['REQUEST_URI'], '/reportit_wss/waroeng') !== false || strpos($_SERVER['REQUEST_URI'], '/reportit_wss/pengguna') !== false) ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-database text-success"></i>
-              <p>Manajemen Data <i class="right fas fa-angle-left"></i></p>
+                <i class="nav-icon fas fa-database text-success"></i>
+                <p>Manajemen Data <i class="right fas fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('user'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/user' || $_SERVER['REQUEST_URI'] == '/reportit_wss/user/') ? 'active' : ''; ?>">
-                  <i class="fas fa-user nav-icon text-primary"></i>
-                  <p>User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('area'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/area' || $_SERVER['REQUEST_URI'] == '/reportit_wss/area/') ? 'active' : ''; ?>">
-                  <i class="fas fa-city nav-icon text-secondary"></i>
-                  <p>Area</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('waroeng'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/waroeng' || $_SERVER['REQUEST_URI'] == '/reportit_wss/waroeng/') ? 'active' : ''; ?>">
-                  <i class="fas fa-store nav-icon text-danger"></i>
-                  <p>Waroeng</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('pengguna'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/pengguna' || $_SERVER['REQUEST_URI'] == '/reportit_wss/pengguna/') ? 'active' : ''; ?>">
-                  <i class="fas fa-users nav-icon text-warning"></i>
-                  <p>Pelapor</p>
-                </a>
-              </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('user'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/user' || $_SERVER['REQUEST_URI'] == '/reportit_wss/user/') ? 'active' : ''; ?>">
+                        <i class="fas fa-user nav-icon text-primary"></i>
+                        <p>User</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('jabatan'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/jabatan' || $_SERVER['REQUEST_URI'] == '/reportit_wss/jabatan/') ? 'active' : ''; ?>">
+                        <i class="fas fa-briefcase nav-icon text-secondary"></i> <!-- Ganti dari fa-city -->
+                        <p>Jabatan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('petugas'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/petugas' || $_SERVER['REQUEST_URI'] == '/reportit_wss/petugas/') ? 'active' : ''; ?>">
+                        <i class="fas fa-user-shield nav-icon text-info"></i> <!-- Ganti dari fa-city -->
+                        <p>Petugas</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('area'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/area' || $_SERVER['REQUEST_URI'] == '/reportit_wss/area/') ? 'active' : ''; ?>">
+                        <i class="fas fa-map-marked-alt nav-icon text-secondary"></i>
+                        <p>Area</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('waroeng'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/waroeng' || $_SERVER['REQUEST_URI'] == '/reportit_wss/waroeng/') ? 'active' : ''; ?>">
+                        <i class="fas fa-store nav-icon text-danger"></i>
+                        <p>Waroeng</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('pengguna'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/pengguna' || $_SERVER['REQUEST_URI'] == '/reportit_wss/pengguna/') ? 'active' : ''; ?>">
+                        <i class="fas fa-users nav-icon text-warning"></i>
+                        <p>Pelapor</p>
+                    </a>
+                </li>
             </ul>
-          </li>
+        </li>
         <?php endif ?>
-
         <!-- Laporan -->
         <li class="nav-item">
           <a href="<?= base_url('laporan'); ?>" class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/reportit_wss/laporan' || $_SERVER['REQUEST_URI'] == '/reportit_wss/laporan/') ? 'active' : ''; ?>">

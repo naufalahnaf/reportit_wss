@@ -52,11 +52,13 @@
 						<tr>
 							<th class="align-middle">No.</th>
 							<th class="align-middle">Pelapor</th>
+							<th class="align-middle">Jabatan</th>
 							<th class="align-middle">No HP</th>
 							<th class="align-middle">Tanggal Pengaduan</th>
 							<th class="align-middle">Isi Laporan</th>
 							<th class="align-middle">Lokasi</th>
 							<th class="align-middle">Foto</th>
+							<th class="align-middle">Petugas</th>
 							<th class="align-middle">Status</th>
 							<th class="align-middle">Tangapan</th>
 							<th class="align-middle">Aksi</th>
@@ -77,6 +79,7 @@
 								<td class="align-middle"><?= $i++; ?></td>
 								<td class="align-middle">
 								<?= !empty($dp['username']) ? $dp['username'] : $dp['nama_pelapor']; ?>
+								<td class="align-middle">-</td>
 								<td class="align-middle">
 									<?php 
 										$hp = !empty($dp['no_telepon']) ?  '<a href="https://wa.me/' . preg_replace( '/[^0-9]/', '', $dp['no_telepon']) . '" target="_blank">' . $dp['no_telepon'] . '</a>' : '';
@@ -93,6 +96,7 @@
 										<img src="<?= base_url('assets/img/img_pengaduan/') . $dp['foto']; ?>" class="img-fluid img-w-75-hm-100" alt="<?= $dp['foto']; ?>">
 									</a>
 								</td>
+								<td class="align-middle">-</td>
 								<td class="align-middle">
 									<?php if ($dp['status_pengaduan'] == 'proses'): ?>
 										<button type="button" class="btn btn-sm text-center btn-danger"><i class="fas fa-fw fa-sync"></i> <?= $status; ?></button>
