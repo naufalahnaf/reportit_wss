@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kecamatan extends CI_Controller 
+class Petugas extends CI_Controller 
 {
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Admin_model', 'admo');
-		$this->load->model('Kecamatan_model', 'kemo');
+		$this->load->model('Petugas_model', 'pemo');
 
 		$this->admo->checkLoginAdmin();
 	}
@@ -15,47 +15,47 @@ class Kecamatan extends CI_Controller
 	public function index()
 	{
 		$data['dataUser']	= $this->admo->getDataUserAdmin();
-		$data['title']  	= 'Kecamatan';
-		$data['kecamatan']	= $this->kemo->getKecamatan();
+		$data['title']  	= 'Petugas';
+		$data['petugas']	= $this->pemo->getPetugas();
 		$this->load->view('templates/header-admin', $data);
-		$this->load->view('kecamatan/index', $data);
+		$this->load->view('petugas/index', $data);
 		$this->load->view('templates/footer-admin', $data);
 	}
 
-	public function addKecamatan()
+	public function addPetugas()
 	{
 		$data['dataUser']	= $this->admo->getDataUserAdmin();
-		$data['title'] 		= 'Tambah Kecamatan';
+		$data['title'] 		= 'Tambah Petugas';
 
-		$this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required|trim');
+		$this->form_validation->set_rules('petugas', 'Petugas', 'required|trim');
 		if ($this->form_validation->run() == false) {
 		    $this->load->view('templates/header-admin', $data);
-		    $this->load->view('kecamatan/add_kecamatan', $data);
+		    $this->load->view('petugas/add_petugas', $data);
 		    $this->load->view('templates/footer-admin', $data);  
 		} else {
-		    $this->kemo->addKecamatan();
+		    $this->pemo->addPetugas();
 		}
 	}
 
-	public function editKecamatan($id_kecamatan)
+	public function editPetugas($id_petugas)
 	{
 		$data['dataUser']	= $this->admo->getDataUserAdmin();
-		$data['kecamatan']	= $this->kemo->getKecamatanById($id_kecamatan);
-		$data['title'] 		= 'Ubah Kecamatan - ' . $data['kecamatan']['kecamatan'];
+		$data['petugas']	= $this->pemo->getPetugasById($id_petugas);
+		$data['title'] 		= 'Ubah Petugas - ' . $data['petugas']['petugas'];
 
-		$this->form_validation->set_rules('kecamatan', 'Kecamatan', 'required|trim');
+		$this->form_validation->set_rules('petugas', 'Petugas', 'required|trim');
 		if ($this->form_validation->run() == false) {
 		    $this->load->view('templates/header-admin', $data);
-		    $this->load->view('kecamatan/edit_kecamatan', $data);
+		    $this->load->view('petugas/edit_petugas', $data);
 		    $this->load->view('templates/footer-admin', $data);  
 		} else {
-		    $this->kemo->editKecamatan($id_kecamatan);
+		    $this->pemo->editPetugas($id_petugas);
 		}
 	}
 
-	public function removeKecamatan($id_kecamatan)
+	public function removePetugas($id_petugas)
 	{
 		$data['dataUser']	= $this->admo->getDataUserAdmin();
-		$this->kemo->removeKecamatan($id_kecamatan);
+		$this->pemo->removePetugas($id_petugas);
 	}
 }

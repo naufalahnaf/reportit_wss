@@ -1,11 +1,11 @@
 <div class="container">
 	<div class="row justify-content-center py-3">
 		<div class="col-lg header-title">
-			<h3><i class="fas fa-fw fa-building"></i> Kelurahan</h3>
+			<h3><i class="fas fa-fw fa-city"></i> Petugas</h3>
 		</div>
 		<?php if ($dataUser['jabatan'] == 'administrator'): ?>
 			<div class="col-lg header-button">
-				<a href="<?= base_url('kelurahan/addKelurahan'); ?>" class="btn btn-primary"><i class="fas fa-fw fa-plus"></i> Tambah Kelurahan</a>
+				<a href="<?= base_url('petugas/addPetugas'); ?>" class="btn btn-primary"><i class="fas fa-fw fa-plus"></i> Tambah Petugas</a>
 			</div>
 		<?php endif ?>
 	</div>
@@ -16,8 +16,7 @@
 					<thead class="thead-dark">
 						<tr>
 							<th class="align-middle">No.</th>
-							<th class="align-middle">Kelurahan</th>
-							<th class="align-middle">Kecamatan</th>
+							<th class="align-middle">Petugas</th>
 							<?php if ($dataUser['jabatan'] == 'administrator'): ?>
 								<th class="align-middle">Aksi</th>
 							<?php endif ?>
@@ -25,16 +24,15 @@
 					</thead>
 					<tbody>
 						<?php $i = 1; ?>
-						<?php foreach ($kelurahan as $dk): ?>
+						<?php foreach ($petugas as $dk): ?>
 							<tr>
 								<td class="align-middle"><?= $i++; ?></td>
-								<td class="align-middle"><?= $dk['kelurahan']; ?></td>
-								<td class="align-middle"><?= $dk['kecamatan']; ?></td>
+								<td class="align-middle"><?= $dk['petugas']; ?></td>
 								<?php if ($dataUser['jabatan'] == 'administrator'): ?>
 									<td class="align-middle text-center">
-										<a href="<?= base_url('kelurahan/editKelurahan/' . $dk['id_kelurahan']); ?>" class="btn btn-sm btn-success m-1"><i class="fas fa-fw fa-edit"></i></a>
+										<a href="<?= base_url('petugas/editPetugas/' . $dk['id_petugas']); ?>" class="btn btn-sm btn-success m-1"><i class="fas fa-fw fa-edit"></i></a>
 										<?php if ($dataUser['jabatan'] == 'administrator'): ?>
-											<a href="<?= base_url('kelurahan/removeKelurahan/' . $dk['id_kelurahan']); ?>" class="btn btn-sm btn-danger m-1 btn-delete" data-nama="<?= $dk['kelurahan']; ?>"><i class="fas fa-fw fa-fw fa-trash"></i></a>
+											<a href="<?= base_url('petugas/removePetugas/' . $dk['id_petugas']); ?>" class="btn btn-sm btn-danger m-1 btn-delete" data-nama="<?= $dk['petugas']; ?>"><i class="fas fa-fw fa-fw fa-trash"></i></a>
 										<?php endif ?>
 									</td>
 								<?php endif ?>

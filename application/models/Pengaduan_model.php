@@ -42,6 +42,7 @@ class Pengaduan_model extends CI_Model
 		$this->db->join('pengguna', 'pengaduan.id_pengguna=pengguna.id_pengguna', 'left');
 		$this->db->join('waroeng', 'pengaduan.id_waroeng=waroeng.id_waroeng');
 		$this->db->order_by('id_pengaduan', 'desc');
+		$this->db->join('jabatan', 'pengaduan.id_jabatan = jabatan.id_jabatan', 'left');
 		if ($status_pengaduan) 
 		{
 			return $this->db->get_where('pengaduan', ['pengaduan.status_pengaduan' => $status_pengaduan])->result_array();
@@ -67,6 +68,7 @@ class Pengaduan_model extends CI_Model
     $id_pengguna = $this->input->post('id_pengguna', true);
     $nama_pelapor = $this->input->post('nama_pelapor', true);
 	$no_wa = $this->input->post('no_wa', true);
+	$id_jabatan = $this->input->post('id_jabatan', true);
 
 
     // Jika "Lainnya" dipilih, gunakan nama manual, jika tidak pakai id_pengguna
@@ -106,6 +108,7 @@ class Pengaduan_model extends CI_Model
         'id_pengguna' => $id_pengguna, // Bisa null jika input manual digunakan
         'nama_pelapor'  => $nama_pelapor, // Bisa null jika id_pengguna digunakan
 		'no_wa'         => $no_wa,
+		'id_jabatan'    => $id_jabatan,
         'id_waroeng'    => $this->input->post('id_waroeng', true),
         'tgl_pengaduan' => date('Y-m-d\TH:i:s'),
         'foto'          => $new_foto

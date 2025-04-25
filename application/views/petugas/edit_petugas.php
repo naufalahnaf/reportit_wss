@@ -17,15 +17,15 @@
 		<div class="col-lg-6 p-3">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="my-auto"><i class="fas fa-fw fa-edit"></i> Ubah Kecamatan</h3>
+					<h3 class="my-auto"><i class="fas fa-fw fa-edit"></i> Ubah Petugas</h3>
 				</div>
 			  	<div class="card-body">
-					<form action="<?= base_url('kecamatan/editKecamatan/' . $kecamatan['id_kecamatan']); ?>" method="post">
+					<form action="<?= base_url('petugas/editPetugas/' . $petugas['id_petugas']); ?>" method="post">
 						<div class="form-group">
-							<label for="kecamatan">Kecamatan</label>
-							<input type="text" id="kecamatan" class="form-control <?= (form_error('kecamatan')) ? 'is-invalid' : ''; ?>" name="kecamatan" required value="<?= (form_error('kecamatan')) ? set_value('kecamatan') : $kecamatan['kecamatan']; ?>">
+							<label for="petugas">Petugas</label>
+							<input type="text" id="petugas" class="form-control <?= (form_error('petugas')) ? 'is-invalid' : ''; ?>" name="petugas" required value="<?= (form_error('petugas')) ? set_value('petugas') : $petugas['petugas']; ?>">
 							<div class="invalid-feedback">
-				              <?= form_error('kecamatan'); ?>
+				              <?= form_error('petugas'); ?>
 				            </div>
 						</div>
 						<div class="form-group text-right">

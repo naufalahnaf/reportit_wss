@@ -79,7 +79,7 @@
 								<td class="align-middle"><?= $i++; ?></td>
 								<td class="align-middle">
 								<?= !empty($dp['username']) ? $dp['username'] : $dp['nama_pelapor']; ?>
-								<td class="align-middle">-</td>
+								<td class="align-middle"><?= !empty($dp['jabatan']) ? $dp['jabatan'] : '-'; ?></td>
 								<td class="align-middle">
 									<?php 
 										$hp = !empty($dp['no_telepon']) ?  '<a href="https://wa.me/' . preg_replace( '/[^0-9]/', '', $dp['no_telepon']) . '" target="_blank">' . $dp['no_telepon'] . '</a>' : '';

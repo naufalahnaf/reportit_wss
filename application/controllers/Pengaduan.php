@@ -11,6 +11,7 @@ class Pengaduan extends CI_Controller
 		$this->load->model('Pengguna_model', 'pengmo');
 		$this->load->model('Waroeng_model', 'warmo');
 		$this->load->model('Area_model', 'armo');
+		$this->load->model('Jabatan_model', 'jamo');
 
 		$this->admo->checkLoginAdmin();
 	}
@@ -37,6 +38,7 @@ class Pengaduan extends CI_Controller
 		$data['pengguna']	= $this->pengmo->getPengguna();
 		$data['waroeng']	= $this->warmo->getWaroeng();
 		$data['area']	= $this->armo->getArea();
+		$data['jabatan']	= $this->jamo->getJabatan();
 		$data['title'] 		= 'Tambah Pengaduan';
 
 		$this->form_validation->set_rules('id_waroeng', 'Waroeng', 'required|trim|is_natural_no_zero');
@@ -45,7 +47,7 @@ class Pengaduan extends CI_Controller
 		    $this->load->view('templates/header-admin', $data);
 		    $this->load->view('pengaduan/add_pengaduan', $data);
 		    $this->load->view('templates/footer-admin', $data);  
-		    $this->load->view('templates/include/form_area', $data);  
+		    $this->load->view('templates/include/form_area', $data);   
 		} else {
 		    $this->pemo->addPengaduan();
 		}
@@ -57,6 +59,7 @@ class Pengaduan extends CI_Controller
 		$data['pengguna']	= $this->pengmo->getPengguna();
 		$data['waroeng']	= $this->warmo->getWaroeng();
 		$data['area']	= $this->armo->getArea();
+		$data['jabatan']	= $this->jamo->getJabatan();
 		$data['pengaduan']	= $this->pemo->getPengaduanById($id_pengaduan);
 		$data['title'] 		= 'Ubah Pengaduan - ' . $data['pengaduan']['isi_laporan'];
 
