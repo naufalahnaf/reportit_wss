@@ -84,7 +84,6 @@
 										<option value="<?= $dataJabatan['id_jabatan']; ?>"><?= $dataJabatan['jabatan']; ?></option>
 									<?php endforeach ?>
 								</select>
-
 								<div class="invalid-feedback">
 									<?= form_error('id_jabatan'); ?>
 								</div>
