@@ -1,7 +1,7 @@
 /*
- Navicat Premium Data Transfer
+ Navicat Premium Dump SQL
 
- Source Server         : reportitss
+ Source Server         : reportitwss
  Source Server Type    : MySQL
  Source Server Version : 80030 (8.0.30)
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 25/04/2025 14:59:48
+ Date: 03/06/2025 09:45:42
 */
 
 SET NAMES utf8mb4;
@@ -25,7 +25,7 @@ CREATE TABLE `area`  (
   `id_area` int NOT NULL AUTO_INCREMENT,
   `area` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_area`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of area
@@ -41,13 +41,29 @@ CREATE TABLE `jabatan`  (
   `id_jabatan` int NOT NULL AUTO_INCREMENT,
   `jabatan` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_jabatan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jabatan
 -- ----------------------------
 INSERT INTO `jabatan` VALUES (1, 'Direktur');
 INSERT INTO `jabatan` VALUES (2, 'Wakil Direktur');
+
+-- ----------------------------
+-- Table structure for kategori
+-- ----------------------------
+DROP TABLE IF EXISTS `kategori`;
+CREATE TABLE `kategori`  (
+  `id_kategori` int NOT NULL AUTO_INCREMENT,
+  `kategori` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id_kategori`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of kategori
+-- ----------------------------
+INSERT INTO `kategori` VALUES (4, 'Hardware');
+INSERT INTO `kategori` VALUES (5, 'Software');
 
 -- ----------------------------
 -- Table structure for log
@@ -60,7 +76,7 @@ CREATE TABLE `log`  (
   `id_user` int NOT NULL,
   PRIMARY KEY (`id_log`) USING BTREE,
   INDEX `id_user`(`id_user` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 130 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of log
@@ -107,26 +123,20 @@ INSERT INTO `log` VALUES (112, 'Pengaduan crr meledak berhasil ditambahkan', '20
 INSERT INTO `log` VALUES (113, 'Pengaduan cr55 rusak berhasil ditambahkan', '2025-04-24 16:42:33', 1);
 INSERT INTO `log` VALUES (114, 'Tanggapan proses berhasil ditambahkan', '2025-04-24 16:43:10', 1);
 INSERT INTO `log` VALUES (115, 'Tanggapan proses berhasil diubah', '2025-04-24 16:43:32', 1);
-
--- ----------------------------
--- Table structure for masyarakat
--- ----------------------------
-DROP TABLE IF EXISTS `masyarakat`;
-CREATE TABLE `masyarakat`  (
-  `id_masyarakat` int NOT NULL AUTO_INCREMENT,
-  `nama` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `no_telepon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `alamat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`id_masyarakat`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of masyarakat
--- ----------------------------
-INSERT INTO `masyarakat` VALUES (8, 'Imam Mahdi', 'imamhambali', '$2y$10$ocCt1r3CRaUxGaYcb75Cm.tl0slgL9c0xaMsQj9ynes.tN2I4Uypa', '089', 'Madura');
-INSERT INTO `masyarakat` VALUES (9, 'Angga', 'angga', '$2y$10$qh5VDHz71ppoJ8b4lyGa4OVEDmp0N1BUd6KSHIoyNKHcKgsFfeTWm', '098766', 'semarang');
+INSERT INTO `log` VALUES (116, 'Pengguna rjl berhasil ditambahkan', '2025-05-02 16:25:35', 1);
+INSERT INTO `log` VALUES (117, 'Pengguna rjl berhasil dihapus', '2025-05-02 16:25:40', 1);
+INSERT INTO `log` VALUES (118, 'Kategori Hardware berhasil ditambahkan', '2025-05-06 15:33:29', 1);
+INSERT INTO `log` VALUES (119, 'Kategori Hardware berhasil ditambahkan', '2025-05-06 16:00:36', 1);
+INSERT INTO `log` VALUES (120, 'Kategori Software berhasil ditambahkan', '2025-05-06 16:08:20', 1);
+INSERT INTO `log` VALUES (121, 'SubKategori Komputer berhasil ditambahkan', '2025-05-06 16:15:51', 1);
+INSERT INTO `log` VALUES (122, 'SubKategori Cr55 berhasil ditambahkan', '2025-05-14 11:19:52', 1);
+INSERT INTO `log` VALUES (123, 'SubKategori Mikrotik berhasil ditambahkan', '2025-05-14 13:40:19', 1);
+INSERT INTO `log` VALUES (124, 'Pengaduan matot berhasil ditambahkan', '2025-05-14 15:24:13', 1);
+INSERT INTO `log` VALUES (125, 'Tanggapan oke berhasil ditambahkan', '2025-05-14 15:40:21', 1);
+INSERT INTO `log` VALUES (126, 'Pengaduan okee berhasil ditambahkan', '2025-05-14 15:50:37', 1);
+INSERT INTO `log` VALUES (127, 'Tanggapan segera di proses berhasil ditambahkan', '2025-05-15 09:19:07', 1);
+INSERT INTO `log` VALUES (128, 'Pengaduan mikrotik tidak hidup berhasil ditambahkan', '2025-05-15 09:29:51', 1);
+INSERT INTO `log` VALUES (129, 'Tanggapan segera di proses wak berhasil ditambahkan', '2025-05-15 09:33:51', 1);
 
 -- ----------------------------
 -- Table structure for pengaduan
@@ -141,26 +151,18 @@ CREATE TABLE `pengaduan`  (
   `isi_laporan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `foto` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'default.png',
   `status_pengaduan` enum('belum_ditanggapi','proses','valid','pengerjaan','selesai','tidak_valid') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'belum_ditanggapi',
-  `petugas` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `id_waroeng` int NOT NULL,
-  `id_masyarakat` int NULL DEFAULT NULL,
   `id_jabatan` int NULL DEFAULT NULL,
-  PRIMARY KEY (`id_pengaduan`) USING BTREE,
-  INDEX `id_masyarakat`(`id_masyarakat` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  `id_petugas` int NULL DEFAULT NULL,
+  `id_subkategori` int NOT NULL,
+  `id_kategori` int NOT NULL,
+  PRIMARY KEY (`id_pengaduan`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of pengaduan
 -- ----------------------------
-INSERT INTO `pengaduan` VALUES (17, 3, NULL, '', '2025-03-29 11:08:26', 'pc coro meledak', 'default.png', 'belum_ditanggapi', NULL, 3, NULL, NULL);
-INSERT INTO `pengaduan` VALUES (18, NULL, 'ekoo wicaksosno', '+6289606360400', '2025-03-29 11:08:58', 'pc angga gantian meledak', 'default.png', 'belum_ditanggapi', NULL, 2, NULL, NULL);
-INSERT INTO `pengaduan` VALUES (19, NULL, 'ekoo wicaksosno', NULL, '2025-03-29 11:43:44', 'okkk', 'default.png', 'proses', NULL, 1, NULL, NULL);
-INSERT INTO `pengaduan` VALUES (20, 1, NULL, NULL, '2025-03-29 11:43:56', 'ok', 'default.png', 'proses', NULL, 2, NULL, NULL);
-INSERT INTO `pengaduan` VALUES (21, NULL, 'cahya angga', '089606260400', '2025-04-07 15:29:06', 'pc angga jeblug', 'default.png', 'selesai', NULL, 3, NULL, NULL);
-INSERT INTO `pengaduan` VALUES (22, NULL, 'angaaaa', '074598375', '2025-04-07 16:29:50', 'okee', 'WhatsApp_Image_2025-03-25_at_13_12_52.jpeg', 'belum_ditanggapi', NULL, 2, NULL, NULL);
-INSERT INTO `pengaduan` VALUES (23, 4, NULL, NULL, '2025-04-24 14:06:28', 'pc error', 'default.png', 'belum_ditanggapi', NULL, 4, NULL, NULL);
-INSERT INTO `pengaduan` VALUES (28, NULL, 'cahya angga', '089796754', '2025-04-24 15:41:04', 'crr meledak', 'Nota_2.jpg', 'belum_ditanggapi', NULL, 2, NULL, 2);
-INSERT INTO `pengaduan` VALUES (29, NULL, 'cahya angga', '539405398', '2025-04-24 16:42:33', 'cr55 rusak', 'Nota_12.jpg', 'proses', NULL, 1, NULL, 2);
+INSERT INTO `pengaduan` VALUES (32, NULL, 'dona', '085423614274', '2025-05-15 09:29:51', 'mikrotik tidak hidup', 'WhatsApp_Image_2025-05-14_at_10_28_10_(1).jpeg', 'proses', 2, 2, 4, 7, 4);
 
 -- ----------------------------
 -- Table structure for pengguna
@@ -174,7 +176,7 @@ CREATE TABLE `pengguna`  (
   `no_telepon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `alamat` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_pengguna`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of pengguna
@@ -192,7 +194,7 @@ CREATE TABLE `petugas`  (
   `id_petugas` int NOT NULL AUTO_INCREMENT,
   `petugas` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_petugas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of petugas
@@ -212,7 +214,7 @@ CREATE TABLE `saran`  (
   `saran` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `tgl_saran` datetime NOT NULL,
   PRIMARY KEY (`id_saran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of saran
@@ -227,6 +229,30 @@ INSERT INTO `saran` VALUES (7, 'Imam Mahdi 2', '09876543', 'surabaya', 'okeee', 
 INSERT INTO `saran` VALUES (8, 'Anggaaa', '0947465484', 'semarang lor', 'aplikasi mantap', '2025-03-27 14:24:20');
 INSERT INTO `saran` VALUES (9, 'Imam Wss', '09474775', 'bangkalan sumenep', 'mntapp', '2025-03-27 14:26:47');
 INSERT INTO `saran` VALUES (10, 'Naufal', '0435', 'jogja', 'sudah bagus', '2025-04-24 14:00:42');
+INSERT INTO `saran` VALUES (11, 'Imam', '0987654', 'bangkalan', 'okee', '2025-05-05 10:35:41');
+INSERT INTO `saran` VALUES (12, 'Imam Ha', '094565463423', 'surabaya', 'oke mantantaf', '2025-05-05 10:39:40');
+INSERT INTO `saran` VALUES (13, 'Imam Hambb', '8097865', 'jakarta', 'okk', '2025-05-05 10:41:42');
+INSERT INTO `saran` VALUES (14, 'Imam Hambbali', '089798675', 'jogja', 'baguss', '2025-05-05 10:46:06');
+INSERT INTO `saran` VALUES (15, 'Naufal', '087643', 'jogja', 'okee', '2025-05-05 10:47:05');
+INSERT INTO `saran` VALUES (16, 'Imam Hambb', '60987654', 'bandung', '123', '2025-05-05 10:50:26');
+
+-- ----------------------------
+-- Table structure for subkategori
+-- ----------------------------
+DROP TABLE IF EXISTS `subkategori`;
+CREATE TABLE `subkategori`  (
+  `id_subkategori` int NOT NULL AUTO_INCREMENT,
+  `subkategori` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `id_kategori` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id_subkategori`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of subkategori
+-- ----------------------------
+INSERT INTO `subkategori` VALUES (5, 'Komputer', 4);
+INSERT INTO `subkategori` VALUES (6, 'Cr55', 5);
+INSERT INTO `subkategori` VALUES (7, 'Mikrotik', 4);
 
 -- ----------------------------
 -- Table structure for tanggapan
@@ -243,7 +269,7 @@ CREATE TABLE `tanggapan`  (
   PRIMARY KEY (`id_tanggapan`) USING BTREE,
   INDEX `id_user`(`id_user`) USING BTREE,
   INDEX `id_pengaduan`(`id_pengaduan`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 47 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tanggapan
@@ -270,6 +296,9 @@ INSERT INTO `tanggapan` VALUES (28, 'pending', '2025-03-27 09:53:39', 'proses', 
 INSERT INTO `tanggapan` VALUES (25, 'oke', '2025-03-27 09:37:44', 'proses', 'default.png', 10, 1);
 INSERT INTO `tanggapan` VALUES (26, 'masuk', '2025-03-27 09:38:08', 'valid', 'default.png', 10, 1);
 INSERT INTO `tanggapan` VALUES (23, 'oke', '2025-03-26 10:20:25', 'proses', 'default.png', 7, 3);
+INSERT INTO `tanggapan` VALUES (47, 'oke', '2025-05-14 15:40:21', 'proses', 'default.png', 30, 1);
+INSERT INTO `tanggapan` VALUES (48, 'segera di proses', '2025-05-15 09:19:07', 'proses', 'default.png', 31, 1);
+INSERT INTO `tanggapan` VALUES (49, 'segera di proses wak', '2025-05-15 09:33:51', 'proses', 'WhatsApp_Image_2025-05-14_at_10_28_10.jpeg', 32, 1);
 
 -- ----------------------------
 -- Table structure for user
@@ -283,7 +312,7 @@ CREATE TABLE `user`  (
   `no_telepon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `jabatan` enum('administrator','operator') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_user`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
@@ -300,7 +329,7 @@ CREATE TABLE `waroeng`  (
   `waroeng` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `id_area` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_waroeng`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of waroeng
