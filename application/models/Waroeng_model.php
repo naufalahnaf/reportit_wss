@@ -78,4 +78,9 @@ class Waroeng_model extends CI_Model
 		$this->session->set_flashdata('message-success', $isi_log);
 		redirect('waroeng'); 
 	}
+
+	public function getAllWaroeng()
+    {
+        return $this->db->get('waroeng')->result_array();
+    }
 }

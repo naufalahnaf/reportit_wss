@@ -45,7 +45,7 @@ class SubKategori extends CI_Controller
     {
         $data['dataUser'] = $this->admo->getDataUserAdmin();
         $data['subkategori'] = $this->sumo->getSubKategoriById($id_subkategori);
-        $data['kategori'] = $this->sumo->getKategori();
+        $data['kategori'] = $this->kamo->getKategori();
         $data['title'] = 'Edit SubKategori';
 
         $this->form_validation->set_rules('subkategori', 'SubKategori', 'required|trim');

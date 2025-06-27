@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<title>Tambah Pengaduan</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Font Awesome (optional) -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-	<style>
-		.img-w-150 {
-			width: 150px;
-			height: auto;
-		}
-	</style>
-</head>
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="<?= base_url(); ?>">
+				<img src="<?= base_url('assets/img/img_properties/favicon-text.png'); ?>"
+					class="d-inline-block align-top img-fluid img-w-100">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link page-scroll" href="<?= base_url('landing/'); ?>#tentang">
+						<h5 class="my-auto">Tentang</h5>
+					</a>
+					<a class="nav-link page-scroll" href="<?= base_url('landing/'); ?>#daftar_laporan">
+						<h5 class="my-auto">Daftar Laporan</h5>
+					</a>
+					<a class="nav-link page-scroll" href="<?= base_url('landing/'); ?>#saran">
+						<h5 class="my-auto">Saran</h5>
+					</a>
+				</div>
+				<div class="navbar-nav ml-auto">
+					<a class="nav-link btn btn-sm font-weight-bold m-1 btn-login"
+						href="<?= base_url('landing/masuk'); ?>"><i class="fas fa-fw fa-sign-in-alt"></i> MASUK</a>
+					<a class="nav-link btn btn-sm font-weight-bold m-1 btn-danger text-white"
+						href="<?= base_url('landing/daftar'); ?>"><i class="fas fa-fw fa-file-signature"></i> DAFTAR</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
 
 <body>
 
@@ -95,62 +110,29 @@
 							</div>
 
 							<!-- Area -->
-							<div class="form-group mb-3">
-								<label for="form_area">Area</label>
-								<select class="form-select <?= (form_error('id_area')) ? 'is-invalid' : ''; ?>"
-									id="form_area">
-									<option value="0">Pilih Area</option>
-									<?php foreach ($area as $dataArea): ?>
-										<option value="<?= $dataArea['id_area']; ?>"><?= $dataArea['area']; ?></option>
-									<?php endforeach ?>
-								</select>
-								<div class="invalid-feedback">
-									<?= form_error('id_area'); ?>
-								</div>
-							</div>
+							<label for="form_area">Pilih Area</label>
+							<select id="form_area" name="id_area" class="form-control" required>
+								<option value="">-- Pilih Area --</option>
+								<?php foreach ($area as $row): ?>
+									<option value="<?= $row['id_area'] ?>"><?= $row['area'] ?></option>
+								<?php endforeach; ?>
+							</select>
 
-							<!-- Waroeng -->
-							<div class="form-group mb-3">
-								<label for="form_waroeng">Waroeng</label>
-								<select id="form_waroeng"
-									class="form-select <?= (form_error('id_waroeng')) ? 'is-invalid' : ''; ?>"
-									name="id_waroeng">
-									<option value="0">Pilih Waroeng</option>
-								</select>
-								<div class="invalid-feedback">
-									<?= form_error('id_waroeng'); ?>
-								</div>
-							</div>
+							<!-- Dropdown Waroeng akan tampil di sini -->
+							<div id="waroeng-container"></div>
 
 							<!-- Kategori -->
-							<div class="form-group mb-3">
-								<label for="form_kategori">Kategori</label>
-								<select class="form-select <?= (form_error('id_kategori')) ? 'is-invalid' : ''; ?>"
-									id="form_kategori" name="id_kategori">
-									<option value="0">Pilih Kategori</option>
-									<?php foreach ($kategori as $dataKategori): ?>
-										<option value="<?= $dataKategori['id_kategori']; ?>">
-											<?= $dataKategori['kategori']; ?>
-										</option>
-									<?php endforeach ?>
-								</select>
-								<div class="invalid-feedback">
-									<?= form_error('id_kategori'); ?>
-								</div>
-							</div>
+							<label for="form_kategori">Pilih Kategori</label>
+							<select id="form_kategori" name="id_kategori" class="form-control" required>
+								<option value="">-- Pilih Kategori --</option>
+								<?php foreach ($kategori as $row): ?>
+									<option value="<?= $row['id_kategori'] ?>"><?= $row['kategori'] ?></option>
+								<?php endforeach; ?>
+							</select>
 
-							<!-- SubKategori -->
-							<div class="form-group mb-3">
-								<label for="form_subkategori">SubKategori</label>
-								<select id="form_subkategori"
-									class="form-select <?= (form_error('id_subkategori')) ? 'is-invalid' : ''; ?>"
-									name="id_subkategori">
-									<option value="0">Pilih SubKategori</option>
-								</select>
-								<div class="invalid-feedback">
-									<?= form_error('id_subkategori'); ?>
-								</div>
-							</div>
+							<!-- Dropdown Subkategori akan tampil di sini -->
+							<div id="subkategori-container"></div>
+
 
 							<!-- Isi Laporan -->
 							<div class="form-group mb-3">
@@ -178,19 +160,6 @@
 								<label class="input-group-text" for="foto">Upload Foto</label>
 								<input type="file" class="form-control" id="foto" name="foto">
 							</div>
-
-							<!-- Tanggal Pengaduan -->
-							<div class="form-group mb-3">
-								<label for="tgl_pengaduan">Tanggal Pengaduan</label>
-								<input type="date" id="tgl_pengaduan" name="tgl_pengaduan"
-									class="form-control <?= (form_error('tgl_pengaduan')) ? 'is-invalid' : ''; ?>"
-									value="<?= set_value('tgl_pengaduan'); ?>">
-								<div class="invalid-feedback">
-									<?= form_error('tgl_pengaduan'); ?>
-								</div>
-							</div>
-
-
 
 							<!-- Tombol Simpan -->
 							<div class="form-group text-end">
@@ -259,21 +228,47 @@
 		$(document).ready(function () {
 			$('#form_kategori').on('change', function () {
 				var id = $(this).val();
-				if (id != '0') {
+				if (id != '') {
 					$.ajax({
 						type: 'POST',
-						url: "<?= base_url('pengaduan/getSubKategoriFile'); ?>",
+						url: "<?= base_url('landing/getSubKategoriFile'); ?>",
 						data: { data: 'subkategori', id: id },
 						success: function (response) {
-							$('#form_subkategori').html('<option value="0">Pilih SubKategori</option>' + response);
+							$('#subkategori-container').html(response); // tampilkan dropdown baru
 						}
 					});
 				} else {
-					$('#form_subkategori').html('<option value="0">Pilih SubKategori</option>');
+					$('#subkategori-container').html('');
 				}
 			});
 		});
 	</script>
+
+	<script>
+		$(document).ready(function () {
+			$('#form_area').on('change', function () {
+				var id = $(this).val();
+				if (id != '') {
+					$.ajax({
+						type: 'POST',
+						url: "<?= base_url('landing/getWaroengFile'); ?>", // Ubah jika controller berbeda
+						data: { data: 'waroeng', id: id },
+						success: function (response) {
+							$('#waroeng-container').html(response);
+						},
+						error: function (xhr, status, error) {
+							console.log('AJAX Error:', xhr.responseText);
+						}
+					});
+				} else {
+					$('#waroeng-container').html('');
+				}
+			});
+		});
+	</script>
+
+
+
 
 
 </body>

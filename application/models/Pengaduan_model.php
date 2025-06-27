@@ -112,7 +112,7 @@ class Pengaduan_model extends CI_Model
 		// Upload Foto
 		$foto = $_FILES['foto']['name'];
 		if ($foto) {
-			$config['upload_path']   = './assets/img/img_pengaduan/';
+			$config['upload_path'] = './assets/img/img_pengaduan/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
 
 			$this->load->library('upload', $config);
@@ -130,16 +130,16 @@ class Pengaduan_model extends CI_Model
 
 		// Data yang akan dimasukkan ke database
 		$data = [
-			'isi_laporan'   => $this->input->post('isi_laporan', true),
+			'isi_laporan' => $this->input->post('isi_laporan', true),
 			'id_pengguna' => $id_pengguna, // Bisa null jika input manual digunakan
-			'nama_pelapor'  => $nama_pelapor, // Bisa null jika id_pengguna digunakan
-			'no_wa'         => $no_wa,
-			'id_jabatan'    => $id_jabatan,
-			'id_waroeng'    => $this->input->post('id_waroeng', true),
-			'id_kategori'    => $id_kategori,
-			'id_subkategori'    => $this->input->post('id_subkategori', true),
-			'tgl_pengaduan' => date('Y-m-d\TH:i:s'),
-			'foto'          => $new_foto
+			'nama_pelapor' => $nama_pelapor, // Bisa null jika id_pengguna digunakan
+			'no_wa' => $no_wa,
+			'id_jabatan' => $id_jabatan,
+			'id_waroeng' => $this->input->post('id_waroeng', true),
+			'id_kategori' => $id_kategori,
+			'id_subkategori' => $this->input->post('id_subkategori', true),
+			'tgl_pengaduan' => $this->input->post('tgl_pengaduan', true),
+			'foto' => $new_foto
 		];
 
 		// Simpan ke database
@@ -193,7 +193,7 @@ class Pengaduan_model extends CI_Model
 		$isi_log_2 = 'User ' . $dataUser['username'] . ' mencoba menghapus pengaduan ber id ' . $id_pengaduan;
 		$this->admo->userPrivilege('pengaduan', $isi_log_2);
 		$data_pengaduan = $this->getPengaduanById($id_pengaduan);
-		$pengaduan  = $data_pengaduan['isi_laporan'];
+		$pengaduan = $data_pengaduan['isi_laporan'];
 
 		$old_foto = $data_pengaduan['foto'];
 		if ($old_foto != 'default.png') {
@@ -233,8 +233,8 @@ class Pengaduan_model extends CI_Model
 	}
 
 	public function getAll()
-{
-    $this->db->select('
+	{
+		$this->db->select('
         p.id_pengaduan,
         p.isi_laporan,
         p.nama_pelapor,
@@ -249,17 +249,53 @@ class Pengaduan_model extends CI_Model
         subkategori.subkategori,
         jabatan.jabatan
     ');
-    $this->db->from('pengaduan p');
-    $this->db->join('pengguna', 'p.id_pengguna = pengguna.id_pengguna', 'left');
-    $this->db->join('waroeng', 'p.id_waroeng = waroeng.id_waroeng', 'left');
-    $this->db->join('petugas', 'p.id_petugas = petugas.id_petugas', 'left');
-    $this->db->join('kategori', 'p.id_kategori = kategori.id_kategori', 'left');
-    $this->db->join('subkategori', 'p.id_subkategori = subkategori.id_subkategori', 'left');
-    $this->db->join('jabatan', 'p.id_jabatan = jabatan.id_jabatan', 'left');
-    $this->db->order_by('p.id_pengaduan', 'desc');
+		$this->db->from('pengaduan p');
+		$this->db->join('pengguna', 'p.id_pengguna = pengguna.id_pengguna', 'left');
+		$this->db->join('waroeng', 'p.id_waroeng = waroeng.id_waroeng', 'left');
+		$this->db->join('petugas', 'p.id_petugas = petugas.id_petugas', 'left');
+		$this->db->join('kategori', 'p.id_kategori = kategori.id_kategori', 'left');
+		$this->db->join('subkategori', 'p.id_subkategori = subkategori.id_subkategori', 'left');
+		$this->db->join('jabatan', 'p.id_jabatan = jabatan.id_jabatan', 'left');
+		$this->db->order_by('p.id_pengaduan', 'desc');
 
-    $query = $this->db->get();
-    return $query->result_array();
-}
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	public function getPengaduanBelumDitanggapi()
+	{
+		$this->db->select('
+        p.id_pengaduan,
+        p.isi_laporan,
+        p.nama_pelapor,
+        p.no_wa,
+        p.tgl_pengaduan,
+        p.foto,
+        p.status_pengaduan,
+        pengguna.username AS nama_pengguna,
+        waroeng.id_waroeng,
+        waroeng.waroeng,
+        petugas.petugas,
+        kategori.kategori,
+        subkategori.subkategori,
+        jabatan.jabatan
+    ');
+		$this->db->from('pengaduan p');
+		$this->db->join('pengguna', 'p.id_pengguna = pengguna.id_pengguna', 'left');
+		$this->db->join('waroeng', 'p.id_waroeng = waroeng.id_waroeng', 'left');
+		$this->db->join('petugas', 'p.id_petugas = petugas.id_petugas', 'left');
+		$this->db->join('kategori', 'p.id_kategori = kategori.id_kategori', 'left');
+		$this->db->join('subkategori', 'p.id_subkategori = subkategori.id_subkategori', 'left');
+		$this->db->join('jabatan', 'p.id_jabatan = jabatan.id_jabatan', 'left');
+
+		// Tambahkan kondisi untuk hanya ambil pengaduan yang belum ditanggapi
+		$this->db->where("NOT EXISTS (
+        SELECT 1 FROM tanggapan t WHERE t.id_pengaduan = p.id_pengaduan
+    )", null, false);
+
+		$this->db->order_by('p.id_pengaduan', 'desc');
+
+		return $this->db->get()->result_array();
+	}
 
 }

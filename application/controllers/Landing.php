@@ -6,10 +6,29 @@ class Landing extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Pengaduan_model', 'pemo');
+		$this->load->model('Pengaduan_model', 'pengmo');
 		$this->load->model('Landing_model', 'lamo');
 		$this->load->model('Tanggapan_model', 'tamo');
+		$this->load->model('Pengaduan_model', 'pemo');
+		$this->load->model('Pengguna_model', 'pengmo');
+		$this->load->model('Area_model', 'armo');
+		$this->load->model('Waroeng_model', 'warmo');
+		$this->load->model('Kategori_model', 'kamo');
+		$this->load->model('SubKategori_model', 'sumo');
+		$this->load->model('Jabatan_model', 'jamo');
 	}
+	
+	public function getWaroengFile()
+	{
+		$this->load->view('landing/get_waroeng');
+	}
+	public function getSubKategoriFile()
+	{
+		$this->load->view('landing/get_subkategori');
+	}
+
+
+
 
 	public function checkLogin()
 	{
@@ -22,7 +41,7 @@ class Landing extends CI_Controller
 	{
 		$this->checkLogin();
 
-		$data['pengaduan'] = $this->pemo->getPengaduan();
+		$data['pengaduan'] = $this->pemo->getPengaduanBelumDitanggapi();
 		$data['title'] = 'Report IT WSS';
 		$this->load->view('templates/header', $data);
 		$this->load->view('landing/index', $data);
@@ -64,6 +83,31 @@ class Landing extends CI_Controller
 			$this->lamo->masuk();
 		}
 	}
+	public function Pengaduan()
+	{
+		$data['dataUser'] = $this->admo->getDataUserAdmin();
+		// $data['pengguna'] = $this->pengmo->getPengguna();
+		$data['area'] = $this->armo->getArea();
+		$data['waroeng'] = $this->warmo->getWaroeng();
+		$data['kategori'] = $this->kamo->getKategori();
+		$data['subkategori'] = $this->sumo->getSubKategori();
+		$data['jabatan'] = $this->jamo->getJabatan();
+		$data['title'] = 'Tambah Pengaduan';
+
+		$this->form_validation->set_rules('id_waroeng', 'Waroeng', 'required|trim|is_natural_no_zero');
+		$this->form_validation->set_rules('id_subkategori', 'SubKategori', 'required|trim|is_natural_no_zero');
+		$this->form_validation->set_rules('isi_laporan', 'Isi Laporan', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('landing/pengaduan', $data);
+			$this->load->view('templates/footer', $data);
+			$this->load->view('templates/include/form_area', $data);
+		} else {
+			$this->pemo->Pengaduan();
+		}
+	}
+
+
 
 	public function logout()
 	{

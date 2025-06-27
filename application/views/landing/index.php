@@ -41,6 +41,7 @@
 	      <div class="navbar-nav ml-auto">
 	        <a class="nav-link btn btn-sm font-weight-bold m-1 btn-login" href="<?= base_url('landing/masuk'); ?>"><i class="fas fa-fw fa-sign-in-alt"></i> MASUK</a>
 	        <a class="nav-link btn btn-sm font-weight-bold m-1 btn-danger text-white" href="<?= base_url('landing/daftar'); ?>"><i class="fas fa-fw fa-file-signature"></i> DAFTAR</a>
+	        <a class="nav-link btn btn-sm font-weight-bold m-1 btn-danger text-white" href="<?= base_url('landing/pengaduan'); ?>"><i class="fas fa-fw fa-file-signature"></i> PENGADUAN</a>
 	      </div>
 	    </div>
 	  </div>

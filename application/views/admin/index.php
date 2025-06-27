@@ -87,6 +87,7 @@
                             <th>Waktu Tanggapan</th>
                             <th>Waktu Selesai</th>
                             <th>Tanggapan</th>
+                            <th>Aksi</th>
                         </tr>
 					</thead>
 					 <tbody>
@@ -149,6 +150,16 @@
                                 <td><?= $getTanggapan['tgl_tanggapan'] ?? '-'; ?></td>
                                 <td><?= $dp['tgl_selesai'] ?? '-'; ?></td>
                                 <td><?= $getTanggapan['isi_tanggapan'] ?? '-'; ?></td>
+                                <td class="text-center">
+                                    <a href="<?= base_url('tanggapan/index/' . $dp['id_pengaduan']); ?>" class="btn btn-sm btn-info m-1">
+                                        <i class="fas fa-fw fa-reply"></i>
+                                    </a>
+                                    <?php if ($dataUser['jabatan'] == 'administrator'): ?>
+                                        <a href="<?= base_url('pengaduan/removePengaduan/' . $dp['id_pengaduan']); ?>" class="btn btn-sm btn-danger m-1 btn-delete" data-nama="<?= $dp['isi_laporan']; ?>">
+                                            <i class="fas fa-fw fa-trash"></i>
+                                        </a>
+                                    <?php endif ?>
+                                </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>

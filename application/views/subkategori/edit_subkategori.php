@@ -22,17 +22,17 @@
 			  	<div class="card-body">
 					<form action="<?= base_url('subkategori/editSubkategori/' . $subkategori['id_subkategori']); ?>" method="post">
 						<div class="form-group">
-							<label for="id_subkategori">Kategori</label>
-							<select id="id_subkategori" class="custom-select <?= (form_error('id_subkategori')) ? 'is-invalid' : ''; ?>" name="id_subkategori">
-								<option value="<?= $subkategori['id_subkategori']; ?>"><?= $subkategori['subkategori']; ?></option>
-								<?php foreach ($subkategori as $dk): ?>
-									<?php if ($dk['id_subkategori'] != $subkategori['id_subkategori']): ?>
-										<option value="<?= $dk['id_subkategori']; ?>"><?= ucwords(strtolower($dk['subkategori'])); ?></option>
+							<label for="id_kategori">Kategori</label>
+							<select id="id_kategori" class="custom-select <?= (form_error('id_kategori')) ? 'is-invalid' : ''; ?>" name="id_kategori">
+								<option value="<?= $subkategori['id_kategori']; ?>"><?= $subkategori['kategori']; ?></option>
+								<?php foreach ($kategori as $dk): ?>
+									<?php if ($dk['id_kategori'] != $subkategori['id_kategori']): ?>
+										<option value="<?= $dk['id_kategori']; ?>"><?= ucwords(strtolower($dk['kategori'])); ?></option>
 									<?php endif ?>
 								<?php endforeach ?>
 							</select>
 							<div class="invalid-feedback">
-				              <?= form_error('id_subkategori'); ?>
+				              <?= form_error('id_kategori'); ?>
 				            </div>
 						</div>
 						<div class="form-group">

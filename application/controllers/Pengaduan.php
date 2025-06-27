@@ -52,6 +52,7 @@
 			$this->form_validation->set_rules('id_waroeng', 'Waroeng', 'required|trim|is_natural_no_zero');
 			$this->form_validation->set_rules('id_subkategori', 'SubKategori', 'required|trim|is_natural_no_zero');
 			$this->form_validation->set_rules('isi_laporan', 'Isi Laporan', 'required|trim');
+			$this->form_validation->set_rules('tgl_pengaduan', 'Tanggal Pengaduan', 'required');
 			if ($this->form_validation->run() == false) {
 				$this->load->view('templates/header-admin', $data);
 				$this->load->view('pengaduan/add_pengaduan', $data);
