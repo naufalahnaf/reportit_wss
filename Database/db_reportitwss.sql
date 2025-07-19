@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 27/06/2025 15:42:07
+ Date: 19/07/2025 08:45:34
 */
 
 SET NAMES utf8mb4;
@@ -49,7 +49,7 @@ CREATE TABLE `jabatan`  (
   `id_jabatan` int NOT NULL AUTO_INCREMENT,
   `jabatan` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_jabatan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 152 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 155 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jabatan
@@ -59,6 +59,9 @@ INSERT INTO `jabatan` VALUES (148, 'Staf General');
 INSERT INTO `jabatan` VALUES (149, 'Staff Kasir');
 INSERT INTO `jabatan` VALUES (150, 'Akutansi');
 INSERT INTO `jabatan` VALUES (151, 'Kacab Digital');
+INSERT INTO `jabatan` VALUES (152, 'Sdm Waroeng');
+INSERT INTO `jabatan` VALUES (153, 'Sdm Area');
+INSERT INTO `jabatan` VALUES (154, 'Kepala Cabang');
 
 -- ----------------------------
 -- Table structure for kategori
@@ -68,7 +71,7 @@ CREATE TABLE `kategori`  (
   `id_kategori` int NOT NULL AUTO_INCREMENT,
   `kategori` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_kategori`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of kategori
@@ -78,6 +81,7 @@ INSERT INTO `kategori` VALUES (5, 'Software');
 INSERT INTO `kategori` VALUES (6, 'Cr55');
 INSERT INTO `kategori` VALUES (7, 'Ops Keuangan');
 INSERT INTO `kategori` VALUES (8, 'Jaringan');
+INSERT INTO `kategori` VALUES (9, 'Ojol');
 
 -- ----------------------------
 -- Table structure for log
@@ -90,7 +94,7 @@ CREATE TABLE `log`  (
   `id_user` int NOT NULL,
   PRIMARY KEY (`id_log`) USING BTREE,
   INDEX `id_user`(`id_user` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 430 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 720 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of log
@@ -451,6 +455,296 @@ INSERT INTO `log` VALUES (426, 'Tanggapan proses berhasil ditambahkan', '2025-06
 INSERT INTO `log` VALUES (427, 'Tanggapan v berhasil ditambahkan', '2025-06-26 16:52:13', 1);
 INSERT INTO `log` VALUES (428, 'Tanggapan proses remote oleh pak alfan berhasil ditambahkan', '2025-06-26 16:52:26', 1);
 INSERT INTO `log` VALUES (429, 'Tanggapan 1. Membersihkan SSD dengan penghapus\r\n2. Dibantu keuangan dan personal (gk tau namanya siapa) Makasihnya ke mas yg bantu smpean tadi ya berhasil ditambahkan', '2025-06-26 16:52:31', 1);
+INSERT INTO `log` VALUES (430, 'Pengaduan jaringan tersambung tapi tidak ada internet berhasil ditambahkan', '2025-06-27 16:33:02', 1);
+INSERT INTO `log` VALUES (431, 'Tanggapan proses berhasil ditambahkan', '2025-06-27 16:33:36', 1);
+INSERT INTO `log` VALUES (432, 'Tanggapan v berhasil ditambahkan', '2025-06-27 16:33:40', 1);
+INSERT INTO `log` VALUES (433, 'Tanggapan proses remot mas alfan berhasil ditambahkan', '2025-06-27 16:33:52', 1);
+INSERT INTO `log` VALUES (434, 'Tanggapan 1. Pastikan Konektor LAN tertancap dan menyala kedip2\r\n2. Pastikan sudah melakukan login pada Mikrotik \r\n3. Restart komputer berhasil ditambahkan', '2025-06-27 16:34:03', 1);
+INSERT INTO `log` VALUES (435, 'Jabatan Sdm Waroeng berhasil ditambahkan', '2025-06-27 16:35:59', 1);
+INSERT INTO `log` VALUES (436, 'Jabatan Sdm Area berhasil ditambahkan', '2025-06-27 16:36:09', 1);
+INSERT INTO `log` VALUES (437, 'Pengaduan internet kantor tiba2 tidak bisa/tidak ada koneksi.. penanganan sudah di coba di lakukan pencopotan kabel Len dan masukan kan lagi.. tapi tetap tidak bisa berhasil ditambahkan', '2025-06-27 16:37:46', 1);
+INSERT INTO `log` VALUES (438, 'Kategori Ojol berhasil ditambahkan', '2025-06-27 16:40:32', 1);
+INSERT INTO `log` VALUES (439, 'SubKategori Device berhasil ditambahkan', '2025-06-27 16:41:24', 1);
+INSERT INTO `log` VALUES (440, 'Pengaduan notifikasi device shopee sering tidak keluar padahal aplikasi sering di refresh, jadi driver ojol sudah datang, tapi notifikasi belum ada berhasil ditambahkan', '2025-06-27 16:42:27', 1);
+INSERT INTO `log` VALUES (441, 'Jabatan Kepala Cabang berhasil ditambahkan', '2025-06-27 16:43:49', 1);
+INSERT INTO `log` VALUES (442, 'SubKategori Cctv berhasil ditambahkan', '2025-06-27 16:44:51', 1);
+INSERT INTO `log` VALUES (443, 'Pengaduan CTV tidak bisa menyimpan file video berhasil ditambahkan', '2025-06-27 16:46:42', 1);
+INSERT INTO `log` VALUES (444, 'Tanggapan proses berhasil ditambahkan', '2025-06-27 16:47:42', 1);
+INSERT INTO `log` VALUES (445, 'Tanggapan v berhasil ditambahkan', '2025-06-27 16:47:46', 1);
+INSERT INTO `log` VALUES (446, 'Tanggapan proses remote pak alfan berhasil ditambahkan', '2025-06-27 16:47:59', 1);
+INSERT INTO `log` VALUES (447, 'Tanggapan 1. Pengecekan pada jalur jaringan Mikrotik ke Switch \r\n2. Ditemukan Konektor yg lepas\r\n3. Di tancapkan kembali konektornya, berhasil ditambahkan', '2025-06-27 16:48:05', 1);
+INSERT INTO `log` VALUES (448, 'Pengaduan 1. CCTV di bagian kasiran &amp; parkiran (1) tidak bisa menyimpan file video \r\n2. lampu di CCTV nyala terus (cctv kantor &amp; cctv lorong) berhasil ditambahkan', '2025-06-27 16:49:54', 1);
+INSERT INTO `log` VALUES (449, 'Pengaduan CCTV JAYENGAN DAN PARKIR KONSUMEN MATI berhasil ditambahkan', '2025-06-27 16:52:47', 1);
+INSERT INTO `log` VALUES (450, 'Pengaduan kendala login  cctv dibatasi sehingga waroeng tidak bisa login ngak bisa ngecek berhasil ditambahkan', '2025-06-27 16:55:43', 1);
+INSERT INTO `log` VALUES (451, 'Tanggapan prosaes berhasil ditambahkan', '2025-06-27 16:56:44', 1);
+INSERT INTO `log` VALUES (452, 'Tanggapan v berhasil ditambahkan', '2025-06-27 16:56:49', 1);
+INSERT INTO `log` VALUES (453, 'Tanggapan Rekomendasi tindakan Karantanyar :\r\n\r\nBahan :\r\n1. Barel RJ45\r\n2. Kabel RJ45 CAT 6 (secukupnya dari yg putus ke Kamera/ NVR)\r\n3. konektor RJ45 \r\n\r\nSilahkan di surveikan di toko komputer terdekat, kemudian diajukan menggunakan Plafon WR\r\n\r\nPengerjaan :\r\n1. Potong pada kabel yang rusak\r\n2. Ganti kabel yg lama dgn yg baru\r\n3. Sambungkan dgn Barel RJ45 berhasil ditambahkan', '2025-06-27 16:56:55', 1);
+INSERT INTO `log` VALUES (454, 'Tanggapan proses berhasil ditambahkan', '2025-06-27 16:57:31', 1);
+INSERT INTO `log` VALUES (455, 'Tanggapan v berhasil ditambahkan', '2025-06-27 16:57:36', 1);
+INSERT INTO `log` VALUES (456, 'Tanggapan Rekomendasi tindakan Klodran :\r\n\r\nBahan :\r\n1. Barel RJ45\r\n2. Kabel RJ45 CAT 6 (jarak paling dekat dari yg putus ke Kamera atau NVR)\r\n3. konektor RJ45 \r\n\r\nSilahkan di surveikan di toko komputer terdekat, kemudian diajukan menggunakan Plafon WR\r\n\r\nPengerjaan :\r\n1. Potong pada kabel yang rusak\r\n2. Ganti kabel yg lama dgn yg baru\r\n3. Sambungkan dgn Barel RJ45 berhasil ditambahkan', '2025-06-27 16:57:40', 1);
+INSERT INTO `log` VALUES (457, 'Waroeng Wss Gading Serpong berhasil ditambahkan', '2025-06-28 08:43:04', 1);
+INSERT INTO `log` VALUES (458, 'Pengaduan Tarikan si pedas pilih transaksi tidak muncul berhasil ditambahkan', '2025-06-28 08:44:01', 1);
+INSERT INTO `log` VALUES (459, 'Pengaduan ketika mau melakukan pembayaran tetapi tidak berhasil berhasil ditambahkan', '2025-06-28 08:46:19', 1);
+INSERT INTO `log` VALUES (460, 'Waroeng Wss Greenville berhasil ditambahkan', '2025-06-28 08:49:01', 1);
+INSERT INTO `log` VALUES (461, 'Pengaduan Semua Internet Atas Bawah Tidak Bisa Koneksi Wifi,Sehingga Device Ojol dan Komputer Kantor Tidak bisa Buka Internet (Odoo) berhasil ditambahkan', '2025-06-28 08:50:14', 1);
+INSERT INTO `log` VALUES (462, 'Pengaduan 1. Wifi yang ke-2 bagian depan tidak bisa terkoneksi ke HP ojol berhasil ditambahkan', '2025-06-28 09:04:44', 1);
+INSERT INTO `log` VALUES (463, 'Pengaduan Wifi nya mati. berhasil ditambahkan', '2025-06-28 09:06:46', 1);
+INSERT INTO `log` VALUES (464, 'Pengaduan CCTV tidak bisa di akses ( dari 14 titik, hanya 7 titik yang bisa di akses) berhasil ditambahkan', '2025-06-28 09:07:54', 1);
+INSERT INTO `log` VALUES (465, 'Petugas Jamhuri berhasil ditambahkan', '2025-06-28 09:40:58', 1);
+INSERT INTO `log` VALUES (466, 'Tanggapan proses berhasil ditambahkan', '2025-06-28 09:41:29', 1);
+INSERT INTO `log` VALUES (467, 'Tanggapan v berhasil ditambahkan', '2025-06-28 09:41:39', 1);
+INSERT INTO `log` VALUES (468, 'Tanggapan sedang dalam proses pak jamhuri berhasil ditambahkan', '2025-06-28 09:42:08', 1);
+INSERT INTO `log` VALUES (469, 'Tanggapan Proses berhasil ditambahkan', '2025-06-28 09:45:21', 1);
+INSERT INTO `log` VALUES (470, 'Tanggapan Asisten produksi tidak bisa bantu,\r\n\r\nkordinator kasir tidak bisa ditelpon \r\n\r\nAsisten OPP tidak bisa ditelpon berhasil ditambahkan', '2025-06-28 09:45:59', 1);
+INSERT INTO `log` VALUES (471, 'Tanggapan proses berhasil ditambahkan', '2025-06-28 09:53:53', 1);
+INSERT INTO `log` VALUES (472, 'Tanggapan v berhasil ditambahkan', '2025-06-28 09:53:58', 1);
+INSERT INTO `log` VALUES (473, 'Tanggapan 1. Pastikan device tersambung dengan internet \r\n2. Pastikan settingan notifikasi android di aplikasi shopee menyala\r\n3. Pastikan aplikasi shopee berjalan pada background\r\n4. Lakukan ujicoba notifikasi pada aplikasi shopee secara berkala berhasil ditambahkan', '2025-06-28 09:54:09', 1);
+INSERT INTO `log` VALUES (474, 'Tanggapan Tahap pengecekan :\r\n1. Pastikan device tersambung dengan internet \r\n2. Pastikan settingan notifikasi android di aplikasi shopee menyala\r\n3. Pastikan aplikasi shopee berjalan pada background\r\n4. Lakukan ujicoba notifikasi pada aplikasi shopee secara berkala\r\n\r\nUji coba berjalan 1,2,4\r\nstatus : clear berhasil ditambahkan', '2025-06-28 09:55:42', 1);
+INSERT INTO `log` VALUES (475, 'Tanggapan proses berhasil ditambahkan', '2025-06-28 09:57:24', 1);
+INSERT INTO `log` VALUES (476, 'Tanggapan v berhasil ditambahkan', '2025-06-28 09:57:28', 1);
+INSERT INTO `log` VALUES (477, 'Tanggapan sedang bantu cek oleh mas @Pak Ihsanuddin SS IT Pusat berhasil ditambahkan', '2025-06-28 09:57:48', 1);
+INSERT INTO `log` VALUES (478, 'Pengaduan 2. Ruter Wifi nya mati. berhasil ditambahkan', '2025-06-28 14:36:25', 1);
+INSERT INTO `log` VALUES (479, 'Pengaduan selamat sore bapak/ibu\r\nmohon maaf ijin menyampaikan kendala jakal km 12, saldo awal dari buku kas sipedas dan buku kas file keuangan berbeda nggih, ada selisih Rp. 28.000 berhasil ditambahkan', '2025-06-28 14:39:36', 1);
+INSERT INTO `log` VALUES (480, 'Tanggapan proses berhasil ditambahkan', '2025-06-28 14:40:10', 1);
+INSERT INTO `log` VALUES (481, 'Tanggapan v berhasil ditambahkan', '2025-06-28 14:40:15', 1);
+INSERT INTO `log` VALUES (482, 'Tanggapan sedang di cek oleh pak rendy berhasil ditambahkan', '2025-06-28 14:40:32', 1);
+INSERT INTO `log` VALUES (483, 'Tanggapan proses berhasil ditambahkan', '2025-07-08 13:51:05', 1);
+INSERT INTO `log` VALUES (484, 'Tanggapan v berhasil ditambahkan', '2025-07-08 13:51:09', 1);
+INSERT INTO `log` VALUES (485, 'Tanggapan dipsandu oleh pak jamhuri berhasil ditambahkan', '2025-07-08 13:51:27', 1);
+INSERT INTO `log` VALUES (486, 'Tanggapan sudah di pandu oleh IT Area berhasil ditambahkan', '2025-07-08 13:51:56', 1);
+INSERT INTO `log` VALUES (487, 'Tanggapan p berhasil ditambahkan', '2025-07-09 09:49:46', 1);
+INSERT INTO `log` VALUES (488, 'Tanggapan v berhasil ditambahkan', '2025-07-09 09:49:51', 1);
+INSERT INTO `log` VALUES (489, 'Tanggapan sedang di bantu pak ihsan berhasil ditambahkan', '2025-07-09 09:50:04', 1);
+INSERT INTO `log` VALUES (490, 'Tanggapan dibantu tim software berhasil ditambahkan', '2025-07-09 09:50:18', 1);
+INSERT INTO `log` VALUES (491, 'Pengaduan Semua Internet Atas Bawah Tidak Bisa Koneksi Wifi,Sehingga Device Ojol dan Komputer Kantor Tidak bisa Buka Internet (Odoo) berhasil ditambahkan', '2025-07-09 10:12:23', 1);
+INSERT INTO `log` VALUES (492, 'Pengaduan Semua Internet Atas Bawah Tidak Bisa Koneksi Wifi,Sehingga Device Ojol dan Komputer Kantor Tidak bisa Buka Internet (Odoo) berhasil dihapus', '2025-07-09 10:12:50', 1);
+INSERT INTO `log` VALUES (493, 'Pengaduan Semua Internet Atas Bawah Tidak Bisa Koneksi Wifi,Sehingga Device Ojol dan Komputer Kantor Tidak bisa Buka Internet (Odoo) berhasil ditambahkan', '2025-07-09 10:13:39', 1);
+INSERT INTO `log` VALUES (494, 'Tanggapan proses berhasil ditambahkan', '2025-07-09 10:15:09', 1);
+INSERT INTO `log` VALUES (495, 'Tanggapan v berhasil ditambahkan', '2025-07-09 10:15:14', 1);
+INSERT INTO `log` VALUES (496, 'Tanggapan sedang di pandu it area berhasil ditambahkan', '2025-07-09 10:15:27', 1);
+INSERT INTO `log` VALUES (497, 'Tanggapan 1. Indibiz Los - Teknisi Indihome melakukan perbaikan \r\n2. Teknisi Indibiz memindahkan jaringan PC Keu langsung di modem Indibiz sehingga tidak bisa akses sipedas.wss\r\n3. IT pusat melakukan pemindahan jaringan di bawah jaringan Mikrotik \r\n4. Done berhasil ditambahkan', '2025-07-09 10:15:32', 1);
+INSERT INTO `log` VALUES (498, 'Pengaduan wifi nyala tapi tdk ada koneksi internet berhasil ditambahkan', '2025-07-09 10:19:30', 1);
+INSERT INTO `log` VALUES (499, 'Tanggapan proses berhasil ditambahkan', '2025-07-09 10:20:06', 1);
+INSERT INTO `log` VALUES (500, 'Tanggapan v berhasil ditambahkan', '2025-07-09 10:20:11', 1);
+INSERT INTO `log` VALUES (501, 'Tanggapan sedang dalam remote oleh pak alfan berhasil ditambahkan', '2025-07-09 10:20:29', 1);
+INSERT INTO `log` VALUES (502, 'Tanggapan dilaporkan ke telkom karena internet loss berhasil ditambahkan', '2025-07-09 10:21:00', 1);
+INSERT INTO `log` VALUES (503, 'Tanggapan proses berhasil ditambahkan', '2025-07-09 13:28:25', 1);
+INSERT INTO `log` VALUES (504, 'Tanggapan v berhasil ditambahkan', '2025-07-09 13:28:31', 1);
+INSERT INTO `log` VALUES (505, 'Tanggapan sedang dilakukan remote IT area berhasil ditambahkan', '2025-07-09 13:29:00', 1);
+INSERT INTO `log` VALUES (506, 'Tanggapan sudah dibantu IT area berhasil ditambahkan', '2025-07-09 13:29:26', 1);
+INSERT INTO `log` VALUES (507, 'SubKategori Absensi Sipedass berhasil ditambahkan', '2025-07-09 13:32:08', 1);
+INSERT INTO `log` VALUES (508, 'Pengaduan tidak bisa finger istrahat ataupun pulang berhasil ditambahkan', '2025-07-09 13:34:42', 1);
+INSERT INTO `log` VALUES (509, 'Pengaduan CCTV offline dan tidak bisa login berhasil ditambahkan', '2025-07-14 08:55:30', 1);
+INSERT INTO `log` VALUES (510, 'Waroeng Wss Bsd berhasil ditambahkan', '2025-07-14 09:12:43', 1);
+INSERT INTO `log` VALUES (511, 'Waroeng Wss Bsd berhasil diubah', '2025-07-14 09:13:47', 1);
+INSERT INTO `log` VALUES (512, 'Waroeng Wss Bsd berhasil diubah', '2025-07-14 09:13:59', 1);
+INSERT INTO `log` VALUES (513, 'Waroeng Wss Bsd berhasil dihapus', '2025-07-14 09:14:08', 1);
+INSERT INTO `log` VALUES (514, 'Waroeng Wss Bsd berhasil ditambahkan', '2025-07-14 09:14:18', 1);
+INSERT INTO `log` VALUES (515, 'Waroeng Wss Bsd berhasil diubah', '2025-07-14 09:14:39', 1);
+INSERT INTO `log` VALUES (516, 'Waroeng Wss Bsd berhasil dihapus', '2025-07-14 09:14:49', 1);
+INSERT INTO `log` VALUES (517, 'Waroeng Wss Bsd berhasil ditambahkan', '2025-07-14 09:15:54', 1);
+INSERT INTO `log` VALUES (518, 'Waroeng Wss Bsd berhasil diubah', '2025-07-14 09:16:15', 1);
+INSERT INTO `log` VALUES (519, 'Tanggapan PROSES berhasil ditambahkan', '2025-07-14 09:16:51', 1);
+INSERT INTO `log` VALUES (520, 'Tanggapan V berhasil ditambahkan', '2025-07-14 09:17:03', 1);
+INSERT INTO `log` VALUES (521, 'Tanggapan 1. Restart POE\r\n2. Copot kabel power lalu colokan lagi\r\n3. Dibantu pak @Pak Alfan SS IT Malang \r\n3. Done ✅ berhasil ditambahkan', '2025-07-14 09:17:34', 1);
+INSERT INTO `log` VALUES (522, 'Tanggapan 1. Restart POE\r\n2. Copot kabel power lalu colokan lagi\r\n3. Dibantu pak @Pak Alfan SS IT Malang \r\n3. Done ✅ berhasil ditambahkan', '2025-07-14 09:19:02', 1);
+INSERT INTO `log` VALUES (523, 'Pengaduan 1. Printer kasir tidak konek, sudah dicoba ganti kabel dan pinjam printer ojol tetap tidak bisa konek. berhasil ditambahkan', '2025-07-14 09:25:14', 1);
+INSERT INTO `log` VALUES (524, 'Pengaduan CCTV kantor lampu sensor terus menyala berhasil ditambahkan', '2025-07-14 09:30:32', 1);
+INSERT INTO `log` VALUES (525, 'Pengaduan Diskripsi jelas kendala  :\r\n1.CCTV tidak bisa menyimpan rekaman video\r\n2.CcTV no 7 kabel putus berhasil ditambahkan', '2025-07-14 09:34:12', 1);
+INSERT INTO `log` VALUES (526, 'Tanggapan 1. Untuk HDD yg tidak bisa menyimpan,\r\nCobak lakukan reset pada HDD terlebih dahulu, kira2 apakah bisa melakukan Ndan?\r\n\r\nLalu apabila tidak bisa, fix perlu penggantian HDD baru 2TB (Pengajuan bisa di titipkan SDM Area)\r\n2. Bantu Fotokan Ndan, apabila memungkinkan, bisa menanyakan stok Kabel LAN yg ada di Area. Apabila ada bisa di minta untuk dilakukan penarikan kabel secara mandiri. berhasil ditambahkan', '2025-07-14 09:35:39', 1);
+INSERT INTO `log` VALUES (527, 'Tanggapan 1. Untuk HDD yg tidak bisa menyimpan,\r\nCobak lakukan reset pada HDD terlebih dahulu, kira2 apakah bisa melakukan Ndan?\r\n\r\nLalu apabila tidak bisa, fix perlu penggantian HDD baru 2TB (Pengajuan bisa di titipkan SDM Area)\r\n2. Bantu Fotokan Ndan, apabila memungkinkan, bisa menanyakan stok Kabel LAN yg ada di Area. Apabila ada bisa di minta untuk dilakukan penarikan kabel secara mandiri.\r\n\r\n1. Sudah di restat tapi belum bisa menyimpan  akan saya restat lagi\r\n2. Kabel LAN sudah ada pak tinggal pemasangan saja yg tidak bisa menambahkan ke daftar cctv berhasil diubah', '2025-07-14 09:36:25', 1);
+INSERT INTO `log` VALUES (528, 'Tanggapan CCTVnya disambungkan di PoE berhasil ditambahkan', '2025-07-14 09:37:26', 1);
+INSERT INTO `log` VALUES (529, 'Tanggapan VALID berhasil ditambahkan', '2025-07-14 09:38:13', 1);
+INSERT INTO `log` VALUES (530, 'Tanggapan Selesai berhasil ditambahkan', '2025-07-14 09:38:39', 1);
+INSERT INTO `log` VALUES (531, 'SubKategori Aplikasi berhasil ditambahkan', '2025-07-14 09:43:31', 1);
+INSERT INTO `log` VALUES (532, 'Pengaduan Download file masuknya ke Microsoft office jadinya tidak bisa nyimpan ke file berhasil ditambahkan', '2025-07-14 09:45:46', 1);
+INSERT INTO `log` VALUES (533, 'Tanggapan WPS tidak terpakai di uninstall berhasil ditambahkan', '2025-07-14 09:47:18', 1);
+INSERT INTO `log` VALUES (534, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 09:47:37', 1);
+INSERT INTO `log` VALUES (535, 'Tanggapan Done berhasil ditambahkan', '2025-07-14 09:47:53', 1);
+INSERT INTO `log` VALUES (536, 'Tanggapan Done berhasil ditambahkan', '2025-07-14 09:48:19', 1);
+INSERT INTO `log` VALUES (537, 'Pengaduan 1.CCTV Produksi mantim tidak menyala / Offline berhasil ditambahkan', '2025-07-14 09:53:00', 1);
+INSERT INTO `log` VALUES (538, 'Tanggapan Cek Konektor LAN dan kabel LAN pada PoE Menuju kamera berhasil ditambahkan', '2025-07-14 09:54:12', 1);
+INSERT INTO `log` VALUES (539, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 09:54:57', 1);
+INSERT INTO `log` VALUES (540, 'Tanggapan Sedang dalam pengerjaan berhasil ditambahkan', '2025-07-14 09:56:01', 1);
+INSERT INTO `log` VALUES (541, 'Tanggapan Selesai berhasil ditambahkan', '2025-07-14 09:56:16', 1);
+INSERT INTO `log` VALUES (542, 'Tanggapan 1. Untuk HDD yg tidak bisa menyimpan, Cobak lakukan reset pada HDD terlebih dahulu, kira2 apakah bisa melakukan Ndan? Lalu apabila tidak bisa, fix perlu penggantian HDD baru 2TB (Pengajuan bisa di titipkan SDM Area) 2. Bantu Fotokan Ndan, apabila memungkinkan, bisa menanyakan stok Kabel LAN yg ada di Area. Apabila ada bisa di minta untuk dilakukan penarikan kabel secara mandiri. 1. Sudah di restat tapi belum bisa menyimpan akan saya restat lagi 2. Kabel LAN sudah ada pak tinggal pemasangan saja yg tidak bisa menambahkan ke daftar cctv berhasil diubah', '2025-07-14 09:57:42', 1);
+INSERT INTO `log` VALUES (543, 'Tanggapan Sedang dalam proses berhasil diubah', '2025-07-14 09:58:25', 1);
+INSERT INTO `log` VALUES (544, 'Tanggapan WPS tidak terpakai di uninstall berhasil diubah', '2025-07-14 09:58:40', 1);
+INSERT INTO `log` VALUES (545, 'Tanggapan Pengecekan Konektor LAN dan kabel LAN pada PoE Menuju kamera berhasil diubah', '2025-07-14 09:59:33', 1);
+INSERT INTO `log` VALUES (546, 'Pengaduan Wifi lantai 1 tidak connect internet nya keterangan &quot;terhubung/tidak aman&quot; untuk lantai 2 /kantor aman seperti biasa nya berhasil ditambahkan', '2025-07-14 10:03:35', 1);
+INSERT INTO `log` VALUES (547, 'Tanggapan Proses berhasil ditambahkan', '2025-07-14 10:05:35', 1);
+INSERT INTO `log` VALUES (548, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 10:05:51', 1);
+INSERT INTO `log` VALUES (549, 'Tanggapan Di pandu tim it area berhasil ditambahkan', '2025-07-14 10:06:36', 1);
+INSERT INTO `log` VALUES (550, 'Tanggapan Di pandu tim it area berhasil diubah', '2025-07-14 10:06:48', 1);
+INSERT INTO `log` VALUES (551, 'Tanggapan Penindaklanjutan oleh Jamhuri berhasil ditambahkan', '2025-07-14 10:07:56', 1);
+INSERT INTO `log` VALUES (552, 'Pengaduan Tidak bisa presensi pulang (Gagal terhubung ke server) berhasil ditambahkan', '2025-07-14 10:11:13', 1);
+INSERT INTO `log` VALUES (553, 'Tanggapan Prsens dilakuka dengan rekap manual. berhasil ditambahkan', '2025-07-14 10:12:54', 1);
+INSERT INTO `log` VALUES (554, 'Tanggapan Prsens dilakukan dengan rekap manual. berhasil diubah', '2025-07-14 10:13:03', 1);
+INSERT INTO `log` VALUES (555, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 10:13:14', 1);
+INSERT INTO `log` VALUES (556, 'Tanggapan Arahan untuk screenshoot dikirim melalui grou berhasil ditambahkan', '2025-07-14 10:13:52', 1);
+INSERT INTO `log` VALUES (557, 'Tanggapan Arahan untuk screenshoot dikirim melalui group berhasil diubah', '2025-07-14 10:13:58', 1);
+INSERT INTO `log` VALUES (558, 'Tanggapan Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. \r\n\r\nSaat ini sedang proses perbaikan server. berhasil ditambahkan', '2025-07-14 10:14:09', 1);
+INSERT INTO `log` VALUES (559, 'Waroeng Wss Ahmad Yani berhasil ditambahkan', '2025-07-14 10:15:55', 1);
+INSERT INTO `log` VALUES (560, 'Pengaduan Tidak bisa presensi pulang (Gagal terhubung ke server) berhasil ditambahkan', '2025-07-14 10:17:38', 1);
+INSERT INTO `log` VALUES (561, 'Tanggapan Prsensi dilakukan dengan rekap manual. berhasil diubah', '2025-07-14 10:18:06', 1);
+INSERT INTO `log` VALUES (562, 'Tanggapan Prsensi dilakukan dengan rekap manual. berhasil ditambahkan', '2025-07-14 10:18:37', 1);
+INSERT INTO `log` VALUES (563, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 10:18:45', 1);
+INSERT INTO `log` VALUES (564, 'Tanggapan Prsensi dilakukan dengan rArahan untuk screenshoot dikirim melalui groupekap manual. berhasil ditambahkan', '2025-07-14 10:18:56', 1);
+INSERT INTO `log` VALUES (565, 'Tanggapan Prsensi dilakukan dengan arahan untuk screenshoot dikirim melalui group rekap akan dilakukan secara manual. berhasil diubah', '2025-07-14 10:19:26', 1);
+INSERT INTO `log` VALUES (566, 'Tanggapan Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. Saat ini sedang proses perbaikan server. berhasil ditambahkan', '2025-07-14 10:19:45', 1);
+INSERT INTO `log` VALUES (567, 'Tanggapan Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. Saat ini sedang proses perbaikan server. dengan status Proses berhasil dihapus', '2025-07-14 10:19:57', 1);
+INSERT INTO `log` VALUES (568, 'Tanggapan Prsensi dilakukan dengan arahan untuk screenshoot dikirim melalui group rekap akan dilakukan secara manual. dengan status Pengerjaan berhasil dihapus', '2025-07-14 10:20:11', 1);
+INSERT INTO `log` VALUES (569, 'Tanggapan Valid dengan status Valid berhasil dihapus', '2025-07-14 10:20:15', 1);
+INSERT INTO `log` VALUES (570, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 10:20:24', 1);
+INSERT INTO `log` VALUES (571, 'Tanggapan Presensi dilakukan dengan arahan untuk screenshoot dikirim melalui group rekap akan dilakukan secara manual. berhasil ditambahkan', '2025-07-14 10:20:43', 1);
+INSERT INTO `log` VALUES (572, 'Tanggapan Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. Saat ini sedang proses perbaikan server. berhasil ditambahkan', '2025-07-14 10:20:55', 1);
+INSERT INTO `log` VALUES (573, 'Tanggapan Presensi dilakukan dengan arahan untuk screenshoot dikirim melalui group rekap akan dilakukan secara manual. berhasil diubah', '2025-07-14 10:21:29', 1);
+INSERT INTO `log` VALUES (574, 'Tanggapan Presensi dilakukan dengan arahan untuk screenshoot dikirim melalui group rekap akan dilakukan secara manual. berhasil diubah', '2025-07-14 10:21:39', 1);
+INSERT INTO `log` VALUES (575, 'Tanggapan Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. \r\n\r\nSaat ini sedang proses perbaikan server. dengan status Proses berhasil dihapus', '2025-07-14 10:21:47', 1);
+INSERT INTO `log` VALUES (576, 'Tanggapan Arahan untuk screenshoot dikirim melalui group dengan status Pengerjaan berhasil dihapus', '2025-07-14 10:21:50', 1);
+INSERT INTO `log` VALUES (577, 'Tanggapan Arahan untuk screenshoot dikirim melalui group wr berhasil ditambahkan', '2025-07-14 10:22:26', 1);
+INSERT INTO `log` VALUES (578, 'Tanggapan Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. Saat ini sedang proses perbaikan server. berhasil ditambahkan', '2025-07-14 10:22:42', 1);
+INSERT INTO `log` VALUES (579, 'Tanggapan Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. Saat ini sedang proses perbaikan server. dengan status Proses berhasil dihapus', '2025-07-14 10:22:53', 1);
+INSERT INTO `log` VALUES (580, 'Tanggapan Arahan untuk screenshoot dikirim melalui group wr dengan status Pengerjaan berhasil dihapus', '2025-07-14 10:22:56', 1);
+INSERT INTO `log` VALUES (581, 'Tanggapan Arahan untuk screenshoot dikirim melalui group wr berhasil ditambahkan', '2025-07-14 10:23:03', 1);
+INSERT INTO `log` VALUES (582, 'Tanggapan Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. Saat ini sedang proses perbaikan server. berhasil ditambahkan', '2025-07-14 10:23:23', 1);
+INSERT INTO `log` VALUES (583, 'Pengaduan Cctv tidak bisa diakses berhasil ditambahkan', '2025-07-14 10:27:27', 1);
+INSERT INTO `log` VALUES (584, 'Pengaduan PC Kacab tidak bisa menyala paska lampu mati berhasil ditambahkan', '2025-07-14 10:30:50', 1);
+INSERT INTO `log` VALUES (585, 'Tanggapan Setting NVR berhasil ditambahkan', '2025-07-14 10:32:11', 1);
+INSERT INTO `log` VALUES (586, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 10:32:20', 1);
+INSERT INTO `log` VALUES (587, 'Tanggapan Instal aplikasi SADP Tools di Windows di jaringan yg sama dengan NVR, \r\nuntuk cek masing2 kamera. berhasil ditambahkan', '2025-07-14 10:32:37', 1);
+INSERT INTO `log` VALUES (588, 'Tanggapan NVR tidak terdeteksi di jaringan,\r\nCobak pastikan Kabel LAN NVR berhasil ditambahkan', '2025-07-14 10:34:22', 1);
+INSERT INTO `log` VALUES (589, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 10:34:52', 1);
+INSERT INTO `log` VALUES (590, 'Tanggapan Tukar dengan kabel Uplink biru, lalu tembak IP di chorme 192.168.1.45 berhasil ditambahkan', '2025-07-14 10:36:17', 1);
+INSERT INTO `log` VALUES (591, 'Tanggapan Tukar dengan kabel Uplink biru, lalu tembak IP di chorme 192.168.1.45 berhasil ditambahkan', '2025-07-14 10:36:59', 1);
+INSERT INTO `log` VALUES (592, 'Tanggapan Setting NVR berhasil ditambahkan', '2025-07-14 10:44:25', 1);
+INSERT INTO `log` VALUES (593, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 10:44:31', 1);
+INSERT INTO `log` VALUES (594, 'Tanggapan Instal aplikasi SADP Tools di Windows di jaringan yg sama dengan NVR, untuk cek masing2 kamera.v berhasil ditambahkan', '2025-07-14 10:44:45', 1);
+INSERT INTO `log` VALUES (595, 'Tanggapan Instal aplikasi SADP Tools di Windows di jaringan yg sama dengan NVR, untuk cek masing2 kamera. berhasil diubah', '2025-07-14 10:44:59', 1);
+INSERT INTO `log` VALUES (596, 'Tanggapan NVR tidak terdeteksi di jaringan, Cobak pastikan Kabel LAN NVR,\r\nTukar dengan kabel Uplink biru, lalu tembak IP di chorme 192.168.1.45 berhasil ditambahkan', '2025-07-14 10:46:17', 1);
+INSERT INTO `log` VALUES (597, 'Tanggapan Tukar dengan kabel Uplink biru, lalu tembak IP di chorme 192.168.1.45 dengan status Selesai berhasil dihapus', '2025-07-14 10:46:53', 1);
+INSERT INTO `log` VALUES (598, 'Tanggapan Tukar dengan kabel Uplink biru, lalu tembak IP di chorme 192.168.1.45 dengan status Pengerjaan berhasil dihapus', '2025-07-14 10:46:56', 1);
+INSERT INTO `log` VALUES (599, 'Tanggapan Valid dengan status Valid berhasil dihapus', '2025-07-14 10:46:58', 1);
+INSERT INTO `log` VALUES (600, 'Tanggapan NVR tidak terdeteksi di jaringan,\r\nCobak pastikan Kabel LAN NVR dengan status Proses berhasil dihapus', '2025-07-14 10:47:00', 1);
+INSERT INTO `log` VALUES (601, 'Tanggapan Instal aplikasi SADP Tools di Windows di jaringan yg sama dengan NVR, \r\nuntuk cek masing2 kamera. dengan status Pengerjaan berhasil dihapus', '2025-07-14 10:47:03', 1);
+INSERT INTO `log` VALUES (602, 'Tanggapan Valid dengan status Valid berhasil dihapus', '2025-07-14 10:47:07', 1);
+INSERT INTO `log` VALUES (603, 'Tanggapan Setting NVR dengan status Proses berhasil dihapus', '2025-07-14 10:47:10', 1);
+INSERT INTO `log` VALUES (604, 'Tanggapan Arahan dilakukan melalui VC WhatsApp berhasil ditambahkan', '2025-07-14 10:49:20', 1);
+INSERT INTO `log` VALUES (605, 'Pengaduan PC Kacab tidak bisa menyala paska lampu mati berhasil dihapus', '2025-07-14 10:50:14', 1);
+INSERT INTO `log` VALUES (606, 'Pengaduan PC Kacab tidak bisa menyala paska lampu mati berhasil ditambahkan', '2025-07-14 10:53:05', 1);
+INSERT INTO `log` VALUES (607, 'Tanggapan PC tidak mau menyala pasca listrik padam berhasil ditambahkan', '2025-07-14 10:54:09', 1);
+INSERT INTO `log` VALUES (608, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 10:54:18', 1);
+INSERT INTO `log` VALUES (609, 'Tanggapan Dilakukan melalui VC via WhatsApp berhasil ditambahkan', '2025-07-14 10:54:48', 1);
+INSERT INTO `log` VALUES (610, 'Tanggapan Penyelesaian dilakukan melalui VC via WhatsApp berhasil ditambahkan', '2025-07-14 10:55:16', 1);
+INSERT INTO `log` VALUES (611, 'Pengaduan CCTV Offline berhasil ditambahkan', '2025-07-14 10:59:27', 1);
+INSERT INTO `log` VALUES (612, 'Tanggapan Pengecekan indikator yang berkedip berhasil ditambahkan', '2025-07-14 11:00:20', 1);
+INSERT INTO `log` VALUES (613, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 11:00:30', 1);
+INSERT INTO `log` VALUES (614, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah tidak ada kendala berhasil ditambahkan', '2025-07-14 11:01:32', 1);
+INSERT INTO `log` VALUES (615, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah tidak ada kendala berhasil ditambahkan', '2025-07-14 11:01:43', 1);
+INSERT INTO `log` VALUES (616, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah tidak ada kendala dengan status Proses berhasil dihapus', '2025-07-14 11:01:59', 1);
+INSERT INTO `log` VALUES (617, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah tidak ada kendala dengan status Pengerjaan berhasil dihapus', '2025-07-14 11:02:07', 1);
+INSERT INTO `log` VALUES (618, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala berhasil ditambahkan', '2025-07-14 11:02:22', 1);
+INSERT INTO `log` VALUES (619, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala, masalah terselesaikan berhasil ditambahkan', '2025-07-14 11:02:41', 1);
+INSERT INTO `log` VALUES (620, 'Tanggapan Pengecekan indikator yang berkedip di eksekusi oleh Ismail SS IT Semarang berhasil diubah', '2025-07-14 11:03:13', 1);
+INSERT INTO `log` VALUES (621, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala, masalah terselesaikan dengan status Proses berhasil dihapus', '2025-07-14 11:03:28', 1);
+INSERT INTO `log` VALUES (622, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala dengan status Pengerjaan berhasil dihapus', '2025-07-14 11:03:31', 1);
+INSERT INTO `log` VALUES (623, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala berhasil ditambahkan', '2025-07-14 11:03:40', 1);
+INSERT INTO `log` VALUES (624, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala, masalah terselesaikan berhasil ditambahkan', '2025-07-14 11:03:51', 1);
+INSERT INTO `log` VALUES (625, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala, masalah terselesaikan dengan status Proses berhasil dihapus', '2025-07-14 11:03:55', 1);
+INSERT INTO `log` VALUES (626, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala dengan status Pengerjaan berhasil dihapus', '2025-07-14 11:03:58', 1);
+INSERT INTO `log` VALUES (627, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala berhasil ditambahkan', '2025-07-14 11:04:04', 1);
+INSERT INTO `log` VALUES (628, 'Tanggapan Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala, masalah terselesaikan berhasil ditambahkan', '2025-07-14 11:04:13', 1);
+INSERT INTO `log` VALUES (629, 'Pengaduan 1. Salah satu cctv tidak bisa \r\n2. Sudah ganti cctv lain tetap \r\n3. Sudah ganti sambungan tetap tidak bisa berhasil ditambahkan', '2025-07-14 11:09:21', 1);
+INSERT INTO `log` VALUES (630, 'Tanggapan Pengecekan kondisi konektornya di kamera dan PoE berhasil ditambahkan', '2025-07-14 11:11:01', 1);
+INSERT INTO `log` VALUES (631, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 11:11:07', 1);
+INSERT INTO `log` VALUES (632, 'Tanggapan Pengecekan kabel untuk memastikan ada atau tidaknya korosi pada konektrnya kemudian memberikan arahan untuk mencopot Camera dari tempat asal, kemudian camera dicobak pake kabel pendek ke PoE berhasil ditambahkan', '2025-07-14 11:14:14', 1);
+INSERT INTO `log` VALUES (633, 'Tanggapan Pengecekan Camera dan menopot dari tempat asal, kemudian camera dicobak pake kabel pendek ke PoE dan dilakukan arahan melalui VC via WhatsApp berhasil ditambahkan', '2025-07-14 11:15:28', 1);
+INSERT INTO `log` VALUES (634, 'Pengaduan 1. Aplikasi gojek tidak bisa print \r\n2. Aplikasi Shopee dan grab lancar berhasil ditambahkan', '2025-07-14 11:23:28', 1);
+INSERT INTO `log` VALUES (635, 'Tanggapan 1. Sambungkan printer dulu sebelum mencetak\r\n2. Jalankan Aplikasi di background, jgn di close aplikasinya berhasil ditambahkan', '2025-07-14 11:23:55', 1);
+INSERT INTO `log` VALUES (636, 'Tanggapan Valid berhasil ditambahkan', '2025-07-14 11:24:02', 1);
+INSERT INTO `log` VALUES (637, 'Tanggapan Silahkan Hapus data aplikasi, lalu cobak login lagi berhasil ditambahkan', '2025-07-14 11:24:31', 1);
+INSERT INTO `log` VALUES (638, 'Tanggapan Hapus data pada aplikasi, lalu cobak login kembali dilanjutkan penyelesai melalui VC via WhatsApp berhasil ditambahkan', '2025-07-14 11:25:17', 1);
+INSERT INTO `log` VALUES (639, 'Tanggapan Penindaklanjutan oleh Jamhuri dengan status Proses berhasil dihapus', '2025-07-14 11:25:51', 1);
+INSERT INTO `log` VALUES (640, 'Tanggapan Di pandu tim it area dengan status Pengerjaan berhasil dihapus', '2025-07-14 11:25:54', 1);
+INSERT INTO `log` VALUES (641, 'Tanggapan Di pandu tim it area berhasil ditambahkan', '2025-07-14 11:26:02', 1);
+INSERT INTO `log` VALUES (642, 'Tanggapan Penindaklanjutan oleh Jamhuri berhasil ditambahkan', '2025-07-14 11:26:11', 1);
+INSERT INTO `log` VALUES (643, 'Tanggapan Hapus data pada aplikasi, kemudian login kembali dilanjutkan penyelesai melalui VC via WhatsApp berhasil diubah', '2025-07-14 11:26:48', 1);
+INSERT INTO `log` VALUES (644, 'Tanggapan Silahkan Hapus data aplikasi, lalu kemudian login lagi berhasil diubah', '2025-07-14 11:26:57', 1);
+INSERT INTO `log` VALUES (645, 'Pengaduan tidak bisa langsung print laporan serah terima belanja, harus eksport excel dulu berhasil ditambahkan', '2025-07-17 08:34:44', 1);
+INSERT INTO `log` VALUES (646, 'Pengaduan akun pjs a.n Devi warungnya masih wss malang sengkaling, dan masih kosongan berhasil ditambahkan', '2025-07-17 08:37:08', 1);
+INSERT INTO `log` VALUES (647, 'Tanggapan p berhasil ditambahkan', '2025-07-17 08:37:59', 1);
+INSERT INTO `log` VALUES (648, 'Tanggapan v berhasil ditambahkan', '2025-07-17 08:38:05', 1);
+INSERT INTO `log` VALUES (649, 'Tanggapan di cek oleh mas rendy berhasil ditambahkan', '2025-07-17 08:38:21', 1);
+INSERT INTO `log` VALUES (650, 'Tanggapan dibantu tim software berhasil ditambahkan', '2025-07-17 08:38:33', 1);
+INSERT INTO `log` VALUES (651, 'Waroeng Wss Surabaya Manyar berhasil diubah', '2025-07-17 08:39:26', 1);
+INSERT INTO `log` VALUES (652, 'Waroeng Wss Bsd berhasil diubah', '2025-07-17 08:40:04', 1);
+INSERT INTO `log` VALUES (653, 'Waroeng Wss Bsdd berhasil diubah', '2025-07-17 08:40:42', 1);
+INSERT INTO `log` VALUES (654, 'Waroeng Wss Bsd berhasil diubah', '2025-07-17 08:40:53', 1);
+INSERT INTO `log` VALUES (655, 'Pengaduan Penjualan Shift 2 tgl 12/07/2025 Ada refund menu dengan nominal Rp 49.500 namun belum masuk di sistem kas sehingga  Saldo akhir &amp; uang rill beda berhasil ditambahkan', '2025-07-17 08:43:00', 1);
+INSERT INTO `log` VALUES (656, 'Pengguna naufalahnaf22 dengan jabatan administrator berhasil ditambahkan', '2025-07-17 16:21:14', 1);
+INSERT INTO `log` VALUES (657, 'Pengaduan INTERNET waroeng tidak konek berhasil ditambahkan', '2025-07-17 16:23:59', 1);
+INSERT INTO `log` VALUES (658, 'Tanggapan Kabel Telkom ada yg putus.\r\nSudah saya laporkan.\r\nMohon di tunggu berhasil ditambahkan', '2025-07-17 16:24:21', 1);
+INSERT INTO `log` VALUES (659, 'Tanggapan Valid berhasil ditambahkan', '2025-07-17 16:24:30', 1);
+INSERT INTO `log` VALUES (660, 'Tanggapan Proses berhasil ditambahkan', '2025-07-17 16:24:42', 1);
+INSERT INTO `log` VALUES (661, 'Tanggapan Pelaporan ke pihak telkom sudah dilakukan, dan menunggu sampai terhubung kembali, selesai berhasil ditambahkan', '2025-07-17 16:25:40', 1);
+INSERT INTO `log` VALUES (662, 'Pengaduan INTERNET komputer kacab waroeng  Teuku Umar tidak ada koneksi berhasil ditambahkan', '2025-07-17 16:28:43', 1);
+INSERT INTO `log` VALUES (663, 'Tanggapan 1. Kacab melihat tutorial di Youtube dan langsung mempraktekannya\r\n2. Selesai berhasil ditambahkan', '2025-07-17 16:30:34', 1);
+INSERT INTO `log` VALUES (664, 'Tanggapan 1. Kacab melihat tutorial di Youtube dan langsung mempraktekannya berhasil diubah', '2025-07-17 16:30:45', 1);
+INSERT INTO `log` VALUES (665, 'Tanggapan Valid berhasil ditambahkan', '2025-07-17 16:30:55', 1);
+INSERT INTO `log` VALUES (666, 'Tanggapan Proses berhasil ditambahkan', '2025-07-17 16:31:07', 1);
+INSERT INTO `log` VALUES (667, 'Tanggapan 1. Kacab melihat tutorial di Youtube dan langsung mempraktekannya\r\n2. Selesai berhasil ditambahkan', '2025-07-17 16:31:33', 1);
+INSERT INTO `log` VALUES (668, 'Pengaduan CR55 Connection Unstable berhasil ditambahkan', '2025-07-17 16:33:58', 1);
+INSERT INTO `log` VALUES (669, 'Tanggapan 1. mikrotik dan wifi direstart\r\n2. ojol di restart,\r\n3. kemudian CR55nya baru di restart kembali berhasil ditambahkan', '2025-07-17 16:34:40', 1);
+INSERT INTO `log` VALUES (670, 'Tanggapan Valid berhasil ditambahkan', '2025-07-17 16:34:49', 1);
+INSERT INTO `log` VALUES (671, 'Tanggapan Proses berhasil ditambahkan', '2025-07-17 16:34:56', 1);
+INSERT INTO `log` VALUES (672, 'Tanggapan 1. mikrotik dan wifi direstart\r\n2. ojol di restart,\r\n3. kemudian CR55nya baru di restart kembali\r\n4. Selesai berhasil ditambahkan', '2025-07-17 16:35:10', 1);
+INSERT INTO `log` VALUES (673, 'Pengaduan PC Keuangan HDD tidak terdeteksi, di disk management muncul tapi unallocated berhasil ditambahkan', '2025-07-17 16:37:35', 1);
+INSERT INTO `log` VALUES (674, 'Tanggapan 1. Matikan computer dan copot semua kabel yg terhubung\r\n2. Pindahkan Kabel SATA ke port sata yg lain\r\n3. Pindahkan HDD ke CPU yg lain berhasil ditambahkan', '2025-07-17 16:38:44', 1);
+INSERT INTO `log` VALUES (675, 'Tanggapan Valid berhasil ditambahkan', '2025-07-17 16:38:53', 1);
+INSERT INTO `log` VALUES (676, 'Tanggapan Proses berhasil ditambahkan', '2025-07-17 16:39:03', 1);
+INSERT INTO `log` VALUES (677, 'Tanggapan 1. Matikan computer dan copot semua kabel yg terhubung\r\n2. Pindahkan Kabel SATA ke port sata yg lain\r\n3. Pindahkan HDD ke CPU yg lain\r\n4. Selesai berhasil ditambahkan', '2025-07-17 16:39:19', 1);
+INSERT INTO `log` VALUES (678, 'Pengaduan Terjadi stuck di menu cumi dan air mineral (penjualan Apgg). \r\nUntuk cumi sudah kami terima gudang 67(kartu stock produksi sesuai). Akhirnya kami lakukan cancel ulang (masih sama terjadi stuck). Dan untuk air mineral sudah kami lakukan pecah barang 6btol(tapi masih blm terbaca, stock masih 5) berhasil ditambahkan', '2025-07-17 16:41:18', 8);
+INSERT INTO `log` VALUES (679, 'Tanggapan p berhasil ditambahkan', '2025-07-17 16:42:19', 8);
+INSERT INTO `log` VALUES (680, 'Tanggapan v berhasil ditambahkan', '2025-07-17 16:42:25', 8);
+INSERT INTO `log` VALUES (681, 'Pengaduan 1. Komputer keuangan tidak bisa nyambung dengan komputer kacab\r\n2. Komputer keuangan tidak bisa buka all file excel laporan keuangan dan excel yg lain nya\r\n3. Komputer 1 dan 2 tidak saling koneksi berhasil ditambahkan', '2025-07-17 16:43:44', 1);
+INSERT INTO `log` VALUES (682, 'Tanggapan di pandu tim software berhasil ditambahkan', '2025-07-17 16:43:49', 8);
+INSERT INTO `log` VALUES (683, 'Tanggapan Langsung adjustment saja pak tidak ada masalah. Yg penting komp CR55 masih hidup bisa digunakan berhasil ditambahkan', '2025-07-17 16:44:09', 8);
+INSERT INTO `log` VALUES (684, 'Tanggapan 1. Klik diagnose\r\n2. Install Ini di computer KC dan Keu\r\n3. Mengirimkan ID keuangan berhasil ditambahkan', '2025-07-17 16:46:07', 1);
+INSERT INTO `log` VALUES (685, 'Tanggapan Valid berhasil ditambahkan', '2025-07-17 16:46:18', 1);
+INSERT INTO `log` VALUES (686, 'Tanggapan Proses berhasil ditambahkan', '2025-07-17 16:46:31', 1);
+INSERT INTO `log` VALUES (687, 'Tanggapan 1. Klik diagnose\r\n2. Install Ini di computer KC dan Keu\r\n3. Mengirimkan ID keuangan\r\n4. Selesai berhasil ditambahkan', '2025-07-17 16:46:46', 1);
+INSERT INTO `log` VALUES (688, 'Pengaduan Ada kesalahan input CHT di produksi pagi hari.menu Daging sapi yang seharus nya input Cht porsi.di input Cht bersih.dan ini mengakibatkan selisih SO di menu Daging sapi malam ini.di laporan sisa layak produksi tidak masuk in cht pagi nya berhasil ditambahkan', '2025-07-17 16:47:09', 8);
+INSERT INTO `log` VALUES (689, 'Tanggapan p berhasil ditambahkan', '2025-07-17 16:49:33', 8);
+INSERT INTO `log` VALUES (690, 'Tanggapan v berhasil ditambahkan', '2025-07-17 16:49:43', 8);
+INSERT INTO `log` VALUES (691, 'Tanggapan di jelaskan oleh sdm area berhasil ditambahkan', '2025-07-17 16:50:10', 8);
+INSERT INTO `log` VALUES (692, 'Tanggapan Seperti ini jika ast keu ngecek stuck sales tiap jam 15.00 tidak akan terjadi kesalahan ketahuan di akhir\r\nKemarin baru saja RIM dijelaskan\r\nCek belanja harian sampai ke porsi juga\r\nCaranya di SO apa adanya sisanya saja\r\nLakukan adjusment jika ada stuck sales berhasil ditambahkan', '2025-07-17 16:50:43', 8);
+INSERT INTO `log` VALUES (693, 'Pengaduan Pemindahan Scanner dari PC General ke PC OPS Keu. Namun belum tau cara menghubungkan, upaya sudah mencoba instal folder aplikasi scanner yang di PC General berhasil ditambahkan', '2025-07-17 16:52:27', 1);
+INSERT INTO `log` VALUES (694, 'Tanggapan Dibaca error e.\r\n1. Scanner apakah hidup?\r\n2. USB apakah terhubung?\r\n\r\nTindakan :\r\n1. Pindah USB Scannernya\r\n2. Ganti kabel yg lain berhasil ditambahkan', '2025-07-17 16:53:04', 1);
+INSERT INTO `log` VALUES (695, 'Tanggapan Valid berhasil ditambahkan', '2025-07-17 16:53:21', 1);
+INSERT INTO `log` VALUES (696, 'Tanggapan Proses berhasil ditambahkan', '2025-07-17 16:53:30', 1);
+INSERT INTO `log` VALUES (697, 'Pengaduan Bertanya,Stuck sales menu jus gobal gabul yang menggunakan BB JJKM apakah harus pecah gabung BB JJKM njeh.karna ini kami ada stuck sales berhasil ditambahkan', '2025-07-17 16:54:07', 8);
+INSERT INTO `log` VALUES (698, 'Tanggapan Konfirmasi apakah:\r\n1. Scanner apakah hidup?\r\n2. USB apakah terhubung?\r\n\r\nTindakan :\r\n1. Pindah USB Scannernya\r\n2. Ganti kabel yg lain\r\n3. restart CPU\r\n4. Selesai berhasil ditambahkan', '2025-07-17 16:54:56', 1);
+INSERT INTO `log` VALUES (699, 'Tanggapan p berhasil ditambahkan', '2025-07-17 16:55:04', 8);
+INSERT INTO `log` VALUES (700, 'Tanggapan v berhasil ditambahkan', '2025-07-17 16:55:09', 8);
+INSERT INTO `log` VALUES (701, 'Tanggapan proses remote oleh tim sipedas berhasil ditambahkan', '2025-07-17 16:55:24', 8);
+INSERT INTO `log` VALUES (702, 'Tanggapan stockan gudang produksi habis mbk, sedangkan gobal-gabul pakai jjkm brrti seharusnya ada tambahan ini mbk.. berhasil ditambahkan', '2025-07-17 16:55:32', 8);
+INSERT INTO `log` VALUES (703, 'Tanggapan 1. Klik diagnose\r\n2. Install Ini di computer KC dan Keu\r\n3. Mengirimkan ID keuangan\r\n4. Open Security -&gt;administrator -&gt; Isi yg kosong\r\n4. Selesai berhasil diubah', '2025-07-17 16:56:02', 1);
+INSERT INTO `log` VALUES (704, 'Pengaduan PC Kacab tidak bisa menyala lagi dan sering terjadi mati sendiri berhasil ditambahkan', '2025-07-18 16:45:06', 1);
+INSERT INTO `log` VALUES (705, 'Tanggapan Direkomendasikan untuk melakukan pengecekan langsung di tempat service berhasil ditambahkan', '2025-07-19 08:27:05', 1);
+INSERT INTO `log` VALUES (706, 'Tanggapan Valid berhasil ditambahkan', '2025-07-19 08:27:14', 1);
+INSERT INTO `log` VALUES (707, 'Tanggapan Proses berhasil ditambahkan', '2025-07-19 08:27:58', 1);
+INSERT INTO `log` VALUES (708, 'Tanggapan Sebelum dilakukan pengecekan langsung di tempat service, alangkah baiknya memperhatikan hal berikut ini:\r\n1. Pastikan biaya cek\r\n2. Pastikan Kendalanya disebabkan apa\r\n3. Pastikan minta RAB sebelum dikerjakan\r\n4. Selesai berhasil ditambahkan', '2025-07-19 08:28:54', 1);
+INSERT INTO `log` VALUES (709, 'Pengaduan 1. PC Keuangan tidak nyambung pada internet.kami coba ganti lan internet dr PC Kacab jg tidak bisa.\r\n2. Ikon penyambung internet kami buka tidak bisa buka\r\n3. Sambungan lan di PC Keuangan berkedip dgn jeda durasi lama berhasil ditambahkan', '2025-07-19 08:33:27', 1);
+INSERT INTO `log` VALUES (710, 'Pengaduan Internet tidak nyambung. Berikut lampiran kondisinya. Sudah terjadi dari kemarin siang berhasil ditambahkan', '2025-07-19 08:36:11', 1);
+INSERT INTO `log` VALUES (711, 'Tanggapan Pengecekan jaringan internet pada komputer kacab apaka terhubung atau tidak berhasil ditambahkan', '2025-07-19 08:40:14', 1);
+INSERT INTO `log` VALUES (712, 'Tanggapan Valid berhasil ditambahkan', '2025-07-19 08:40:28', 1);
+INSERT INTO `log` VALUES (713, 'Tanggapan Selesai berhasil ditambahkan', '2025-07-19 08:40:42', 1);
+INSERT INTO `log` VALUES (714, 'Tanggapan Arahan untuk melakukaj restart komputer keuangan, selesai berhasil ditambahkan', '2025-07-19 08:41:39', 1);
+INSERT INTO `log` VALUES (715, 'Tanggapan Pengecekan pada Modem Indibiznya apakah lampu indikator kedip2 merah atau tidak berhasil ditambahkan', '2025-07-19 08:42:47', 1);
+INSERT INTO `log` VALUES (716, 'Tanggapan Valid berhasil ditambahkan', '2025-07-19 08:42:55', 1);
+INSERT INTO `log` VALUES (717, 'Tanggapan Proses berhasil ditambahkan', '2025-07-19 08:43:05', 1);
+INSERT INTO `log` VALUES (718, 'Tanggapan Arahan untuk melakukan restart pada modem, selesai berhasil ditambahkan', '2025-07-19 08:43:31', 1);
+INSERT INTO `log` VALUES (719, 'Tanggapan Restart komputer keuangan, selesai berhasil diubah', '2025-07-19 08:44:08', 1);
 
 -- ----------------------------
 -- Table structure for masyarakat
@@ -491,7 +785,7 @@ CREATE TABLE `pengaduan`  (
   `id_subkategori` int NOT NULL,
   `id_kategori` int NOT NULL,
   PRIMARY KEY (`id_pengaduan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 82 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 131 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of pengaduan
@@ -537,6 +831,53 @@ INSERT INTO `pengaduan` VALUES (78, NULL, 'Amarmegatara', '+62 877-1487-3742', '
 INSERT INTO `pengaduan` VALUES (79, NULL, 'Fauziah', '+62 859-7473-6559', '2025-06-22', 'Cr tidak bisa nyala tampilan seprti difoto , sudah dari td malam setelah tarikan.', 'WhatsApp_Image_2025-06-22_at_08_53_23.jpeg', 'selesai', 26, 147, 6, 15, 6);
 INSERT INTO `pengaduan` VALUES (80, NULL, 'Nadia', '+62 858-7828-2089', '2025-06-23', 'arus listrik mati kemudian sudah dinyalakan namun cr55 tidak mau hidup sudah mencoba untuk di restart cr55', 'WhatsApp_Image_2025-06-23_at_14_38_35.jpeg', 'selesai', 100, 147, 5, 15, 6);
 INSERT INTO `pengaduan` VALUES (81, NULL, 'Fauziah', '+62 859-7473-6559', '2025-06-26', 'tampilan layar cr55 pada saat dinyalakan seperti difoto', 'WhatsApp_Image_2025-06-26_at_08_34_02.jpeg', 'selesai', 26, 147, 6, 15, 6);
+INSERT INTO `pengaduan` VALUES (82, NULL, 'Fina', '+62 877-8893-7315', '2025-06-26', 'jaringan tersambung tapi tidak ada internet', 'WhatsApp_Image_2025-06-26_at_17_08_13.jpeg', 'selesai', 110, 147, 6, 16, 8);
+INSERT INTO `pengaduan` VALUES (83, NULL, 'Sandi', '+62 877-1133-0600', '2025-06-19', 'internet kantor tiba2 tidak bisa/tidak ada koneksi.. penanganan sudah di coba di lakukan pencopotan kabel Len dan masukan kan lagi.. tapi tetap tidak bisa', 'Screenshot_2025-06-27_163716.png', 'selesai', 39, 152, 6, 16, 8);
+INSERT INTO `pengaduan` VALUES (84, NULL, 'Fancah', '+62 812-3569-9772', '2025-06-19', 'notifikasi device shopee sering tidak keluar padahal aplikasi sering di refresh, jadi driver ojol sudah datang, tapi notifikasi belum ada', 'default.png', 'selesai', 40, 149, 6, 17, 9);
+INSERT INTO `pengaduan` VALUES (85, NULL, 'Rahma', '+62 831-9527-9555', '2025-06-19', 'CTV tidak bisa menyimpan file video', 'WhatsApp_Image_2025-06-19_at_12_12_16.jpeg', 'belum_ditanggapi', 89, 154, NULL, 18, 4);
+INSERT INTO `pengaduan` VALUES (86, NULL, 'Zhafran', '+62 821-3844-8430', '2025-06-19', '1. CCTV di bagian kasiran & parkiran (1) tidak bisa menyimpan file video \r\n2. lampu di CCTV nyala terus (cctv kantor & cctv lorong)', 'WhatsApp_Image_2025-06-19_at_13_32_52.jpeg', 'belum_ditanggapi', 27, 154, NULL, 18, 4);
+INSERT INTO `pengaduan` VALUES (87, NULL, 'Tomi', '+62 881-4115-009', '2025-06-19', 'CCTV JAYENGAN DAN PARKIR KONSUMEN MATI', 'WhatsApp_Image_2025-06-19_at_14_08_12.jpeg', 'pengerjaan', 34, 154, NULL, 18, 4);
+INSERT INTO `pengaduan` VALUES (88, NULL, 'Iyan', '+62 878-5716-6290', '2025-06-19', 'kendala login  cctv dibatasi sehingga waroeng tidak bisa login ngak bisa ngecek', 'WhatsApp_Image_2025-06-19_at_14_21_03.jpeg', 'pengerjaan', 28, 151, NULL, 18, 4);
+INSERT INTO `pengaduan` VALUES (89, NULL, 'Tiyas', '+62 858-4796-6082', '2025-06-27', 'Tarikan si pedas pilih transaksi tidak muncul', 'WhatsApp_Image_2025-06-27_at_17_23_17.jpeg', 'pengerjaan', 113, 147, NULL, 11, 5);
+INSERT INTO `pengaduan` VALUES (90, NULL, 'Tiyas', '+62 858-4796-6082', '2025-06-27', 'ketika mau melakukan pembayaran tetapi tidak berhasil', 'Screenshot_2025-06-28_084553.png', 'selesai', 113, 147, 10, 9, 6);
+INSERT INTO `pengaduan` VALUES (91, NULL, 'Adede', '+62 838-7675-5646', '2025-06-27', 'Semua Internet Atas Bawah Tidak Bisa Koneksi Wifi,Sehingga Device Ojol dan Komputer Kantor Tidak bisa Buka Internet (Odoo)', 'WhatsApp_Image_2025-06-27_at_19_41_49.jpeg', 'pengerjaan', 114, 154, 12, 16, 8);
+INSERT INTO `pengaduan` VALUES (92, NULL, 'Arif Yulianto', '+62 831-0793-1972', '2025-06-27', '1. Wifi yang ke-2 bagian depan tidak bisa terkoneksi ke HP ojol', 'Screenshot_2025-06-28_090430.png', 'tidak_valid', 19, 152, NULL, 16, 8);
+INSERT INTO `pengaduan` VALUES (93, NULL, 'Surya Fajar Rizqi', '+62 856-9586-6037', '2025-06-27', 'Wifi nya mati.', 'WhatsApp_Image_2025-06-27_at_18_58_13.jpeg', 'selesai', 114, 151, 12, 16, 8);
+INSERT INTO `pengaduan` VALUES (94, NULL, 'Prabowo Dicky', '+62 858-7715-2194', '2025-06-27', 'CCTV tidak bisa di akses ( dari 14 titik, hanya 7 titik yang bisa di akses)', 'WhatsApp_Image_2025-06-27_at_19_17_29.jpeg', 'belum_ditanggapi', 94, 154, NULL, 18, 4);
+INSERT INTO `pengaduan` VALUES (95, NULL, '-', '+62 852-8730-0747', '2025-06-28', '2. Ruter Wifi nya mati.', 'WhatsApp_Image_2025-06-28_at_14_27_44.jpeg', 'selesai', 113, 154, 12, 16, 8);
+INSERT INTO `pengaduan` VALUES (96, NULL, 'Reni Yuandasari', '+62 816-1526-8235', '2025-06-27', 'selamat sore bapak/ibu\r\nmohon maaf ijin menyampaikan kendala jakal km 12, saldo awal dari buku kas sipedas dan buku kas file keuangan berbeda nggih, ada selisih Rp. 28.000', 'WhatsApp_Image_2025-06-27_at_16_52_07.jpeg', 'pengerjaan', 86, 147, 7, 11, 5);
+INSERT INTO `pengaduan` VALUES (98, NULL, 'Adede', '+62 838-7675-5646', '2025-06-27', 'Semua Internet Atas Bawah Tidak Bisa Koneksi Wifi,Sehingga Device Ojol dan Komputer Kantor Tidak bisa Buka Internet (Odoo)', 'WhatsApp_Image_2025-06-27_at_19_41_49_(1).jpeg', 'selesai', 114, 154, 11, 16, 8);
+INSERT INTO `pengaduan` VALUES (99, NULL, 'Fajar', '+62 882-2660-9350', '2025-06-29', 'wifi nyala tapi tdk ada koneksi internet', 'WhatsApp_Image_2025-06-29_at_09_45_41.jpeg', 'selesai', 89, 154, 12, 16, 8);
+INSERT INTO `pengaduan` VALUES (100, NULL, '-', '+62 895-2232-0841', '2025-06-28', 'tidak bisa finger istrahat ataupun pulang', 'default.png', 'belum_ditanggapi', 42, 152, NULL, 19, 5);
+INSERT INTO `pengaduan` VALUES (101, NULL, 'Novan sdm', '+62 823-7466-1631', '2025-06-30', 'CCTV offline dan tidak bisa login', 'WhatsApp_Image_2025-06-30_at_09_48_34.jpeg', 'selesai', 97, 152, 6, 18, 4);
+INSERT INTO `pengaduan` VALUES (102, NULL, '-', '+62 838-4170-8744', '2025-07-03', '1. Printer kasir tidak konek, sudah dicoba ganti kabel dan pinjam printer ojol tetap tidak bisa konek.', 'WhatsApp_Image_2025-07-03_at_08_39_48.jpeg', 'belum_ditanggapi', 41, 152, NULL, 14, 6);
+INSERT INTO `pengaduan` VALUES (103, NULL, '-', '+62 838-7766-8360', '2025-07-04', 'CCTV kantor lampu sensor terus menyala', 'WhatsApp_Image_2025-07-04_at_20_22_43.jpeg', 'belum_ditanggapi', 117, 154, NULL, 18, 4);
+INSERT INTO `pengaduan` VALUES (104, NULL, '-', '+62 857-1302-3664', '2025-07-05', 'Diskripsi jelas kendala  :\r\n1.CCTV tidak bisa menyimpan rekaman video\r\n2.CcTV no 7 kabel putus', 'default.png', 'selesai', 22, 154, 6, 18, 4);
+INSERT INTO `pengaduan` VALUES (105, NULL, '-', '+62 878-2533-4067', '2025-07-05', 'Download file masuknya ke Microsoft office jadinya tidak bisa nyimpan ke file', 'WhatsApp_Image_2025-07-05_at_17_24_33.jpeg', 'selesai', 91, 154, 6, 20, 5);
+INSERT INTO `pengaduan` VALUES (106, NULL, '-', '+62 857-2910-2010', '2025-07-05', '1.CCTV Produksi mantim tidak menyala / Offline', 'WhatsApp_Image_2025-07-05_at_21_57_23.jpeg', 'selesai', 25, 152, 6, 18, 4);
+INSERT INTO `pengaduan` VALUES (107, NULL, '-', '+62 821-1597-4772', '2025-07-06', 'Wifi lantai 1 tidak connect internet nya keterangan \"terhubung/tidak aman\" untuk lantai 2 /kantor aman seperti biasa nya', 'WhatsApp_Image_2025-07-06_at_20_19_22.jpeg', 'selesai', 15, 152, 12, 16, 8);
+INSERT INTO `pengaduan` VALUES (108, NULL, '-', '+62 858-5006-0454', '2025-07-07', 'Tidak bisa presensi pulang (Gagal terhubung ke server)', 'WhatsApp_Image_2025-07-07_at_23_04_07.jpeg', 'selesai', 44, 152, 6, 19, 5);
+INSERT INTO `pengaduan` VALUES (109, NULL, '-', '+62 838-6912-9193', '2025-07-07', 'Tidak bisa presensi pulang (Gagal terhubung ke server)', 'WhatsApp_Image_2025-07-07_at_23_14_05.jpeg', 'selesai', 118, 152, 6, 19, 5);
+INSERT INTO `pengaduan` VALUES (110, NULL, '-', '+62 895-3515-36834', '2025-07-09', 'Cctv tidak bisa diakses', 'WhatsApp_Image_2025-07-09_at_11_21_24.jpeg', 'selesai', 19, 152, 6, 18, 4);
+INSERT INTO `pengaduan` VALUES (112, NULL, '-', '+62 878-3879-5184', '2025-07-09', 'PC Kacab tidak bisa menyala paska lampu mati', 'Screenshot_2025-07-14_105239.png', 'selesai', 47, 154, 6, 5, 4);
+INSERT INTO `pengaduan` VALUES (113, NULL, '-', '+62 857-2910-2010', '2025-07-09', 'CCTV Offline', 'WhatsApp_Image_2025-07-09_at_14_20_18.jpeg', 'selesai', 23, 153, NULL, 18, 4);
+INSERT INTO `pengaduan` VALUES (114, NULL, 'Fajar', '+62 812-3569-9772', '2025-07-09', '1. Salah satu cctv tidak bisa \r\n2. Sudah ganti cctv lain tetap \r\n3. Sudah ganti sambungan tetap tidak bisa', 'WhatsApp_Image_2025-07-09_at_23_52_24.jpeg', 'selesai', 40, 152, 6, 18, 4);
+INSERT INTO `pengaduan` VALUES (115, NULL, 'Jefri', '+62 855-4625-5383', '2025-07-10', '1. Aplikasi gojek tidak bisa print \r\n2. Aplikasi Shopee dan grab lancar', 'Screenshot_2025-07-14_112259.png', 'selesai', 39, 154, 6, 17, 9);
+INSERT INTO `pengaduan` VALUES (116, NULL, 'Bella Oktaviana', '+62 852-3264-5787', '2025-07-13', 'tidak bisa langsung print laporan serah terima belanja, harus eksport excel dulu', 'WhatsApp_Image_2025-07-13_at_09_15_35.jpeg', 'belum_ditanggapi', 45, 147, NULL, 11, 5);
+INSERT INTO `pengaduan` VALUES (117, NULL, 'Bella Oktaviana', '+62 852-3264-5787', '2025-07-13', 'akun pjs a.n Devi warungnya masih wss malang sengkaling, dan masih kosongan', 'WhatsApp_Image_2025-07-13_at_09_24_50.jpeg', 'selesai', 45, 147, 7, 11, 5);
+INSERT INTO `pengaduan` VALUES (118, NULL, 'Eva Saydah', '+62 857-4650-0215', '2025-07-13', 'Penjualan Shift 2 tgl 12/07/2025 Ada refund menu dengan nominal Rp 49.500 namun belum masuk di sistem kas sehingga  Saldo akhir & uang rill beda', 'WhatsApp_Image_2025-07-13_at_13_48_02.jpeg', 'belum_ditanggapi', 38, 147, 7, 11, 5);
+INSERT INTO `pengaduan` VALUES (119, NULL, 'Edi Mulyadi', '+62 838-7766-8360', '2025-07-15', 'INTERNET waroeng tidak konek', 'default.png', 'selesai', 117, 154, 12, 16, 8);
+INSERT INTO `pengaduan` VALUES (120, NULL, 'Rizki', '+62 852-3454-9192', '2025-07-16', 'INTERNET komputer kacab waroeng  Teuku Umar tidak ada koneksi', 'Screenshot_2025-07-17_162817.png', 'selesai', 51, 154, 6, 16, 8);
+INSERT INTO `pengaduan` VALUES (121, NULL, 'Ujang Ngaju', '+62 856-0405-0660', '2025-07-16', 'CR55 Connection Unstable', 'WhatsApp_Image_2025-07-16_at_17_03_29.jpeg', 'selesai', 45, 154, 6, 8, 6);
+INSERT INTO `pengaduan` VALUES (122, NULL, 'Yahya Wahyu Widodo', '+62 858-5006-0454', '2025-07-16', 'PC Keuangan HDD tidak terdeteksi, di disk management muncul tapi unallocated', 'WhatsApp_Image_2025-07-16_at_21_09_06.jpeg', 'selesai', 44, 152, 6, 5, 4);
+INSERT INTO `pengaduan` VALUES (123, NULL, 'Ari septianto', '+62 857-3155-5933', '2025-07-13', 'Terjadi stuck di menu cumi dan air mineral (penjualan Apgg). \r\nUntuk cumi sudah kami terima gudang 67(kartu stock produksi sesuai). Akhirnya kami lakukan cancel ulang (masih sama terjadi stuck). Dan untuk air mineral sudah kami lakukan pecah barang 6btol(tapi masih blm terbaca, stock masih 5)', 'WhatsApp_Image_2025-07-13_at_16_06_53.jpeg', 'selesai', 41, 147, 4, 11, 5);
+INSERT INTO `pengaduan` VALUES (124, NULL, 'Yudha', '+62 897-8253-304', '2025-07-17', '1. Komputer keuangan tidak bisa nyambung dengan komputer kacab\r\n2. Komputer keuangan tidak bisa buka all file excel laporan keuangan dan excel yg lain nya\r\n3. Komputer 1 dan 2 tidak saling koneksi', 'WhatsApp_Image_2025-07-17_at_09_08_45.jpeg', 'selesai', 42, 154, 6, 5, 4);
+INSERT INTO `pengaduan` VALUES (125, NULL, 'Nurhuda', '+62 897-8253-304', '2025-07-13', 'Ada kesalahan input CHT di produksi pagi hari.menu Daging sapi yang seharus nya input Cht porsi.di input Cht bersih.dan ini mengakibatkan selisih SO di menu Daging sapi malam ini.di laporan sisa layak produksi tidak masuk in cht pagi nya', 'WhatsApp_Image_2025-07-13_at_23_15_35.jpeg', 'selesai', 42, 147, NULL, 11, 5);
+INSERT INTO `pengaduan` VALUES (126, NULL, 'Jafiandim', '+62 859-3115-6331', '2025-07-17', 'Pemindahan Scanner dari PC General ke PC OPS Keu. Namun belum tau cara menghubungkan, upaya sudah mencoba instal folder aplikasi scanner yang di PC General', 'Screenshot_2025-07-17_165158.png', 'selesai', 47, 153, 6, 5, 4);
+INSERT INTO `pengaduan` VALUES (127, NULL, 'Nurhuda', '+62 897-8253-304', '2025-07-14', 'Bertanya,Stuck sales menu jus gobal gabul yang menggunakan BB JJKM apakah harus pecah gabung BB JJKM njeh.karna ini kami ada stuck sales', 'WhatsApp_Image_2025-07-14_at_16_58_55.jpeg', 'selesai', 42, 147, NULL, 11, 5);
+INSERT INTO `pengaduan` VALUES (128, NULL, 'Gagah Putra', '+62 878-3879-5184', '2025-07-18', 'PC Kacab tidak bisa menyala lagi dan sering terjadi mati sendiri', 'Screenshot_2025-07-18_164423.png', 'selesai', 46, 154, 6, 5, 4);
+INSERT INTO `pengaduan` VALUES (129, NULL, 'Yudha', '+62 897-8253-304', '2025-07-18', '1. PC Keuangan tidak nyambung pada internet.kami coba ganti lan internet dr PC Kacab jg tidak bisa.\r\n2. Ikon penyambung internet kami buka tidak bisa buka\r\n3. Sambungan lan di PC Keuangan berkedip dgn jeda durasi lama', 'Screenshot_2025-07-19_083126.png', 'selesai', 42, 154, 6, 16, 8);
+INSERT INTO `pengaduan` VALUES (130, NULL, 'Mitro', '+62 857-3004-0870', '2025-07-18', 'Internet tidak nyambung. Berikut lampiran kondisinya. Sudah terjadi dari kemarin siang', 'WhatsApp_Image_2025-07-18_at_9_25_50_AM.jpeg', 'selesai', 91, 154, 6, 16, 8);
 
 -- ----------------------------
 -- Table structure for pengguna
@@ -567,7 +908,7 @@ CREATE TABLE `petugas`  (
   `id_petugas` int NOT NULL AUTO_INCREMENT,
   `petugas` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_petugas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of petugas
@@ -581,6 +922,7 @@ INSERT INTO `petugas` VALUES (8, 'Ma\'ruf Budi Setiawan');
 INSERT INTO `petugas` VALUES (9, 'Dhona');
 INSERT INTO `petugas` VALUES (10, 'Ihsannudin');
 INSERT INTO `petugas` VALUES (11, 'M. Naufal Ahnaf');
+INSERT INTO `petugas` VALUES (12, 'Jamhuri');
 
 -- ----------------------------
 -- Table structure for saran
@@ -625,7 +967,7 @@ CREATE TABLE `subkategori`  (
   `subkategori` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `id_kategori` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_subkategori`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of subkategori
@@ -641,6 +983,10 @@ INSERT INTO `subkategori` VALUES (13, 'Menu', 7);
 INSERT INTO `subkategori` VALUES (14, 'Printer', 6);
 INSERT INTO `subkategori` VALUES (15, 'Hardware', 6);
 INSERT INTO `subkategori` VALUES (16, 'Internet', 8);
+INSERT INTO `subkategori` VALUES (17, 'Device', 9);
+INSERT INTO `subkategori` VALUES (18, 'Cctv', 4);
+INSERT INTO `subkategori` VALUES (19, 'Absensi Sipedass', 5);
+INSERT INTO `subkategori` VALUES (20, 'Aplikasi', 5);
 
 -- ----------------------------
 -- Table structure for tanggapan
@@ -657,7 +1003,7 @@ CREATE TABLE `tanggapan`  (
   PRIMARY KEY (`id_tanggapan`) USING BTREE,
   INDEX `id_user`(`id_user`) USING BTREE,
   INDEX `id_pengaduan`(`id_pengaduan`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 225 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = MyISAM AUTO_INCREMENT = 397 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tanggapan
@@ -856,6 +1202,155 @@ INSERT INTO `tanggapan` VALUES (221, 'proses', '2025-06-26 16:52:06', 'proses', 
 INSERT INTO `tanggapan` VALUES (222, 'v', '2025-06-26 16:52:13', 'valid', 'default.png', 81, 1);
 INSERT INTO `tanggapan` VALUES (223, 'proses remote oleh pak alfan', '2025-06-26 16:52:26', 'pengerjaan', 'default.png', 81, 1);
 INSERT INTO `tanggapan` VALUES (224, '1. Membersihkan SSD dengan penghapus\r\n2. Dibantu keuangan dan personal (gk tau namanya siapa) Makasihnya ke mas yg bantu smpean tadi ya', '2025-06-26 16:52:31', 'selesai', 'default.png', 81, 1);
+INSERT INTO `tanggapan` VALUES (225, 'proses', '2025-06-27 16:33:36', 'proses', 'default.png', 82, 1);
+INSERT INTO `tanggapan` VALUES (226, 'v', '2025-06-27 16:33:40', 'valid', 'default.png', 82, 1);
+INSERT INTO `tanggapan` VALUES (227, 'proses remot mas alfan', '2025-06-27 16:33:52', 'pengerjaan', 'default.png', 82, 1);
+INSERT INTO `tanggapan` VALUES (228, '1. Pastikan Konektor LAN tertancap dan menyala kedip2\r\n2. Pastikan sudah melakukan login pada Mikrotik \r\n3. Restart komputer', '2025-06-27 16:34:03', 'selesai', 'default.png', 82, 1);
+INSERT INTO `tanggapan` VALUES (229, 'proses', '2025-06-27 16:47:42', 'proses', 'default.png', 83, 1);
+INSERT INTO `tanggapan` VALUES (230, 'v', '2025-06-27 16:47:46', 'valid', 'default.png', 83, 1);
+INSERT INTO `tanggapan` VALUES (231, 'proses remote pak alfan', '2025-06-27 16:47:59', 'pengerjaan', 'default.png', 83, 1);
+INSERT INTO `tanggapan` VALUES (232, '1. Pengecekan pada jalur jaringan Mikrotik ke Switch \r\n2. Ditemukan Konektor yg lepas\r\n3. Di tancapkan kembali konektornya,', '2025-06-27 16:48:05', 'selesai', 'default.png', 83, 1);
+INSERT INTO `tanggapan` VALUES (233, 'prosaes', '2025-06-27 16:56:44', 'proses', 'default.png', 88, 1);
+INSERT INTO `tanggapan` VALUES (234, 'v', '2025-06-27 16:56:49', 'valid', 'default.png', 88, 1);
+INSERT INTO `tanggapan` VALUES (235, 'Rekomendasi tindakan Karantanyar :\r\n\r\nBahan :\r\n1. Barel RJ45\r\n2. Kabel RJ45 CAT 6 (secukupnya dari yg putus ke Kamera/ NVR)\r\n3. konektor RJ45 \r\n\r\nSilahkan di surveikan di toko komputer terdekat, kemudian diajukan menggunakan Plafon WR\r\n\r\nPengerjaan :\r\n1. Potong pada kabel yang rusak\r\n2. Ganti kabel yg lama dgn yg baru\r\n3. Sambungkan dgn Barel RJ45', '2025-06-27 16:56:55', 'pengerjaan', 'default.png', 88, 1);
+INSERT INTO `tanggapan` VALUES (236, 'proses', '2025-06-27 16:57:31', 'proses', 'default.png', 87, 1);
+INSERT INTO `tanggapan` VALUES (237, 'v', '2025-06-27 16:57:36', 'valid', 'default.png', 87, 1);
+INSERT INTO `tanggapan` VALUES (238, 'Rekomendasi tindakan Klodran :\r\n\r\nBahan :\r\n1. Barel RJ45\r\n2. Kabel RJ45 CAT 6 (jarak paling dekat dari yg putus ke Kamera atau NVR)\r\n3. konektor RJ45 \r\n\r\nSilahkan di surveikan di toko komputer terdekat, kemudian diajukan menggunakan Plafon WR\r\n\r\nPengerjaan :\r\n1. Potong pada kabel yang rusak\r\n2. Ganti kabel yg lama dgn yg baru\r\n3. Sambungkan dgn Barel RJ45', '2025-06-27 16:57:40', 'pengerjaan', 'default.png', 87, 1);
+INSERT INTO `tanggapan` VALUES (239, 'proses', '2025-06-28 09:41:29', 'proses', 'default.png', 91, 1);
+INSERT INTO `tanggapan` VALUES (240, 'v', '2025-06-28 09:41:39', 'valid', 'default.png', 91, 1);
+INSERT INTO `tanggapan` VALUES (241, 'sedang dalam proses pak jamhuri', '2025-06-28 09:42:08', 'pengerjaan', 'default.png', 91, 1);
+INSERT INTO `tanggapan` VALUES (242, 'Proses', '2025-06-28 09:45:21', 'proses', 'default.png', 92, 1);
+INSERT INTO `tanggapan` VALUES (243, 'Asisten produksi tidak bisa bantu,\r\n\r\nkordinator kasir tidak bisa ditelpon \r\n\r\nAsisten OPP tidak bisa ditelpon', '2025-06-28 09:45:59', 'tidak_valid', 'default.png', 92, 1);
+INSERT INTO `tanggapan` VALUES (244, 'proses', '2025-06-28 09:53:53', 'proses', 'default.png', 84, 1);
+INSERT INTO `tanggapan` VALUES (245, 'v', '2025-06-28 09:53:58', 'valid', 'default.png', 84, 1);
+INSERT INTO `tanggapan` VALUES (246, '1. Pastikan device tersambung dengan internet \r\n2. Pastikan settingan notifikasi android di aplikasi shopee menyala\r\n3. Pastikan aplikasi shopee berjalan pada background\r\n4. Lakukan ujicoba notifikasi pada aplikasi shopee secara berkala', '2025-06-28 09:54:09', 'pengerjaan', 'default.png', 84, 1);
+INSERT INTO `tanggapan` VALUES (247, 'Tahap pengecekan :\r\n1. Pastikan device tersambung dengan internet \r\n2. Pastikan settingan notifikasi android di aplikasi shopee menyala\r\n3. Pastikan aplikasi shopee berjalan pada background\r\n4. Lakukan ujicoba notifikasi pada aplikasi shopee secara berkala\r\n\r\nUji coba berjalan 1,2,4\r\nstatus : clear', '2025-06-28 09:55:42', 'selesai', 'default.png', 84, 1);
+INSERT INTO `tanggapan` VALUES (248, 'proses', '2025-06-28 09:57:24', 'proses', 'default.png', 89, 1);
+INSERT INTO `tanggapan` VALUES (249, 'v', '2025-06-28 09:57:28', 'valid', 'default.png', 89, 1);
+INSERT INTO `tanggapan` VALUES (250, 'sedang bantu cek oleh mas @Pak Ihsanuddin SS IT Pusat', '2025-06-28 09:57:48', 'pengerjaan', 'default.png', 89, 1);
+INSERT INTO `tanggapan` VALUES (251, 'proses', '2025-06-28 14:40:10', 'proses', 'default.png', 96, 1);
+INSERT INTO `tanggapan` VALUES (252, 'v', '2025-06-28 14:40:15', 'valid', 'default.png', 96, 1);
+INSERT INTO `tanggapan` VALUES (253, 'sedang di cek oleh pak rendy', '2025-06-28 14:40:32', 'pengerjaan', 'default.png', 96, 1);
+INSERT INTO `tanggapan` VALUES (254, 'proses', '2025-07-08 13:51:04', 'proses', 'default.png', 95, 1);
+INSERT INTO `tanggapan` VALUES (255, 'v', '2025-07-08 13:51:09', 'valid', 'default.png', 95, 1);
+INSERT INTO `tanggapan` VALUES (256, 'dipsandu oleh pak jamhuri', '2025-07-08 13:51:27', 'pengerjaan', 'default.png', 95, 1);
+INSERT INTO `tanggapan` VALUES (257, 'sudah di pandu oleh IT Area', '2025-07-08 13:51:56', 'selesai', 'default.png', 95, 1);
+INSERT INTO `tanggapan` VALUES (258, 'p', '2025-07-09 09:49:46', 'proses', 'default.png', 90, 1);
+INSERT INTO `tanggapan` VALUES (259, 'v', '2025-07-09 09:49:51', 'valid', 'default.png', 90, 1);
+INSERT INTO `tanggapan` VALUES (260, 'sedang di bantu pak ihsan', '2025-07-09 09:50:04', 'pengerjaan', 'default.png', 90, 1);
+INSERT INTO `tanggapan` VALUES (261, 'dibantu tim software', '2025-07-09 09:50:18', 'selesai', 'default.png', 90, 1);
+INSERT INTO `tanggapan` VALUES (262, 'proses', '2025-07-09 10:15:09', 'proses', 'default.png', 98, 1);
+INSERT INTO `tanggapan` VALUES (263, 'v', '2025-07-09 10:15:14', 'valid', 'default.png', 98, 1);
+INSERT INTO `tanggapan` VALUES (264, 'sedang di pandu it area', '2025-07-09 10:15:27', 'pengerjaan', 'default.png', 98, 1);
+INSERT INTO `tanggapan` VALUES (265, '1. Indibiz Los - Teknisi Indihome melakukan perbaikan \r\n2. Teknisi Indibiz memindahkan jaringan PC Keu langsung di modem Indibiz sehingga tidak bisa akses sipedas.wss\r\n3. IT pusat melakukan pemindahan jaringan di bawah jaringan Mikrotik \r\n4. Done', '2025-07-09 10:15:32', 'selesai', 'default.png', 98, 1);
+INSERT INTO `tanggapan` VALUES (266, 'proses', '2025-07-09 10:20:06', 'proses', 'default.png', 99, 1);
+INSERT INTO `tanggapan` VALUES (267, 'v', '2025-07-09 10:20:11', 'valid', 'default.png', 99, 1);
+INSERT INTO `tanggapan` VALUES (268, 'sedang dalam remote oleh pak alfan', '2025-07-09 10:20:29', 'pengerjaan', 'default.png', 99, 1);
+INSERT INTO `tanggapan` VALUES (269, 'dilaporkan ke telkom karena internet loss', '2025-07-09 10:21:00', 'selesai', 'default.png', 99, 1);
+INSERT INTO `tanggapan` VALUES (270, 'proses', '2025-07-09 13:28:25', 'proses', 'default.png', 93, 1);
+INSERT INTO `tanggapan` VALUES (271, 'v', '2025-07-09 13:28:31', 'valid', 'default.png', 93, 1);
+INSERT INTO `tanggapan` VALUES (272, 'sedang dilakukan remote IT area', '2025-07-09 13:29:00', 'pengerjaan', 'default.png', 93, 1);
+INSERT INTO `tanggapan` VALUES (273, 'sudah dibantu IT area', '2025-07-09 13:29:26', 'selesai', 'default.png', 93, 1);
+INSERT INTO `tanggapan` VALUES (274, 'PROSES', '2025-07-14 09:16:51', 'proses', 'default.png', 101, 1);
+INSERT INTO `tanggapan` VALUES (275, 'V', '2025-07-14 09:17:03', 'valid', 'default.png', 101, 1);
+INSERT INTO `tanggapan` VALUES (276, '1. Restart POE\r\n2. Copot kabel power lalu colokan lagi\r\n3. Dibantu pak @Pak Alfan SS IT Malang \r\n3. Done ✅', '2025-07-14 09:17:34', 'pengerjaan', 'default.png', 101, 1);
+INSERT INTO `tanggapan` VALUES (277, '1. Restart POE\r\n2. Copot kabel power lalu colokan lagi\r\n3. Dibantu pak @Pak Alfan SS IT Malang \r\n3. Done ✅', '2025-07-14 09:19:02', 'selesai', 'default.png', 101, 1);
+INSERT INTO `tanggapan` VALUES (278, '1. Untuk HDD yg tidak bisa menyimpan,\r\nCobak lakukan reset pada HDD terlebih dahulu, kira2 apakah bisa melakukan Ndan?\r\n\r\nLalu apabila tidak bisa, fix perlu penggantian HDD baru 2TB (Pengajuan bisa di titipkan SDM Area)\r\n2. Bantu Fotokan Ndan, apabila memungkinkan, bisa menanyakan stok Kabel LAN yg ada di Area. Apabila ada bisa di minta untuk dilakukan penarikan kabel secara mandiri.\r\n\r\n1. Sudah di restat tapi belum bisa menyimpan  akan saya restat lagi\r\n2. Kabel LAN sudah ada pak tinggal pemasangan saja yg tidak bisa menambahkan ke daftar cctv', '2025-07-14 09:36:25', 'proses', 'default.png', 104, 1);
+INSERT INTO `tanggapan` VALUES (279, 'CCTVnya disambungkan di PoE', '2025-07-14 09:37:26', 'valid', 'default.png', 104, 1);
+INSERT INTO `tanggapan` VALUES (280, 'VALID', '2025-07-14 09:38:13', 'pengerjaan', 'default.png', 104, 1);
+INSERT INTO `tanggapan` VALUES (281, '1. Untuk HDD yg tidak bisa menyimpan, Cobak lakukan reset pada HDD terlebih dahulu, kira2 apakah bisa melakukan Ndan? Lalu apabila tidak bisa, fix perlu penggantian HDD baru 2TB (Pengajuan bisa di titipkan SDM Area) 2. Bantu Fotokan Ndan, apabila memungkinkan, bisa menanyakan stok Kabel LAN yg ada di Area. Apabila ada bisa di minta untuk dilakukan penarikan kabel secara mandiri. 1. Sudah di restat tapi belum bisa menyimpan akan saya restat lagi 2. Kabel LAN sudah ada pak tinggal pemasangan saja yg tidak bisa menambahkan ke daftar cctv', '2025-07-14 09:57:42', 'selesai', 'default.png', 104, 1);
+INSERT INTO `tanggapan` VALUES (282, 'WPS tidak terpakai di uninstall', '2025-07-14 09:47:18', 'proses', 'default.png', 105, 1);
+INSERT INTO `tanggapan` VALUES (283, 'Valid', '2025-07-14 09:47:37', 'valid', 'default.png', 105, 1);
+INSERT INTO `tanggapan` VALUES (284, 'Sedang dalam proses', '2025-07-14 09:58:25', 'pengerjaan', 'default.png', 105, 1);
+INSERT INTO `tanggapan` VALUES (285, 'WPS tidak terpakai di uninstall', '2025-07-14 09:58:40', 'selesai', 'default.png', 105, 1);
+INSERT INTO `tanggapan` VALUES (286, 'Cek Konektor LAN dan kabel LAN pada PoE Menuju kamera', '2025-07-14 09:54:12', 'proses', 'default.png', 106, 1);
+INSERT INTO `tanggapan` VALUES (287, 'Valid', '2025-07-14 09:54:57', 'valid', 'default.png', 106, 1);
+INSERT INTO `tanggapan` VALUES (288, 'Sedang dalam pengerjaan', '2025-07-14 09:56:01', 'pengerjaan', 'default.png', 106, 1);
+INSERT INTO `tanggapan` VALUES (289, 'Pengecekan Konektor LAN dan kabel LAN pada PoE Menuju kamera', '2025-07-14 09:59:33', 'selesai', 'default.png', 106, 1);
+INSERT INTO `tanggapan` VALUES (290, 'Proses', '2025-07-14 10:05:35', 'proses', 'default.png', 107, 1);
+INSERT INTO `tanggapan` VALUES (291, 'Valid', '2025-07-14 10:05:51', 'valid', 'default.png', 107, 1);
+INSERT INTO `tanggapan` VALUES (343, 'Di pandu tim it area', '2025-07-14 11:26:02', 'pengerjaan', 'default.png', 107, 1);
+INSERT INTO `tanggapan` VALUES (344, 'Penindaklanjutan oleh Jamhuri', '2025-07-14 11:26:11', 'selesai', 'default.png', 107, 1);
+INSERT INTO `tanggapan` VALUES (294, 'Presensi dilakukan dengan arahan untuk screenshoot dikirim melalui group rekap akan dilakukan secara manual.', '2025-07-14 10:21:39', 'proses', 'default.png', 108, 1);
+INSERT INTO `tanggapan` VALUES (295, 'Valid', '2025-07-14 10:13:14', 'valid', 'default.png', 108, 1);
+INSERT INTO `tanggapan` VALUES (307, 'Arahan untuk screenshoot dikirim melalui group wr', '2025-07-14 10:23:03', 'pengerjaan', 'default.png', 108, 1);
+INSERT INTO `tanggapan` VALUES (308, 'Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. Saat ini sedang proses perbaikan server.', '2025-07-14 10:23:23', 'selesai', 'default.png', 108, 1);
+INSERT INTO `tanggapan` VALUES (298, 'Prsensi dilakukan dengan rekap manual.', '2025-07-14 10:18:37', 'proses', 'default.png', 109, 1);
+INSERT INTO `tanggapan` VALUES (302, 'Valid', '2025-07-14 10:20:24', 'valid', 'default.png', 109, 1);
+INSERT INTO `tanggapan` VALUES (303, 'Presensi dilakukan dengan arahan untuk screenshoot dikirim melalui group rekap akan dilakukan secara manual.', '2025-07-14 10:20:43', 'pengerjaan', 'default.png', 109, 1);
+INSERT INTO `tanggapan` VALUES (304, 'Untuk presensi pulang, silahkan lakukan Screenshot pada aplikasi dan kirim ke group wr untuk di rekap manual. Saat ini sedang proses perbaikan server.', '2025-07-14 10:20:55', 'selesai', 'default.png', 109, 1);
+INSERT INTO `tanggapan` VALUES (321, 'PC tidak mau menyala pasca listrik padam', '2025-07-14 10:54:09', 'proses', 'default.png', 112, 1);
+INSERT INTO `tanggapan` VALUES (322, 'Valid', '2025-07-14 10:54:18', 'valid', 'default.png', 112, 1);
+INSERT INTO `tanggapan` VALUES (323, 'Dilakukan melalui VC via WhatsApp', '2025-07-14 10:54:48', 'pengerjaan', 'default.png', 112, 1);
+INSERT INTO `tanggapan` VALUES (324, 'Penyelesaian dilakukan melalui VC via WhatsApp', '2025-07-14 10:55:16', 'selesai', 'default.png', 112, 1);
+INSERT INTO `tanggapan` VALUES (325, 'Pengecekan indikator yang berkedip di eksekusi oleh Ismail SS IT Semarang', '2025-07-14 11:03:13', 'proses', 'default.png', 113, 1);
+INSERT INTO `tanggapan` VALUES (326, 'Valid', '2025-07-14 11:00:30', 'valid', 'default.png', 113, 1);
+INSERT INTO `tanggapan` VALUES (333, 'Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala', '2025-07-14 11:04:04', 'pengerjaan', 'default.png', 113, 1);
+INSERT INTO `tanggapan` VALUES (316, 'Setting NVR', '2025-07-14 10:44:25', 'proses', 'default.png', 110, 1);
+INSERT INTO `tanggapan` VALUES (317, 'Valid', '2025-07-14 10:44:31', 'valid', 'default.png', 110, 1);
+INSERT INTO `tanggapan` VALUES (318, 'Instal aplikasi SADP Tools di Windows di jaringan yg sama dengan NVR, untuk cek masing2 kamera.', '2025-07-14 10:44:59', 'pengerjaan', 'default.png', 110, 1);
+INSERT INTO `tanggapan` VALUES (319, 'NVR tidak terdeteksi di jaringan, Cobak pastikan Kabel LAN NVR,\r\nTukar dengan kabel Uplink biru, lalu tembak IP di chorme 192.168.1.45', '2025-07-14 10:46:17', 'selesai', 'default.png', 110, 1);
+INSERT INTO `tanggapan` VALUES (334, 'Pengecekan POE indikator kedip2 apa tidak, dan pengecekan sudah berkedip dan sudah dipastikan tidak ada kendala, masalah terselesaikan', '2025-07-14 11:04:13', 'selesai', 'default.png', 113, 1);
+INSERT INTO `tanggapan` VALUES (335, 'Pengecekan kondisi konektornya di kamera dan PoE', '2025-07-14 11:11:01', 'proses', 'default.png', 114, 1);
+INSERT INTO `tanggapan` VALUES (336, 'Valid', '2025-07-14 11:11:07', 'valid', 'default.png', 114, 1);
+INSERT INTO `tanggapan` VALUES (337, 'Pengecekan kabel untuk memastikan ada atau tidaknya korosi pada konektrnya kemudian memberikan arahan untuk mencopot Camera dari tempat asal, kemudian camera dicobak pake kabel pendek ke PoE', '2025-07-14 11:14:14', 'pengerjaan', 'default.png', 114, 1);
+INSERT INTO `tanggapan` VALUES (338, 'Pengecekan Camera dan menopot dari tempat asal, kemudian camera dicobak pake kabel pendek ke PoE dan dilakukan arahan melalui VC via WhatsApp', '2025-07-14 11:15:28', 'selesai', 'default.png', 114, 1);
+INSERT INTO `tanggapan` VALUES (339, '1. Sambungkan printer dulu sebelum mencetak\r\n2. Jalankan Aplikasi di background, jgn di close aplikasinya', '2025-07-14 11:23:55', 'proses', 'default.png', 115, 1);
+INSERT INTO `tanggapan` VALUES (340, 'Valid', '2025-07-14 11:24:02', 'valid', 'default.png', 115, 1);
+INSERT INTO `tanggapan` VALUES (341, 'Silahkan Hapus data aplikasi, lalu kemudian login lagi', '2025-07-14 11:26:57', 'pengerjaan', 'default.png', 115, 1);
+INSERT INTO `tanggapan` VALUES (342, 'Hapus data pada aplikasi, kemudian login kembali dilanjutkan penyelesai melalui VC via WhatsApp', '2025-07-14 11:26:48', 'selesai', 'default.png', 115, 1);
+INSERT INTO `tanggapan` VALUES (345, 'p', '2025-07-17 08:37:59', 'proses', 'default.png', 117, 1);
+INSERT INTO `tanggapan` VALUES (346, 'v', '2025-07-17 08:38:05', 'valid', 'default.png', 117, 1);
+INSERT INTO `tanggapan` VALUES (347, 'di cek oleh mas rendy', '2025-07-17 08:38:21', 'pengerjaan', 'default.png', 117, 1);
+INSERT INTO `tanggapan` VALUES (348, 'dibantu tim software', '2025-07-17 08:38:33', 'selesai', 'default.png', 117, 1);
+INSERT INTO `tanggapan` VALUES (349, 'Kabel Telkom ada yg putus.\r\nSudah saya laporkan.\r\nMohon di tunggu', '2025-07-17 16:24:21', 'proses', 'default.png', 119, 1);
+INSERT INTO `tanggapan` VALUES (350, 'Valid', '2025-07-17 16:24:30', 'valid', 'default.png', 119, 1);
+INSERT INTO `tanggapan` VALUES (351, 'Proses', '2025-07-17 16:24:42', 'pengerjaan', 'default.png', 119, 1);
+INSERT INTO `tanggapan` VALUES (352, 'Pelaporan ke pihak telkom sudah dilakukan, dan menunggu sampai terhubung kembali, selesai', '2025-07-17 16:25:40', 'selesai', 'default.png', 119, 1);
+INSERT INTO `tanggapan` VALUES (353, '1. Kacab melihat tutorial di Youtube dan langsung mempraktekannya', '2025-07-17 16:30:45', 'proses', 'default.png', 120, 1);
+INSERT INTO `tanggapan` VALUES (354, 'Valid', '2025-07-17 16:30:55', 'valid', 'default.png', 120, 1);
+INSERT INTO `tanggapan` VALUES (355, 'Proses', '2025-07-17 16:31:07', 'pengerjaan', 'default.png', 120, 1);
+INSERT INTO `tanggapan` VALUES (356, '1. Kacab melihat tutorial di Youtube dan langsung mempraktekannya\r\n2. Selesai', '2025-07-17 16:31:33', 'selesai', 'default.png', 120, 1);
+INSERT INTO `tanggapan` VALUES (357, '1. mikrotik dan wifi direstart\r\n2. ojol di restart,\r\n3. kemudian CR55nya baru di restart kembali', '2025-07-17 16:34:40', 'proses', 'default.png', 121, 1);
+INSERT INTO `tanggapan` VALUES (358, 'Valid', '2025-07-17 16:34:49', 'valid', 'default.png', 121, 1);
+INSERT INTO `tanggapan` VALUES (359, 'Proses', '2025-07-17 16:34:56', 'pengerjaan', 'default.png', 121, 1);
+INSERT INTO `tanggapan` VALUES (360, '1. mikrotik dan wifi direstart\r\n2. ojol di restart,\r\n3. kemudian CR55nya baru di restart kembali\r\n4. Selesai', '2025-07-17 16:35:10', 'selesai', 'default.png', 121, 1);
+INSERT INTO `tanggapan` VALUES (361, '1. Matikan computer dan copot semua kabel yg terhubung\r\n2. Pindahkan Kabel SATA ke port sata yg lain\r\n3. Pindahkan HDD ke CPU yg lain', '2025-07-17 16:38:44', 'proses', 'default.png', 122, 1);
+INSERT INTO `tanggapan` VALUES (362, 'Valid', '2025-07-17 16:38:53', 'valid', 'default.png', 122, 1);
+INSERT INTO `tanggapan` VALUES (363, 'Proses', '2025-07-17 16:39:03', 'pengerjaan', 'default.png', 122, 1);
+INSERT INTO `tanggapan` VALUES (364, '1. Matikan computer dan copot semua kabel yg terhubung\r\n2. Pindahkan Kabel SATA ke port sata yg lain\r\n3. Pindahkan HDD ke CPU yg lain\r\n4. Selesai', '2025-07-17 16:39:19', 'selesai', 'default.png', 122, 1);
+INSERT INTO `tanggapan` VALUES (365, 'p', '2025-07-17 16:42:19', 'proses', 'default.png', 123, 8);
+INSERT INTO `tanggapan` VALUES (366, 'v', '2025-07-17 16:42:25', 'valid', 'default.png', 123, 8);
+INSERT INTO `tanggapan` VALUES (367, 'di pandu tim software', '2025-07-17 16:43:49', 'pengerjaan', 'default.png', 123, 8);
+INSERT INTO `tanggapan` VALUES (368, 'Langsung adjustment saja pak tidak ada masalah. Yg penting komp CR55 masih hidup bisa digunakan', '2025-07-17 16:44:09', 'selesai', 'default.png', 123, 8);
+INSERT INTO `tanggapan` VALUES (369, '1. Klik diagnose\r\n2. Install Ini di computer KC dan Keu\r\n3. Mengirimkan ID keuangan', '2025-07-17 16:46:07', 'proses', 'default.png', 124, 1);
+INSERT INTO `tanggapan` VALUES (370, 'Valid', '2025-07-17 16:46:18', 'valid', 'default.png', 124, 1);
+INSERT INTO `tanggapan` VALUES (371, 'Proses', '2025-07-17 16:46:31', 'pengerjaan', 'default.png', 124, 1);
+INSERT INTO `tanggapan` VALUES (372, '1. Klik diagnose\r\n2. Install Ini di computer KC dan Keu\r\n3. Mengirimkan ID keuangan\r\n4. Open Security ->administrator -> Isi yg kosong\r\n4. Selesai', '2025-07-17 16:56:02', 'selesai', 'default.png', 124, 1);
+INSERT INTO `tanggapan` VALUES (373, 'p', '2025-07-17 16:49:33', 'proses', 'default.png', 125, 8);
+INSERT INTO `tanggapan` VALUES (374, 'v', '2025-07-17 16:49:43', 'valid', 'default.png', 125, 8);
+INSERT INTO `tanggapan` VALUES (375, 'di jelaskan oleh sdm area', '2025-07-17 16:50:10', 'pengerjaan', 'default.png', 125, 8);
+INSERT INTO `tanggapan` VALUES (376, 'Seperti ini jika ast keu ngecek stuck sales tiap jam 15.00 tidak akan terjadi kesalahan ketahuan di akhir\r\nKemarin baru saja RIM dijelaskan\r\nCek belanja harian sampai ke porsi juga\r\nCaranya di SO apa adanya sisanya saja\r\nLakukan adjusment jika ada stuck sales', '2025-07-17 16:50:43', 'selesai', 'default.png', 125, 8);
+INSERT INTO `tanggapan` VALUES (377, 'Dibaca error e.\r\n1. Scanner apakah hidup?\r\n2. USB apakah terhubung?\r\n\r\nTindakan :\r\n1. Pindah USB Scannernya\r\n2. Ganti kabel yg lain', '2025-07-17 16:53:04', 'proses', 'default.png', 126, 1);
+INSERT INTO `tanggapan` VALUES (378, 'Valid', '2025-07-17 16:53:21', 'valid', 'default.png', 126, 1);
+INSERT INTO `tanggapan` VALUES (379, 'Proses', '2025-07-17 16:53:30', 'pengerjaan', 'default.png', 126, 1);
+INSERT INTO `tanggapan` VALUES (380, 'Konfirmasi apakah:\r\n1. Scanner apakah hidup?\r\n2. USB apakah terhubung?\r\n\r\nTindakan :\r\n1. Pindah USB Scannernya\r\n2. Ganti kabel yg lain\r\n3. restart CPU\r\n4. Selesai', '2025-07-17 16:54:56', 'selesai', 'default.png', 126, 1);
+INSERT INTO `tanggapan` VALUES (381, 'p', '2025-07-17 16:55:04', 'proses', 'default.png', 127, 8);
+INSERT INTO `tanggapan` VALUES (382, 'v', '2025-07-17 16:55:09', 'valid', 'default.png', 127, 8);
+INSERT INTO `tanggapan` VALUES (383, 'proses remote oleh tim sipedas', '2025-07-17 16:55:24', 'pengerjaan', 'default.png', 127, 8);
+INSERT INTO `tanggapan` VALUES (384, 'stockan gudang produksi habis mbk, sedangkan gobal-gabul pakai jjkm brrti seharusnya ada tambahan ini mbk..', '2025-07-17 16:55:32', 'selesai', 'default.png', 127, 8);
+INSERT INTO `tanggapan` VALUES (385, 'Direkomendasikan untuk melakukan pengecekan langsung di tempat service', '2025-07-19 08:27:05', 'proses', 'default.png', 128, 1);
+INSERT INTO `tanggapan` VALUES (386, 'Valid', '2025-07-19 08:27:14', 'valid', 'default.png', 128, 1);
+INSERT INTO `tanggapan` VALUES (387, 'Proses', '2025-07-19 08:27:58', 'pengerjaan', 'default.png', 128, 1);
+INSERT INTO `tanggapan` VALUES (388, 'Sebelum dilakukan pengecekan langsung di tempat service, alangkah baiknya memperhatikan hal berikut ini:\r\n1. Pastikan biaya cek\r\n2. Pastikan Kendalanya disebabkan apa\r\n3. Pastikan minta RAB sebelum dikerjakan\r\n4. Selesai', '2025-07-19 08:28:54', 'selesai', 'default.png', 128, 1);
+INSERT INTO `tanggapan` VALUES (389, 'Pengecekan jaringan internet pada komputer kacab apaka terhubung atau tidak', '2025-07-19 08:40:14', 'proses', 'default.png', 129, 1);
+INSERT INTO `tanggapan` VALUES (390, 'Valid', '2025-07-19 08:40:28', 'valid', 'default.png', 129, 1);
+INSERT INTO `tanggapan` VALUES (391, 'Selesai', '2025-07-19 08:40:42', 'pengerjaan', 'default.png', 129, 1);
+INSERT INTO `tanggapan` VALUES (392, 'Restart komputer keuangan, selesai', '2025-07-19 08:44:08', 'selesai', 'default.png', 129, 1);
+INSERT INTO `tanggapan` VALUES (393, 'Pengecekan pada Modem Indibiznya apakah lampu indikator kedip2 merah atau tidak', '2025-07-19 08:42:47', 'proses', 'default.png', 130, 1);
+INSERT INTO `tanggapan` VALUES (394, 'Valid', '2025-07-19 08:42:55', 'valid', 'default.png', 130, 1);
+INSERT INTO `tanggapan` VALUES (395, 'Proses', '2025-07-19 08:43:05', 'pengerjaan', 'default.png', 130, 1);
+INSERT INTO `tanggapan` VALUES (396, 'Arahan untuk melakukan restart pada modem, selesai', '2025-07-19 08:43:31', 'selesai', 'default.png', 130, 1);
 
 -- ----------------------------
 -- Table structure for user
@@ -869,13 +1364,14 @@ CREATE TABLE `user`  (
   `no_telepon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `jabatan` enum('administrator','operator') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_user`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'Administrator', 'admin', '$2y$10$L201Eud0B8zkRfT9wOctFeK1LSJWFxwDV8He41JDk4ggRLUb9aIC6', '08956434564', 'administrator');
 INSERT INTO `user` VALUES (7, 'M. Naufal Ahnaf', 'naufalahnaf', '$2y$10$dXlRwZ0g.j77HYK.HdaVYuIgJ/TyF2IQgnMc0B4z1QHe2Qq.SJR4m', '62', 'operator');
+INSERT INTO `user` VALUES (8, 'Naufal Ahnaf', 'naufalahnaf22', '$2y$10$qiD3ukadr/m4HVFEQTFpU.OEUc/y.iLyLG2Gr.PLDuarjI4gaSTEa', '089606360400', 'administrator');
 
 -- ----------------------------
 -- Table structure for waroeng
@@ -886,7 +1382,7 @@ CREATE TABLE `waroeng`  (
   `waroeng` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `id_area` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_waroeng`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 119 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of waroeng
@@ -928,7 +1424,7 @@ INSERT INTO `waroeng` VALUES (34, 'WSS Klodran', 11);
 INSERT INTO `waroeng` VALUES (35, 'DSA SOLO', 11);
 INSERT INTO `waroeng` VALUES (36, 'Kantor Area Solo', 11);
 INSERT INTO `waroeng` VALUES (37, 'WSS Malang Ciliwung', 7);
-INSERT INTO `waroeng` VALUES (38, 'WSS Surabaya Rungkut', 7);
+INSERT INTO `waroeng` VALUES (38, 'Wss Surabaya Manyar', 7);
 INSERT INTO `waroeng` VALUES (39, 'WSS Surabaya Arjuna Raya', 7);
 INSERT INTO `waroeng` VALUES (40, 'WSS Malang Sengkaling', 7);
 INSERT INTO `waroeng` VALUES (41, 'WSS Jember', 7);
@@ -1002,5 +1498,9 @@ INSERT INTO `waroeng` VALUES (108, 'Kantor Area Purwokerto', 10);
 INSERT INTO `waroeng` VALUES (110, 'Wss Depok Sawangan', 5);
 INSERT INTO `waroeng` VALUES (111, 'Kantor Kinanthi', 3);
 INSERT INTO `waroeng` VALUES (112, 'Training Center', 3);
+INSERT INTO `waroeng` VALUES (113, 'Wss Gading Serpong', 5);
+INSERT INTO `waroeng` VALUES (114, 'Wss Greenville', 5);
+INSERT INTO `waroeng` VALUES (117, 'Wss Bsd', 5);
+INSERT INTO `waroeng` VALUES (118, 'Wss Ahmad Yani', 5);
 
 SET FOREIGN_KEY_CHECKS = 1;

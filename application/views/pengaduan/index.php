@@ -1,4 +1,44 @@
+<style>
+    .table td, .table th {
+        font-size: 0.8rem;
+        vertical-align: middle;
+    }
+
+    .truncate {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .img-w-75-hm-100 {
+        max-width: 75px;
+        max-height: 100px;
+    }
+
+    /* Sticky untuk kolom Aksi */
+    .sticky-col {
+        position: sticky;
+        right: 0;
+        background: white;
+        z-index: 2;
+    }
+
+    .sticky-col-header {
+        position: sticky;
+        right: 0;
+        background: #343a40;
+        color: white;
+        z-index: 3;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+</style>
+
 <div class="container">
+    <!-- Bagian Judul dan Tombol Tambah -->
     <div class="row justify-content-center py-3">
         <div class="col-lg header-title">
             <?php if ($this->uri->segment(3) == 'proses'): ?>
@@ -17,41 +57,35 @@
                 <h3><i class="fas fa-fw fa-exclamation"></i> Semua Pengaduan</h3>
             <?php endif ?>
             <div class="col-lg header-button">
-                <a href="<?= base_url('pengaduan/addPengaduan'); ?>" class="btn btn-primary"><i
-                        class="fas fa-fw fa-plus"></i> Tambah Pengaduan</a>
+                <a href="<?= base_url('pengaduan/addPengaduan'); ?>" class="btn btn-primary">
+                    <i class="fas fa-fw fa-plus"></i> Tambah Pengaduan
+                </a>
             </div>
         </div>
     </div>
+
+    <!-- Tombol Filter Status -->
     <div class="row justify-content-center">
-        <div class="col text-center m-1">
-            <a href="<?= base_url('pengaduan/index'); ?>" class="btn btn-info"><i
-                    class="fas fa-fw fa-clipboard-list"></i> All</a>
-        </div>
-        <div class="col text-center m-1">
-            <a href="<?= base_url('pengaduan/index/belum_ditanggapi'); ?>" class="btn btn-sm btn-secondary"><i
-                    class="fas fa-fw fa-times"></i> Belum ditanggapi</a>
-        </div>
-        <div class="col text-center m-1">
-            <a href="<?= base_url('pengaduan/index/proses'); ?>" class="btn btn-danger"><i
-                    class="fas fa-fw fa-sync"></i> Proses</a>
-        </div>
-        <div class="col text-center m-1">
-            <a href="<?= base_url('pengaduan/index/valid'); ?>" class="btn btn-success"><i
-                    class="fas fa-fw fa-check"></i> Valid</a>
-        </div>
-        <div class="col text-center m-1">
-            <a href="<?= base_url('pengaduan/index/pengerjaan'); ?>" class="btn btn-warning"><i
-                    class="fas fa-fw fa-hammer"></i> Pengerjaan</a>
-        </div>
-        <div class="col text-center m-1">
-            <a href="<?= base_url('pengaduan/index/selesai'); ?>" class="btn btn-primary"><i
-                    class="fas fa-fw fa-check-double"></i> Selesai</a>
-        </div>
-        <div class="col text-center m-1">
-            <a href="<?= base_url('pengaduan/index/tidak_valid'); ?>" class="btn btn-secondary"><i
-                    class="fas fa-fw fa-times"></i> Tidak Valid</a>
-        </div>
+        <?php
+        $statusList = [
+            'index' => ['All', 'info', 'clipboard-list'],
+            'belum_ditanggapi' => ['Belum ditanggapi', 'secondary', 'times'],
+            'proses' => ['Proses', 'danger', 'sync'],
+            'valid' => ['Valid', 'success', 'check'],
+            'pengerjaan' => ['Pengerjaan', 'warning', 'hammer'],
+            'selesai' => ['Selesai', 'primary', 'check-double'],
+            'tidak_valid' => ['Tidak Valid', 'secondary', 'times'],
+        ];
+        foreach ($statusList as $uri => [$label, $color, $icon]): ?>
+            <div class="col text-center m-1">
+                <a href="<?= base_url('pengaduan/index' . ($uri != 'index' ? '/' . $uri : '')); ?>" class="btn btn-sm btn-<?= $color; ?>">
+                    <i class="fas fa-fw fa-<?= $icon; ?>"></i> <?= $label; ?>
+                </a>
+            </div>
+        <?php endforeach ?>
     </div>
+
+    <!-- Tabel Pengaduan -->
     <div class="row py-3">
         <div class="col-lg">
             <div class="table-responsive">
@@ -63,17 +97,16 @@
                             <th>Pelapor</th>
                             <th>Jabatan</th>
                             <th>No HP</th>
-                            <th>Tanggal Pengaduan</th>
+                            <th>Tanggal</th>
                             <th>Kategori</th>
-                            <th>Subkategori</th>
-                            <th>Isi Laporan</th>
+                            <th class="truncate">Subkategori</th>
+                            <th class="truncate">Isi</th>
                             <th>Foto</th>
                             <th>Petugas</th>
                             <th>Status</th>
-                            <th>Waktu Tanggapan</th>
-                            <!-- <th>Waktu Selesai</th> -->
-                            <th>Tanggapan</th>
-                            <th>Aksi</th>
+                            <th>Tgl Tanggapan</th>
+                            <th class="truncate">Tanggapan</th>
+                            <th class="sticky-col-header">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,7 +116,6 @@
                             $getTanggapan = $this->db->order_by('id_tanggapan', 'desc')
                                 ->get_where('tanggapan', ['id_pengaduan' => $dp['id_pengaduan']])
                                 ->row_array();
-
                             $status = ucwords(str_replace('_', ' ', $dp['status_pengaduan']));
                             ?>
                             <tr>
@@ -100,8 +132,8 @@
                                 </td>
                                 <td><?= $dp['tgl_pengaduan']; ?></td>
                                 <td><?= !empty($dp['kategori']) ? $dp['kategori'] : '-'; ?></td>
-                                <td><?= $dp['subkategori']; ?></td>
-                                <td><?= $dp['isi_laporan']; ?></td>
+                                <td class="truncate" title="<?= $dp['subkategori']; ?>"><?= $dp['subkategori']; ?></td>
+                                <td class="truncate" title="<?= $dp['isi_laporan']; ?>"><?= $dp['isi_laporan']; ?></td>
                                 <td class="text-center">
                                     <?php if (!empty($dp['foto'])): ?>
                                         <a href="<?= base_url('assets/img/img_pengaduan/') . $dp['foto']; ?>" class="enlarge">
@@ -118,7 +150,7 @@
                                         <span class="badge bg-secondary"><i class="fas fa-user-times"></i> Belum ditugaskan</span>
                                     <?php endif; ?>
                                     <a href="<?= site_url('pengaduan/gantiPetugas/' . $dp['id_pengaduan']); ?>" class="btn btn-sm btn-outline-warning ms-2 mt-1" title="Ganti Petugas">
-                                        <i class="fas fa-exchange-alt"></i> Ganti
+                                        <i class="fas fa-exchange-alt"></i>
                                     </a>
                                 </td>
                                 <td>
@@ -137,22 +169,22 @@
                                     </button>
                                 </td>
                                 <td><?= $getTanggapan['tgl_tanggapan'] ?? '-'; ?></td>
-                                <!-- <td><?= $dp['tgl_selesai'] ?? '-'; ?></td> -->
-                                <td><?= $getTanggapan['isi_tanggapan'] ?? '-'; ?></td>
-                                <td class="text-center">
-                                    <a href="<?= base_url('tanggapan/index/' . $dp['id_pengaduan']); ?>" class="btn btn-sm btn-info m-1">
-                                        <i class="fas fa-fw fa-reply"></i>
+                                <td class="truncate" title="<?= $getTanggapan['isi_tanggapan'] ?? '-'; ?>">
+                                    <?= $getTanggapan['isi_tanggapan'] ?? '-'; ?>
+                                </td>
+                                <td class="text-center sticky-col">
+                                    <a href="<?= base_url('tanggapan/index/' . $dp['id_pengaduan']); ?>" class="btn btn-sm btn-info m-1" title="Tanggapi">
+                                        <i class="fas fa-reply"></i>
                                     </a>
                                     <?php if ($dataUser['jabatan'] == 'administrator'): ?>
-                                        <a href="<?= base_url('pengaduan/removePengaduan/' . $dp['id_pengaduan']); ?>" class="btn btn-sm btn-danger m-1 btn-delete" data-nama="<?= $dp['isi_laporan']; ?>">
-                                            <i class="fas fa-fw fa-trash"></i>
+                                        <a href="<?= base_url('pengaduan/removePengaduan/' . $dp['id_pengaduan']); ?>" class="btn btn-sm btn-danger m-1 btn-delete" data-nama="<?= $dp['isi_laporan']; ?>" title="Hapus">
+                                            <i class="fas fa-trash"></i>
                                         </a>
                                     <?php endif ?>
                                 </td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
-
                 </table>
             </div>
         </div>
